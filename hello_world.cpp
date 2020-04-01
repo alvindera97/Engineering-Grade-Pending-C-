@@ -7,7 +7,6 @@
     #include <wx-3.1/wx/wx.h>
 #endif
 
-
 class MyApp : public wxApp {
     public:
         virtual bool OnInit();
@@ -80,6 +79,16 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering GP Calculator", wxP
     Bind(wxEVT_MENU, &MyFrame::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &MyFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_MENU, &MyFrame::OnHelp, this, wxID_HELP);
+
+    /*
+    wxButton *add_course_button = nullptr;
+    wxButton *course_text_box = nullptr;
+    wxButton *course_list_box = nullptr; */
+
+    // add course add buttons and list box
+    wxButton *add_course_button = new wxButton(this, wxID_ANY, "Add Course", wxPoint(330, 10), wxSize(150, 50));
+    wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(250, 70), wxSize(300, 30));
+    wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(250, 110), wxSize(300, 300));
 }
 
 void MyFrame::OnExit(wxCommandEvent& event) {
