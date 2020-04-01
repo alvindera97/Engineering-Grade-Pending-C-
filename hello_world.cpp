@@ -7,9 +7,21 @@
     #include <wx-3.1/wx/wx.h>
 #endif
 
-class MyApp : public wxApp {
+//g++ hello_world.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose
+//g++ hello_world.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose && ./gpCalculator
+
+enum {
+    ID_Hello = 1,
+    ID_Course_list = 2,
+    ID_New_Calculation = 3,
+    ID_Save_Calculation=4,
+    ID_Add_Course_Button=5,
+};
+
+class GpCalculator : public wxApp {
     public:
         virtual bool OnInit();
+
 };
 
 
@@ -21,23 +33,30 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         void OnExit(wxCommandEvent& event);  // exit option
         void OnAbout(wxCommandEvent& event);  // about option
         void OnHelp(wxCommandEvent& event); // event option
+
+        void OnAddCourseButtonClicked(wxCommandEvent &event);
+
+        wxDECLARE_EVENT_TABLE();
+
+    // add course add buttons and list box
+    wxButton *add_course_button = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(330, 10), wxSize(150, 50));
+    wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(250, 70), wxSize(300, 30));
+    wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(250, 110), wxSize(300, 300));
 };
 
+wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
+    EVT_BUTTON(5, MyFrame::OnAddCourseButtonClicked)
+wxEND_EVENT_TABLE()
 
-enum {
-    ID_Hello = 1,
-    ID_Course_list = 2,
-    ID_New_Calculation = 3,
-    ID_Save_Calculation=4,
-};
 
-wxIMPLEMENT_APP(MyApp);   // initiate main()
+wxIMPLEMENT_APP(GpCalculator);   // initiate main()
 
-bool MyApp::OnInit() {  // append the OnInit() function
+bool GpCalculator::OnInit() {  // append the OnInit() function
     MyFrame *frame = new MyFrame();
     frame->Show(true);
     return true;  // this is just to show successfull initialisation
 }
+
 
 MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering GP Calculator", wxPoint(100, 100), wxSize(800, 600)) {  // Frame of the program
     wxMenu *menuFile = new wxMenu;
@@ -80,15 +99,6 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering GP Calculator", wxP
     Bind(wxEVT_MENU, &MyFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_MENU, &MyFrame::OnHelp, this, wxID_HELP);
 
-    /*
-    wxButton *add_course_button = nullptr;
-    wxButton *course_text_box = nullptr;
-    wxButton *course_list_box = nullptr; */
-
-    // add course add buttons and list box
-    wxButton *add_course_button = new wxButton(this, wxID_ANY, "Add Course", wxPoint(330, 10), wxSize(150, 50));
-    wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(250, 70), wxSize(300, 30));
-    wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(250, 110), wxSize(300, 300));
 }
 
 void MyFrame::OnExit(wxCommandEvent& event) {
@@ -106,4 +116,10 @@ void MyFrame::OnHello(wxCommandEvent& event) {
 
 void MyFrame::OnHelp(wxCommandEvent& event) {
     wxMessageBox("For help on how to use this programme, please use the manual");
+}
+
+void MyFrame::OnAddCourseButtonClicked(wxCommandEvent& event)
+{
+    course_list_box->AppendString(course_text_box->GetValue());
+    event.Skip();
 }
