@@ -147,6 +147,12 @@ void MyFrame::OnHelp(wxCommandEvent& event) {
 
 void MyFrame::OnAddCourseButtonClicked(wxCommandEvent& event)
 {
-    course_list_box->AppendString(course_text_box->GetValue());
-    event.Skip();
+    if (course_text_box->GetValue() == "") {
+        event.Skip();
+    }
+
+    else {
+        course_list_box->AppendString(course_text_box->GetValue());
+        event.Skip();
+    };
 }
