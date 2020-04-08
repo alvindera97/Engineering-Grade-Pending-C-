@@ -39,10 +39,36 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         wxDECLARE_EVENT_TABLE();
 
     // add course add buttons and list box
-    wxButton *add_course_button = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(330, 10), wxSize(150, 50));
-    wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(250, 70), wxSize(300, 30));
-    wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(250, 110), wxSize(300, 300));
-    wxButton *calculate_gp = new wxButton(this, wxID_ANY, "Display GP", wxPoint(330, 420), wxSize(150, 50));
+
+    // 100 Level
+    wxButton *add_course_button = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(20, 50), wxSize(120, 50));
+    wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(5, 105), wxSize(150, 30));
+    wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(5, 140), wxSize(150, 300));
+    wxButton *calculate_gp = new wxButton(this, wxID_ANY, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
+
+    // 200 Level
+    wxButton *add_course_button_2 = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(185, 50), wxSize(120, 50));
+    wxTextCtrl *course_text_box_2 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(170, 105), wxSize(150, 30));
+    wxListBox *course_list_box_2 = new wxListBox(this, wxID_ANY, wxPoint(170, 140), wxSize(150, 300));
+    wxButton *calculate_gp_2 = new wxButton(this, wxID_ANY, "Display GP", wxPoint(207.5, 445), wxSize(75, 50));
+
+    // 300 Level
+    wxButton *add_course_button_3 = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(350, 50), wxSize(120, 50));
+    wxTextCtrl *course_text_box_3 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(335, 105), wxSize(150, 30));
+    wxListBox *course_list_box_3 = new wxListBox(this, wxID_ANY, wxPoint(335, 140), wxSize(150, 300));
+    wxButton *calculate_gp_3 = new wxButton(this, wxID_ANY, "Display GP", wxPoint(372.5, 445), wxSize(75, 50));
+
+    // 400 Level
+    wxButton *add_course_button_4 = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(515, 50), wxSize(120, 50));
+    wxTextCtrl *course_text_box_4 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(500, 105), wxSize(150, 30));
+    wxListBox *course_list_box_4 = new wxListBox(this, wxID_ANY, wxPoint(500, 140), wxSize(150, 300));
+    wxButton *calculate_gp_4 = new wxButton(this, wxID_ANY, "Display GP", wxPoint(537.5, 445), wxSize(75, 50));
+
+    // 500 Level
+    wxButton *add_course_button_5 = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(680, 50), wxSize(120, 50));
+    wxTextCtrl *course_text_box_5 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(665, 105), wxSize(150, 30));
+    wxListBox *course_list_box_5 = new wxListBox(this, wxID_ANY, wxPoint(665, 140), wxSize(150, 300));
+    wxButton *calculate_gp_5 = new wxButton(this, wxID_ANY, "Display GP", wxPoint(702.5, 445), wxSize(75, 50));
 };
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
@@ -59,7 +85,7 @@ bool GpCalculator::OnInit() {  // append the OnInit() function
 }
 
 
-MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering GP Calculator", wxPoint(100, 100), wxSize(800, 600)) {  // Frame of the program
+MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering GP Calculator", wxPoint(100, 100), wxSize(820, 600)) {  // Frame of the program
     wxMenu *menuFile = new wxMenu;
     menuFile->AppendSeparator();
     menuFile->Append(wxID_NEW);
