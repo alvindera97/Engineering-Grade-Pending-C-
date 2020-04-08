@@ -7,6 +7,9 @@
     #include <wx-3.1/wx/wx.h>
 #endif
 
+#include <iostream>
+#include <string>
+
 //g++ hello_world.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose
 //g++ hello_world.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose && ./gpCalculator
 
@@ -85,7 +88,7 @@ bool GpCalculator::OnInit() {  // append the OnInit() function
 }
 
 
-MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering GP Calculator", wxPoint(100, 100), wxSize(820, 600)) {  // Frame of the program
+MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calculator", wxPoint(100, 100), wxSize(820, 600)) {  // Frame of the program
     wxMenu *menuFile = new wxMenu;
     menuFile->AppendSeparator();
     menuFile->Append(wxID_NEW);
