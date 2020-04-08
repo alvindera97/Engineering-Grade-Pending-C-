@@ -42,6 +42,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
     wxButton *add_course_button = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(330, 10), wxSize(150, 50));
     wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(250, 70), wxSize(300, 30));
     wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(250, 110), wxSize(300, 300));
+    wxButton *calculate_gp = new wxButton(this, wxID_ANY, "Display GP", wxPoint(330, 420), wxSize(150, 50));
 };
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
