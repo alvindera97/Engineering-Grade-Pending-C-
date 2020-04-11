@@ -2,6 +2,7 @@
 // For compilers that support precompilation, includes "wx/wx.h".
 #include <wx-3.1/wx/wxprec.h>
 #include <wx-3.1/wx/button.h>
+#include <wx-3.1/wx/stattext.h>
 
 #ifndef WX_PRECOMP
     #include <wx-3.1/wx/wx.h>
@@ -44,32 +45,46 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
     // add course add buttons and list box
 
     // 100 Level
+    wxString level_text = wxT("100 LEVEL");
+    wxStaticText *st = new wxStaticText(this, wxID_ANY, level_text, wxPoint(60, 20), wxDefaultSize, wxALIGN_LEFT);
     wxButton *add_course_button = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(20, 50), wxSize(120, 50));
-    wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(5, 105), wxSize(150, 30));
+    wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(5, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
     wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(5, 140), wxSize(150, 300));
     wxButton *calculate_gp = new wxButton(this, wxID_ANY, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
 
+    /*virtual void wxTextCtrl::SetMaxLength (unsigned long len) {
+        wxTextCtrl::SetMaxLength(6);
+    }*/
+
     // 200 Level
+    wxString level_text_2 = wxT("200 LEVEL");
+    wxStaticText *st_2 = new wxStaticText(this, wxID_ANY, level_text_2, wxPoint(210, 20), wxDefaultSize, wxALIGN_LEFT);
     wxButton *add_course_button_2 = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(185, 50), wxSize(120, 50));
-    wxTextCtrl *course_text_box_2 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(170, 105), wxSize(150, 30));
+    wxTextCtrl *course_text_box_2 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(170, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
     wxListBox *course_list_box_2 = new wxListBox(this, wxID_ANY, wxPoint(170, 140), wxSize(150, 300));
     wxButton *calculate_gp_2 = new wxButton(this, wxID_ANY, "Display GP", wxPoint(207.5, 445), wxSize(75, 50));
 
     // 300 Level
+    wxString level_text_3 = wxT("300 LEVEL");
+    wxStaticText *st_3 = new wxStaticText(this, wxID_ANY, level_text_3, wxPoint(390, 20), wxDefaultSize, wxALIGN_LEFT);
     wxButton *add_course_button_3 = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(350, 50), wxSize(120, 50));
-    wxTextCtrl *course_text_box_3 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(335, 105), wxSize(150, 30));
+    wxTextCtrl *course_text_box_3 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(335, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
     wxListBox *course_list_box_3 = new wxListBox(this, wxID_ANY, wxPoint(335, 140), wxSize(150, 300));
     wxButton *calculate_gp_3 = new wxButton(this, wxID_ANY, "Display GP", wxPoint(372.5, 445), wxSize(75, 50));
 
     // 400 Level
+    wxString level_text_4 = wxT("400 LEVEL");
+    wxStaticText *st_4 = new wxStaticText(this, wxID_ANY, level_text_4, wxPoint(555, 20), wxDefaultSize, wxALIGN_LEFT);
     wxButton *add_course_button_4 = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(515, 50), wxSize(120, 50));
-    wxTextCtrl *course_text_box_4 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(500, 105), wxSize(150, 30));
+    wxTextCtrl *course_text_box_4 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(500, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
     wxListBox *course_list_box_4 = new wxListBox(this, wxID_ANY, wxPoint(500, 140), wxSize(150, 300));
     wxButton *calculate_gp_4 = new wxButton(this, wxID_ANY, "Display GP", wxPoint(537.5, 445), wxSize(75, 50));
 
     // 500 Level
+    wxString level_text_5 = wxT("500 LEVEL");
+    wxStaticText *st_5 = new wxStaticText(this, wxID_ANY, level_text_5, wxPoint(720, 20), wxDefaultSize, wxALIGN_LEFT);
     wxButton *add_course_button_5 = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(680, 50), wxSize(120, 50));
-    wxTextCtrl *course_text_box_5 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(665, 105), wxSize(150, 30));
+    wxTextCtrl *course_text_box_5 = new wxTextCtrl(this, wxID_ANY, "", wxPoint(665, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
     wxListBox *course_list_box_5 = new wxListBox(this, wxID_ANY, wxPoint(665, 140), wxSize(150, 300));
     wxButton *calculate_gp_5 = new wxButton(this, wxID_ANY, "Display GP", wxPoint(702.5, 445), wxSize(75, 50));
 };
@@ -155,7 +170,7 @@ void MyFrame::OnAddCourseButtonClicked(wxCommandEvent& event)
     }
 
     else {
-        course_list_box->AppendString(course_text_box->GetValue());
+        course_list_box->AppendString(course_text_box->GetValue().Upper());  // record the courses in upper case
         event.Skip();
     };
 }
