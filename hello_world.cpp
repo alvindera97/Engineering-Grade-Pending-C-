@@ -1,5 +1,7 @@
 // wxWidgets "Hello World" Program
 // For compilers that support precompilation, includes "wx/wx.h".
+#include <wx-3.1/wx/wx.h>
+#include <wx-3.1/wx/textctrl.h>
 #include <wx-3.1/wx/wxprec.h>
 #include <wx-3.1/wx/button.h>
 #include <wx-3.1/wx/stattext.h>
@@ -49,12 +51,9 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
     wxStaticText *st = new wxStaticText(this, wxID_ANY, level_text, wxPoint(60, 20), wxDefaultSize, wxALIGN_LEFT);
     wxButton *add_course_button = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(20, 50), wxSize(120, 50));
     wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(5, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
+    course_text_box->SetMaxLength(6);
     wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(5, 140), wxSize(150, 300));
     wxButton *calculate_gp = new wxButton(this, wxID_ANY, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
-
-    /*virtual void wxTextCtrl::SetMaxLength (unsigned long len) {
-        wxTextCtrl::SetMaxLength(6);
-    }*/
 
     // 200 Level
     wxString level_text_2 = wxT("200 LEVEL");
