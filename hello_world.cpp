@@ -181,8 +181,3 @@ void MyFrame::OnCourseTextBoxClicked(wxCommandEvent& event)
 {
     course_text_box->SetMaxLength(6);
 }
-
-/**void MyFrame::OnKeyboardEnterClicked(wxCommandEvent &event)
-{
-    MyFrame
-} **/
