@@ -22,6 +22,7 @@ enum {
     ID_New_Calculation = 3,
     ID_Save_Calculation=4,
     ID_Add_Course_Button=5,
+    ID_Course_Text_Box=6,
 };
 
 class GpCalculator : public wxApp {
@@ -41,6 +42,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         void OnHelp(wxCommandEvent& event); // event option
 
         void OnAddCourseButtonClicked(wxCommandEvent &event);
+        void OnCourseTextBoxClicked(wxCommandEvent &event);
 
         wxDECLARE_EVENT_TABLE();
 
@@ -50,8 +52,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
     wxString level_text = wxT("100 LEVEL");
     wxStaticText *st = new wxStaticText(this, wxID_ANY, level_text, wxPoint(60, 20), wxDefaultSize, wxALIGN_LEFT);
     wxButton *add_course_button = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(20, 50), wxSize(120, 50));
-    wxTextCtrl *course_text_box = new wxTextCtrl(this, wxID_ANY, "", wxPoint(5, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
-    course_text_box->SetMaxLength(6);
+    wxTextCtrl *course_text_box = new wxTextCtrl(this, ID_Course_Text_Box, "", wxPoint(5, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
     wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(5, 140), wxSize(150, 300));
     wxButton *calculate_gp = new wxButton(this, wxID_ANY, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
 
@@ -90,6 +91,8 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_BUTTON(5, MyFrame::OnAddCourseButtonClicked)
+    EVT_TEXT(6, MyFrame::OnCourseTextBoxClicked)
+    EVT_TEXT_ENTER(6, MyFrame::OnAddCourseButtonClicked)
 wxEND_EVENT_TABLE()
 
 
@@ -173,3 +176,13 @@ void MyFrame::OnAddCourseButtonClicked(wxCommandEvent& event)
         event.Skip();
     };
 }
+
+void MyFrame::OnCourseTextBoxClicked(wxCommandEvent& event)
+{
+    course_text_box->SetMaxLength(6);
+}
+
+/**void MyFrame::OnKeyboardEnterClicked(wxCommandEvent &event)
+{
+    MyFrame
+} **/
