@@ -20,9 +20,33 @@ enum {
     ID_Hello = 1,
     ID_Course_list = 2,
     ID_New_Calculation = 3,
-    ID_Save_Calculation=4,
-    ID_Add_Course_Button=5,
-    ID_Course_Text_Box=6,
+    ID_Save_Calculation = 4,
+    ID_Add_Course_Button = 5,
+    ID_Course_Text_Box = 6,
+    ID_COURSE_ONE = 11,
+    ID_COURSE_ONE_GRADE = 111,
+    ID_COURSE_TWO = 12,
+    ID_COURSE_TWO_GRADE = 121,
+    ID_COURSE_THREE = 13,
+    ID_COURSE_THREE_GRADE = 131,
+    ID_COURSE_FOUR = 14,
+    ID_COURSE_FOUR_GRADE = 141,
+    ID_COURSE_FIVE = 15,
+    ID_COURSE_FIVE_GRADE = 151,
+    ID_COURSE_SIX = 16,
+    ID_COURSE_SIX_GRADE = 161,
+    ID_COURSE_SEVEN = 17,
+    ID_COURSE_SEVEN_GRADE = 171,
+    ID_COURSE_EIGHT = 18,
+    ID_COURSE_EIGHT_GRADE = 181,
+    ID_COURSE_NINE = 19,
+    ID_COURSE_NINE_GRADE = 191,
+    ID_COURSE_TEN = 110,
+    ID_COURSE_TEN_GRADE = 1101,
+    ID_COURSE_ELEVEN = 111,
+    ID_COURSE_ELEVEN_GRADE = 1111,
+    ID_COURSE_TWELVE = 12,
+    ID_COURSE_TWELVE_GRADE = 1121,
 };
 
 class GpCalculator : public wxApp {
@@ -41,7 +65,6 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         void OnAbout(wxCommandEvent& event);  // about option
         void OnHelp(wxCommandEvent& event); // event option
 
-        void OnAddCourseButtonClicked(wxCommandEvent &event);
         void OnCourseTextBoxClicked(wxCommandEvent &event);
 
         wxDECLARE_EVENT_TABLE();
@@ -51,9 +74,47 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
     // 100 Level
     wxString level_text = wxT("100 LEVEL");
     wxStaticText *st = new wxStaticText(this, wxID_ANY, level_text, wxPoint(60, 20), wxDefaultSize, wxALIGN_LEFT);
-    wxButton *add_course_button = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(20, 50), wxSize(120, 50));
-    wxTextCtrl *course_text_box = new wxTextCtrl(this, ID_Course_Text_Box, "", wxPoint(5, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
-    wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(5, 140), wxSize(150, 300));
+    // wxButton *add_course_button = new wxButton(this, ID_Add_Course_Button, "Add Course", wxPoint(20, 50), wxSize(120, 50));
+    // wxTextCtrl *course_text_box = new wxTextCtrl(this, ID_Course_Text_Box, "", wxPoint(5, 105), wxSize(150, 30), wxTE_PROCESS_ENTER);
+    // wxListBox *course_list_box = new wxListBox(this, wxID_ANY, wxPoint(5, 140), wxSize(150, 300));
+
+    wxTextCtrl *course_one = new wxTextCtrl(this, ID_COURSE_ONE, "Course 1", wxPoint(5, 44), wxSize(100, 30));
+    wxTextCtrl *course_one_grade = new wxTextCtrl(this, ID_COURSE_ONE_GRADE, "Grade", wxPoint(110, 44), wxSize(45, 30));
+
+    wxTextCtrl *course_two = new wxTextCtrl(this, wxID_ANY, "Course 2", wxPoint(5, 76), wxSize(100, 30));
+    wxTextCtrl *course_two_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 76), wxSize(45, 30));
+
+    wxTextCtrl *course_three = new wxTextCtrl(this, wxID_ANY, "Course 3", wxPoint(5, 108), wxSize(100, 30));
+    wxTextCtrl *course_three_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 108), wxSize(45, 30));
+
+    wxTextCtrl *course_four = new wxTextCtrl(this, wxID_ANY, "Course 4", wxPoint(5, 140), wxSize(100, 30));
+    wxTextCtrl *course_four_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 140), wxSize(45, 30));
+
+    wxTextCtrl *course_five = new wxTextCtrl(this, wxID_ANY, "Course 5", wxPoint(5, 172), wxSize(100, 30));
+    wxTextCtrl *course_five_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 172), wxSize(45, 30));
+
+    wxTextCtrl *course_six = new wxTextCtrl(this, wxID_ANY, "Course 6", wxPoint(5, 204), wxSize(100, 30));
+    wxTextCtrl *course_six_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 204), wxSize(45, 30));
+
+    wxTextCtrl *course_seven = new wxTextCtrl(this, wxID_ANY, "Course 7", wxPoint(5, 236), wxSize(100, 30));
+    wxTextCtrl *course_seven_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 236), wxSize(45, 30));
+
+    wxTextCtrl *course_eight = new wxTextCtrl(this, wxID_ANY, "Course 8", wxPoint(5, 268), wxSize(100, 30));
+    wxTextCtrl *course_eight_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 268), wxSize(45, 30));
+
+    wxTextCtrl *course_nine = new wxTextCtrl(this, wxID_ANY, "Course 9", wxPoint(5, 300), wxSize(100, 30));
+    wxTextCtrl *course_nine_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 300), wxSize(45, 30));
+
+    wxTextCtrl *course_ten = new wxTextCtrl(this, wxID_ANY, "Course 10", wxPoint(5, 332), wxSize(100, 30));
+    wxTextCtrl *course_ten_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 332), wxSize(45, 30));
+
+    wxTextCtrl *course_eleven = new wxTextCtrl(this, wxID_ANY, "Course 11", wxPoint(5, 364), wxSize(100, 30));
+    wxTextCtrl *course_eleven_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 364), wxSize(45, 30));
+
+    wxTextCtrl *course_twelve = new wxTextCtrl(this, wxID_ANY, "Course 12", wxPoint(5, 396), wxSize(100, 30));
+    wxTextCtrl *course_twelve_grade = new wxTextCtrl(this, wxID_ANY, "Grade", wxPoint(110, 396), wxSize(45, 30));
+
+
     wxButton *calculate_gp = new wxButton(this, wxID_ANY, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
 
     // 200 Level
@@ -90,9 +151,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
 };
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
-    EVT_BUTTON(5, MyFrame::OnAddCourseButtonClicked)
-    EVT_TEXT(6, MyFrame::OnCourseTextBoxClicked)
-    EVT_TEXT_ENTER(6, MyFrame::OnAddCourseButtonClicked)
+    EVT_TEXT(ID_COURSE_ONE, MyFrame::OnCourseTextBoxClicked)
 wxEND_EVENT_TABLE()
 
 
@@ -165,19 +224,9 @@ void MyFrame::OnHelp(wxCommandEvent& event) {
     wxMessageBox("For help on how to use this programme, please use the manual");
 }
 
-void MyFrame::OnAddCourseButtonClicked(wxCommandEvent& event)
-{
-    if (course_text_box->GetValue() == "") {
-        event.Skip();
-    }
-
-    else {
-        course_list_box->AppendString(course_text_box->GetValue().Upper());  // record the courses in upper case
-        event.Skip();
-    };
-}
-
 void MyFrame::OnCourseTextBoxClicked(wxCommandEvent& event)
 {
-    course_text_box->SetMaxLength(6);
-}
+    course_one->SetMaxLength(6);
+    course_one_grade->SetMaxLength(1);
+    event.Skip();
+};
