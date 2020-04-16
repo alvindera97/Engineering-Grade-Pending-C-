@@ -153,6 +153,12 @@ enum {
     ID_COURSE_ELEVEN_GRADE_5 = 5111,
     ID_COURSE_TWELVE_5 = 512,
     ID_COURSE_TWELVE_GRADE_5 = 5121,
+
+    ID_CALCULATE_100_LEVEL_GP = 100,
+    ID_CALCULATE_200_LEVEL_GP = 200,
+    ID_CALCULATE_300_LEVEL_GP = 300,
+    ID_CALCULATE_400_LEVEL_GP = 400,
+    ID_CALCULATE_500_LEVEL_GP = 500,
 };
 
 class GpCalculator : public wxApp {
@@ -172,6 +178,13 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         void OnHelp(wxCommandEvent& event); // event option
 
         // void OnCourseTextBoxClicked(wxCommandEvent &event);
+        void OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+        void OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+        void OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+        void OnFourHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+        void OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+
+        void OnDisplayCgpaButtonClicked(wxCommandEvent &event);
 
         // 100 Level
         wxTextCtrl *course_one;
