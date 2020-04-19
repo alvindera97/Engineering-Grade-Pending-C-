@@ -373,6 +373,16 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         wxTextCtrl *course_twelve_5;
         wxTextCtrl *course_twelve_grade_5;
 
+        // display GP buttons
+        wxButton *calculate_gp;
+        wxButton *calculate_gp_2;
+        wxButton *calculate_gp_3;
+        wxButton *calculate_gp_4;
+        wxButton *calculate_gp_5;
+
+        // calculate CGPA button
+        wxButton *calculate_cgpa;
+
         wxDECLARE_EVENT_TABLE();
 };
 
@@ -390,7 +400,7 @@ bool GpCalculator::OnInit() {  // append the OnInit() function
 }
 
 
-MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calculator", wxPoint(100, 100), wxSize(820, 600)) {  // Frame of the program
+MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calculator", wxPoint(100, 100), wxSize(820, 650)) {  // Frame of the program
     wxMenu *menuFile = new wxMenu;
     menuFile->AppendSeparator();
     menuFile->Append(wxID_NEW);
@@ -425,7 +435,7 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
 
     SetMenuBar( menuBar );
     CreateStatusBar();
-    SetStatusText("Welcome to wxWidgets!");
+    SetStatusText("Faculty of Engineering, University of Benin, Grade Pending Calculator");
 
 // add course add buttons and list box
 
@@ -517,7 +527,7 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
     course_twelve->SetHint("COURSE CODE");
     course_twelve_grade->SetHint("A");
 
-    wxButton *calculate_gp = new wxButton(this, ID_CALCULATE_100_LEVEL_GP, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
+    calculate_gp = new wxButton(this, ID_CALCULATE_100_LEVEL_GP, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
 
     // 200 Level
     wxString level_text_2 = wxT("200 LEVEL");
@@ -607,7 +617,7 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
     course_twelve_2->SetHint("COURSE CODE");
     course_twelve_grade_2->SetHint("A");
 
-    wxButton *calculate_gp_2 = new wxButton(this, ID_CALCULATE_200_LEVEL_GP, "Display GP", wxPoint(207.5, 445), wxSize(75, 50));
+    calculate_gp_2 = new wxButton(this, ID_CALCULATE_200_LEVEL_GP, "Display GP", wxPoint(207.5, 445), wxSize(75, 50));
 
     // 300 Level
     wxString level_text_3 = wxT("300 LEVEL");
@@ -697,7 +707,7 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
     course_twelve_3->SetHint("COURSE CODE");
     course_twelve_grade_3->SetHint("A");
 
-    wxButton *calculate_gp_3 = new wxButton(this, ID_CALCULATE_300_LEVEL_GP, "Display GP", wxPoint(372.5, 445), wxSize(75, 50));
+    calculate_gp_3 = new wxButton(this, ID_CALCULATE_300_LEVEL_GP, "Display GP", wxPoint(372.5, 445), wxSize(75, 50));
 
     // 400 Level
     wxString level_text_4 = wxT("400 LEVEL");
@@ -787,7 +797,7 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
     course_twelve_4->SetHint("COURSE CODE");
     course_twelve_grade_4->SetHint("A");
 
-    wxButton *calculate_gp_4 = new wxButton(this, ID_CALCULATE_400_LEVEL_GP, "Display GP", wxPoint(537.5, 445), wxSize(75, 50));
+    calculate_gp_4 = new wxButton(this, ID_CALCULATE_400_LEVEL_GP, "Display GP", wxPoint(537.5, 445), wxSize(75, 50));
 
     // 500 Level
     wxString level_text_5 = wxT("500 LEVEL");
@@ -877,12 +887,14 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
     course_twelve_5->SetHint("COURSE CODE");
     course_twelve_grade_5->SetHint("A");
 
-    wxButton *calculate_gp_5 = new wxButton(this, ID_CALCULATE_500_LEVEL_GP, "Display GP", wxPoint(702.5, 445), wxSize(75, 50));
+    calculate_gp_5 = new wxButton(this, ID_CALCULATE_500_LEVEL_GP, "Display GP", wxPoint(702.5, 445), wxSize(75, 50));
 
     Bind(wxEVT_MENU, &MyFrame::OnHello, this, ID_Hello);
     Bind(wxEVT_MENU, &MyFrame::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &MyFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_MENU, &MyFrame::OnHelp, this, wxID_HELP);
+
+    calculate_cgpa = new wxButton(this, ID_CALCULATE_CGPA, "Show CGPA", wxPoint(335, 510), wxSize(155, 50));
 
     // Bind(wxEVT_TEXT, &MyFrame::OnCourseTextBoxClicked, this, ID_COURSE_ONE);
 }
