@@ -211,7 +211,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int GST123 = 2;
         int LEVEL_TOTAL_100 = 47;
 
-        /* COMMON COURSES FOR OTHER LEVELS */
+        /* COMMON COURSES FOR OTHER LEVELS (200level to 500 level) */
         int ECP281 = 2;
         int ENS211 = 2;
         int EMA281 = 2;
@@ -236,6 +236,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CHE212 = 2;
         int PRE212 = 2;
         int ELA202 = 2;
+        int CVE212 = 3;
 
         /* 300 LEVEL COURSES */
         int MEE351 = 2;
@@ -251,6 +252,15 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CVE341 = 3;
         int CVE313 = 3;
         int CVE311 = 3;
+        int STE311 = 3;
+        int CPE381 = 3;
+        int CPE375 = 3;
+        int CPE371 = 3;
+        int CPE311 = 3;
+        int CPE313 = 2;
+        int CPE377 = 2;
+        // int CPE371 = 3;
+        int CPE301 = 2;
 
         int CHE312 = 2;
         int CHE322 = 3;
@@ -266,6 +276,18 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CVE344 = 2;
         int CVE352 = 3;
         int CVE316 = 2;
+        int STE312 = 3;
+        int CPE382 = 3;
+        int CPE376 = 3;
+        int CPE312 = 3;
+        int CPE314 = 3;
+        int CPE316 = 3;
+        int CPE322 = 3;
+        int CPE372 = 3;
+        // int CPE382 = 3;
+        int CPE378 = 3;
+        int ELA302 = 2;
+
 
         /* 400 LEVEL COURSES */
         int CHE411 = 2;
@@ -288,8 +310,24 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CVE471 = 2;
         int CVE481 = 3;
         int ELA401 = 2;
+        int STE411 = 2;
+        int STE413 = 2;
+        int STE415 = 2;
+        int STE417 = 2;
+        // int STE415 = 2;
+        int STE425 = 2;
+        int CPE481 = 2;
+        int CPE477 = 3;
+        int CPE475 = 3;
+        int CPE423 = 3;
+        int CPE451 = 3;
+        int CPE457 = 3;
+        int CPE471 = 3;
+        int CPE473 = 3;
+        // int ELA401 = 2;
 
-        int CED = 2;
+
+        int CED300 = 2;
 
         /* 500 LEVEL COURSES */
         int CHE511 = 2;
@@ -300,7 +338,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CHE571 = 3;
         int CHE591 = 3;
         int CHE581 = 3;
-        int PREE571 = 3;
+        int PRE571 = 3;
         int CVE511 = 2;
         int CVE513 = 2;
         int CVE521 = 2;
@@ -309,6 +347,18 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CVE541 = 2;
         int CVE501 = 3;
         int CVE581 = 2;
+        int STE511 = 2;
+        int STE513 = 2;
+        int STE515 = 3;
+        int STE517 = 2;
+        int STE501 = 3;
+        int CPE591 = 3;
+        int CPE571 = 3;
+        int CPE553 = 3;
+        int CPE573 = 3;
+        int CPE575 = 3;
+        int CPE590 = 0;
+        int CPE500 = 3;
 
         // <optional courses (Civil Engineering)>
         int CVE515 = 3;
@@ -333,6 +383,33 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CVE522 = 2;
         int CVE542 = 2;
         int CVE502 = 2;
+        int STE512 = 2;
+        int STE514 = 2;
+        int STE516 = 2;
+        int STE518 = 2;
+        int STE502 = 3;
+        int EEE590 = 0;
+        int EEE500 = 3;
+
+        // <optional courses (Computer Engineering)
+        int CPE552 = 3;
+        int CPE586 = 3;
+        int CPE578 = 3;
+        int CPE534 = 3;
+        int CPE554 = 3;
+        int CPE556 = 3;
+        int CPE522 = 3;
+        int CPE574 = 3;
+        int CPE512 = 3;
+        // </optinal courses (/Computer Engineering)
+
+
+        // <optional courses (Structural Engineering)
+        int STE532 = 3;
+        int STE524 = 3;
+        int STE536 = 3;
+        // </optoonal courses (/Structural Engineering)
+
 
         // <optional courses (Civil Engineering)
         int CVE516 = 3;
@@ -340,6 +417,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CVE536 = 3;
         int CVE546 = 3;
         int CVE566 = 3;
+        // </optional courses (/Civil Engineering)
             
         // 100 Level
         wxTextCtrl *course_one;
