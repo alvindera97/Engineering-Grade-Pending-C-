@@ -188,6 +188,105 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
 
         void OnDisplayCgpaButtonClicked(wxCommandEvent &event);
 
+        // Common Courses equating their credit load
+        /* 100 LEVEL FIRST SEMESTER */
+        int CHM111 = 3;
+        int CHM113 = 3;
+        int MTH111 = 3;
+        int MTH112 = 3;
+        int PHY111 = 3;
+        int PHY113 = 3;
+        int GST111 = 2;
+        int GST112 = 2;
+
+        /* 100 LEVEL SECOND SEMESTER */
+        int CHM122 = 3;
+        int CHM124 = 3;
+        int MTH123 = 3;
+        int MTH125 = 3;
+        int PHY109 = 2;
+        int PHY124 = 4;
+        int GST121 = 2;
+        int GST122 = 2;
+        int GST123 = 2;
+        int LEVEL_TOTAL_100 = 47;
+
+        /* COMMON COURSES FOR OTHER LEVELS */
+        int ECP281 = 2;
+        int ENS211 = 2;
+        int EMA281 = 2;
+        int EMA282 = 4;
+        int EMA381 = 3;
+        int EMA382 = 4;
+        int EMA481 = 3;
+
+        /* 200 LEVEL COURSES */
+        int MEE211 = 3;
+        int MEE221 = 3;
+        int EEE211 = 3;
+        int CVE211 = 3;
+        int PRE211 = 2;
+        int CHE211 = 2;
+        int ELA201 = 2;
+
+        int MEE212 = 3;
+        int MEE222 = 3;
+        int EEE212 = 3;
+        int CHE222 = 3;
+        int CHE212 = 2;
+        int PRE212 = 2;
+        int ELA202 = 2;
+
+        /* 300 LEVEL COURSES */
+        int MEE351 = 2;
+        int CHE321 = 3;
+        int CHE331 = 2;
+        int CHE341 = 3;
+        int CHE251 = 3;
+        int CHE361 = 3;
+        int CHE301 = 2;
+
+        int CHE312 = 2;
+        int CHE322 = 3;
+        int CHE332 = 3;
+        int CHE352 = 3;
+        int CHE362 = 3;
+        int CHE372 = 3;
+        int CHE302 = 2;
+
+        /* 400 LEVEL COURSES */
+        int CHE411 = 2;
+        int CHE421 = 3;
+        int CHE431 = 3;
+        int CHE441 = 3;
+        int CHE451 = 3;
+        int CHE461 = 3;
+        int CHE471 = 2;
+        int CHE481 = 2;
+        int CHE401 = 2;
+
+        int CED = 2;
+
+        /* 500 LEVEL COURSES */
+        int CHE511 = 2;
+        int CHE521 = 2;
+        int CHE531 = 3;
+        int CHE541 = 3;
+        int CHE561 = 2;
+        int CHE571 = 3;
+        int CHE591 = 3;
+        int CHE581 = 3;
+        int PREE571 = 3;
+
+        int CHE512 = 2;
+        int CHE522 = 3;
+        int CHE532 = 3;
+        int CHE542 = 3;
+        int CHE552 = 3;
+        int CHE562 = 3;
+        int PRE572 = 3;
+        int CHE500 = 3;
+            
         // 100 Level
         wxTextCtrl *course_one;
         wxTextCtrl *course_one_grade;
