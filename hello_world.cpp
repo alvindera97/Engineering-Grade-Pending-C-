@@ -300,6 +300,10 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int MEE332 = 2;
         int MEE342 = 2;
         int MEE372 = 1;
+        int PEE311 = 3;
+        int PEE322 = 4;
+        int PEE342 = 3;
+        int PEE332 = 3;
 
         int ELA302 = 2;
 
