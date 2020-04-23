@@ -406,6 +406,27 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int EEE574 = 3;
         int EEE576 = 3;
         int EEE578 = 3;
+        int MEE501 = 3;
+        int MEE505 = 2;
+        int MEE511 = 3;
+        int MEE521 = 3;
+        int MEE531 = 3;
+        int MEE541 = 3;
+        int MEE551 = 2;
+        int MEE561 = 3;
+        int MEE571 = 2;
+        int MEE591 = 3;
+        int MEE502 = 3;
+        int MEE506 = 2;
+        int MEE512 = 3;
+        int MEE522 = 3;
+        int MEE532 = 3;
+        int MEE542 = 3;
+        int MEE552 = 2;
+        int MEE562 = 3;
+        int MEE572 = 2;
+        int MEE582 = 3;
+        int MEE592 = 3;
 
         // <optional courses (Civil Engineering)>
         int CVE515 = 3;
