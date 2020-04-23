@@ -237,6 +237,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int PRE212 = 2;
         int ELA202 = 2;
         int CVE212 = 3;
+        int EEE272 = 2;
 
         /* 300 LEVEL COURSES */
         int MEE351 = 2;
@@ -248,7 +249,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CHE361 = 3;
         int CHE301 = 2;
         int PRE311 = 2;
-        int EEE317 = 3;
+       //  int EEE317 = 3;
         int CVE341 = 3;
         int CVE313 = 3;
         int CVE311 = 3;
@@ -286,6 +287,15 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CPE372 = 3;
         // int CPE382 = 3;
         int CPE378 = 3;
+        int EEE331 = 3;
+        int EEE371 = 3;
+        int EEE312 = 3;
+        int EEE376 = 3;
+        int EEE311 = 3;
+        int EEE316 = 3;
+        int EEE332 = 3;
+        int EEE372 = 2;
+
         int ELA302 = 2;
 
 
