@@ -389,7 +389,6 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CHE571 = 3;
         int CHE591 = 3;
         int CHE581 = 3;
-        int PRE571 = 3;
         int CVE511 = 2;
         int CVE513 = 2;
         int CVE521 = 2;
@@ -461,6 +460,21 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int PEE562 = 3;
         int PEE532 = 3;
         int PEE592 = 3;
+        int PRE541 = 2;
+        int PRE572 = 2;
+        int PRE571 = 3;
+        int PRE531 = 3;
+        int PRE581 = 3;
+        int PRE521 = 3;
+        int PRE561 = 2;
+        int PRE551 = 2;
+        int PRE501 = 3;
+        int PRE592 = 3;
+        int PRE522 = 3;
+        int PRE582 = 3;
+        int PRE532 = 3;
+        int PRE562 = 2;
+        int PRE564 = 2;
 
         // <optional courses (Civil Engineering)>
         int CVE515 = 3;
@@ -477,7 +491,6 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int CHE542 = 3;
         int CHE552 = 3;
         int CHE562 = 3;
-        int PRE572 = 3;
         int CHE500 = 3;
         int CVE572 = 3;
         int CVE512 = 2;
