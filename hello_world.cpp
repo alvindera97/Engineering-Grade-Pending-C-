@@ -190,7 +190,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
 
         // Common Courses equating their credit load
         /* 100 LEVEL FIRST SEMESTER */
-        int CHM111 = 3;
+        long CHM111 = 3;
         int CHM113 = 3;
         int MTH111 = 3;
         int MTH112 = 3;
@@ -210,7 +210,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         int GST122 = 2;
         int GST123 = 2;
         int LEVEL_TOTAL_100 = 47;
-
+        
         /* COMMON COURSES FOR OTHER LEVELS (200level to 500 level) */
         int ECP281 = 2;
         int ENS211 = 2;
@@ -734,6 +734,7 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     // EVT_TEXT(ID_COURSE_ONE, MyFrame::OnCourseTextBoxClicked)
+    EVT_BUTTON(ID_CALCULATE_100_LEVEL_GP, MyFrame::OnOneHundredLevelDisplayGpButtonClicked)
 wxEND_EVENT_TABLE()
 
 
@@ -1267,3 +1268,27 @@ void MyFrame::OnHelp(wxCommandEvent& event) {
     course_one->SetMaxLength(6);
     course_one_grade->SetMaxLength(1);
 };**/
+
+void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
+    // char grade_point = course_one->GetValue() * course_one_grade->GetValue()
+    /* long value;
+    long new_value;
+    wxString string_value;
+    wxString course_code;
+    course_code = course_one->GetValue();
+    if ( ! course_code.ToCLong(&value)) {
+        value = ! course_code.ToCLong(&value);
+        if (value == (long)CHM111 ) {
+            new_value = (long)CHM111;
+            string_value << new_value;
+            wxMessageBox(string_value);
+        }
+    } */
+    // wxMessageBox(course_one->GetValue);
+    wxString course_check = wxT("MEE211");
+    wxString course_check_2 = wxT("MEE212");
+    if (course_one->GetValue() == course_check or course_one->GetValue() == course_check_2) {
+        wxMessageBox(course_one->GetValue());
+    }
+    // xwxMessageBox(course_one->GetValue());
+}
