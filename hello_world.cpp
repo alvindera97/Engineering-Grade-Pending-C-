@@ -11,7 +11,12 @@
 #endif
 
 #include <iostream>
+#include <map>
+#include <unordered_map>
+#include <iterator>
+
 #include <string>
+
 
 //g++ hello_world.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose
 //g++ hello_world.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose && ./gpCalculator
@@ -1263,32 +1268,21 @@ void MyFrame::OnHelp(wxCommandEvent& event) {
     wxMessageBox("For help on how to use this programme, please use the manual");
 }
 
-/** void MyFrame::OnCourseTextBoxClicked(wxCommandEvent& event)
-{
-    course_one->SetMaxLength(6);
-    course_one_grade->SetMaxLength(1);
-};**/
-
 void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
-    // char grade_point = course_one->GetValue() * course_one_grade->GetValue()
-    /* long value;
-    long new_value;
-    wxString string_value;
-    wxString course_code;
-    course_code = course_one->GetValue();
-    if ( ! course_code.ToCLong(&value)) {
-        value = ! course_code.ToCLong(&value);
-        if (value == (long)CHM111 ) {
-            new_value = (long)CHM111;
-            string_value << new_value;
-            wxMessageBox(string_value);
-        }
-    } */
-    // wxMessageBox(course_one->GetValue);
+    using namespace std;
+
     wxString course_check = wxT("MEE211");
     wxString course_check_2 = wxT("MEE212");
-    if (course_one->GetValue() == course_check or course_one->GetValue() == course_check_2) {
+    wxString collected_value = course_one->GetValue();
+
+    std::map<wxString, int> first_courses;
+    first_courses["MEE211"] = 3;
+    first_courses["MEE212"] = 2;
+
+    if (first_courses.find(course_one->GetValue()) != first_courses.end()) {
         wxMessageBox(course_one->GetValue());
+        // wxMessageBox(first_courses[colllected_value]);
     }
-    // xwxMessageBox(course_one->GetValue());
+
+    event.Skip();
 }
