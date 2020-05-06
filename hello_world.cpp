@@ -408,7 +408,7 @@ bool GpCalculator::OnInit() {  // append the OnInit() function
 }
 
 
-MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calculator", wxPoint(100, 100), wxSize(820, 650)) {  // Frame of the program
+MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calculator", wxPoint(100, 100), wxSize(820, 950)) {  // Frame of the program
     wxMenu *menuFile = new wxMenu;
     menuFile->AppendSeparator();
     menuFile->Append(wxID_NEW);
