@@ -1284,7 +1284,7 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     float seventh_course = all_courses_dictionary[course_seven->GetValue()];
     float seventh_course_grade = all_courses_dictionary[course_seven_grade->GetValue()];
     float eighth_course = all_courses_dictionary[course_eight->GetValue()];
-    float eight_course_grade = all_courses_dictionary[course_eight_grade->GetValue()];
+    float eighth_course_grade = all_courses_dictionary[course_eight_grade->GetValue()];
     float nineth_course = all_courses_dictionary[course_nine->GetValue()];
     float nineth_course_grade = all_courses_dictionary[course_nine_grade->GetValue()];
     float tenth_course = all_courses_dictionary[course_ten->GetValue()];
@@ -1294,8 +1294,8 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     float twelveth_course = all_courses_dictionary[course_twelve->GetValue()];
     float twelveth_course_grade = all_courses_dictionary[course_twelve_grade->GetValue()];
 
-    float first_year_course_credit_load_sum = (first_course * first_course_grade) + (second_course * second_course_grade) + (third_course * third_course_grade) + (fourth_course + fourth_course_grade) + (fifth_course * fifth_course_grade) + (sixth_course * sixth_course_grade) + (seventh_course * seventh_course_grade) + (eighth_course * eight_course_grade) + (nineth_course * nineth_course_grade) + (tenth_course * tenth_course_grade) + (eleventh_course * eleventh_course_grade) + (twelveth_course * twelveth_course_grade);
-    float first_year_credit_load_sum = first_course_grade + second_course_grade + third_course_grade + fourth_course_grade + fifth_course_grade + sixth_course_grade + seventh_course_grade + eight_course_grade + nineth_course_grade + tenth_course_grade + eleventh_course_grade + twelveth_course_grade;
+    float first_year_course_credit_load_sum = (first_course * first_course_grade) + (second_course * second_course_grade) + (third_course * third_course_grade) + (fourth_course + fourth_course_grade) + (fifth_course * fifth_course_grade) + (sixth_course * sixth_course_grade) + (seventh_course * seventh_course_grade) + (eighth_course * eighth_course_grade) + (nineth_course * nineth_course_grade) + (tenth_course * tenth_course_grade) + (eleventh_course * eleventh_course_grade) + (twelveth_course * twelveth_course_grade);
+    float first_year_credit_load_sum = first_course + second_course + third_course + fourth_course + fifth_course + sixth_course + seventh_course + eighth_course + nineth_course + tenth_course + eleventh_course + twelveth_course;
 
     float first_year_total_gp = first_year_course_credit_load_sum / first_year_credit_load_sum;
 
