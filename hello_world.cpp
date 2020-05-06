@@ -451,88 +451,88 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
     wxString level_text = wxT("100 LEVEL");
     wxStaticText *st = new wxStaticText(this, wxID_ANY, level_text, wxPoint(52, 20), wxDefaultSize, wxALIGN_LEFT);
 
-    course_one = new wxTextCtrl(this, ID_COURSE_ONE, "", wxPoint(5, 44), wxSize(100, 30));
-    course_one_grade = new wxTextCtrl(this, ID_COURSE_ONE_GRADE, "", wxPoint(110, 44), wxSize(45, 30));
+    course_one = new wxTextCtrl(this, ID_COURSE_ONE, "", wxPoint(5, 44), wxSize(57, 30));
+    course_one_grade = new wxTextCtrl(this, ID_COURSE_ONE_GRADE, "", wxPoint(110, 44), wxSize(20, 30));
     course_one->SetMaxLength(6);
     course_one_grade->SetMaxLength(1);
-    course_one->SetHint("COURSE CODE");
+    course_one->SetHint("COURSE");
     course_one_grade->SetHint("A");
 
-    course_two = new wxTextCtrl(this, ID_COURSE_TWO, "", wxPoint(5, 76), wxSize(100, 30));
-    course_two_grade = new wxTextCtrl(this, ID_COURSE_TWO_GRADE, "", wxPoint(110, 76), wxSize(45, 30));
+    course_two = new wxTextCtrl(this, ID_COURSE_TWO, "", wxPoint(5, 76), wxSize(57, 30));
+    course_two_grade = new wxTextCtrl(this, ID_COURSE_TWO_GRADE, "", wxPoint(110, 76), wxSize(20, 30));
     course_two->SetMaxLength(6);
     course_two_grade->SetMaxLength(1);
-    course_two->SetHint("COURSE CODE");
+    course_two->SetHint("COURSE");
     course_two_grade->SetHint("A");
 
-    course_three = new wxTextCtrl(this, ID_COURSE_THREE, "", wxPoint(5, 108), wxSize(100, 30));
-    course_three_grade = new wxTextCtrl(this, ID_COURSE_THREE_GRADE, "", wxPoint(110, 108), wxSize(45, 30));
+    course_three = new wxTextCtrl(this, ID_COURSE_THREE, "", wxPoint(5, 108), wxSize(57, 30));
+    course_three_grade = new wxTextCtrl(this, ID_COURSE_THREE_GRADE, "", wxPoint(110, 108), wxSize(20, 30));
     course_three->SetMaxLength(6);
     course_three_grade->SetMaxLength(1);
-    course_three->SetHint("COURSE CODE");
+    course_three->SetHint("COURSE");
     course_three_grade->SetHint("A");
 
-    course_four = new wxTextCtrl(this, ID_COURSE_FOUR, "", wxPoint(5, 140), wxSize(100, 30));
-    course_four_grade = new wxTextCtrl(this, ID_COURSE_FOUR_GRADE, "", wxPoint(110, 140), wxSize(45, 30));
+    course_four = new wxTextCtrl(this, ID_COURSE_FOUR, "", wxPoint(5, 140), wxSize(57, 30));
+    course_four_grade = new wxTextCtrl(this, ID_COURSE_FOUR_GRADE, "", wxPoint(110, 140), wxSize(20, 30));
     course_four->SetMaxLength(6);
     course_four_grade->SetMaxLength(1);
-    course_four->SetHint("COURSE CODE");
+    course_four->SetHint("COURSE");
     course_four_grade->SetHint("A");
 
-    course_five = new wxTextCtrl(this, ID_COURSE_FIVE, "", wxPoint(5, 172), wxSize(100, 30));
-    course_five_grade = new wxTextCtrl(this, ID_COURSE_FIVE_GRADE, "", wxPoint(110, 172), wxSize(45, 30));
+    course_five = new wxTextCtrl(this, ID_COURSE_FIVE, "", wxPoint(5, 172), wxSize(57, 30));
+    course_five_grade = new wxTextCtrl(this, ID_COURSE_FIVE_GRADE, "", wxPoint(110, 172), wxSize(20, 30));
     course_five->SetMaxLength(6);
     course_five_grade->SetMaxLength(1);
-    course_five->SetHint("COURSE CODE");
+    course_five->SetHint("COURSE");
     course_five_grade->SetHint("A");
 
-    course_six = new wxTextCtrl(this, ID_COURSE_SIX, "", wxPoint(5, 204), wxSize(100, 30));
-    course_six_grade = new wxTextCtrl(this, ID_COURSE_SIX_GRADE, "", wxPoint(110, 204), wxSize(45, 30));
+    course_six = new wxTextCtrl(this, ID_COURSE_SIX, "", wxPoint(5, 204), wxSize(57, 30));
+    course_six_grade = new wxTextCtrl(this, ID_COURSE_SIX_GRADE, "", wxPoint(110, 204), wxSize(20, 30));
     course_six->SetMaxLength(6);
     course_six_grade->SetMaxLength(1);
-    course_six->SetHint("COURSE CODE");
+    course_six->SetHint("COURSE");
     course_six_grade->SetHint("A");
 
-    course_seven = new wxTextCtrl(this, ID_COURSE_SEVEN, "", wxPoint(5, 236), wxSize(100, 30));
-    course_seven_grade = new wxTextCtrl(this, ID_COURSE_SEVEN_GRADE, "", wxPoint(110, 236), wxSize(45, 30));
+    course_seven = new wxTextCtrl(this, ID_COURSE_SEVEN, "", wxPoint(5, 236), wxSize(57, 30));
+    course_seven_grade = new wxTextCtrl(this, ID_COURSE_SEVEN_GRADE, "", wxPoint(110, 236), wxSize(20, 30));
     course_seven->SetMaxLength(6);
     course_seven_grade->SetMaxLength(1);
-    course_seven->SetHint("COURSE CODE");
+    course_seven->SetHint("COURSE");
     course_seven_grade->SetHint("A");
 
-    course_eight = new wxTextCtrl(this, ID_COURSE_EIGHT, "", wxPoint(5, 268), wxSize(100, 30));
-    course_eight_grade = new wxTextCtrl(this, ID_COURSE_EIGHT_GRADE, "", wxPoint(110, 268), wxSize(45, 30));
+    course_eight = new wxTextCtrl(this, ID_COURSE_EIGHT, "", wxPoint(5, 268), wxSize(57, 30));
+    course_eight_grade = new wxTextCtrl(this, ID_COURSE_EIGHT_GRADE, "", wxPoint(110, 268), wxSize(20, 30));
     course_eight->SetMaxLength(6);
     course_eight_grade->SetMaxLength(1);
-    course_eight->SetHint("COURSE CODE");
+    course_eight->SetHint("COURSE");
     course_eight_grade->SetHint("A");
 
-    course_nine = new wxTextCtrl(this, ID_COURSE_NINE, "", wxPoint(5, 300), wxSize(100, 30));
-    course_nine_grade = new wxTextCtrl(this, ID_COURSE_NINE_GRADE, "", wxPoint(110, 300), wxSize(45, 30));
+    course_nine = new wxTextCtrl(this, ID_COURSE_NINE, "", wxPoint(5, 300), wxSize(57, 30));
+    course_nine_grade = new wxTextCtrl(this, ID_COURSE_NINE_GRADE, "", wxPoint(110, 300), wxSize(20, 30));
     course_nine->SetMaxLength(6);
     course_nine_grade->SetMaxLength(1);
-    course_nine->SetHint("COURSE CODE");
+    course_nine->SetHint("COURSE");
     course_nine_grade->SetHint("A");
 
-    course_ten = new wxTextCtrl(this, ID_COURSE_TEN, "", wxPoint(5, 332), wxSize(100, 30));
-    course_ten_grade = new wxTextCtrl(this, ID_COURSE_TEN_GRADE, "", wxPoint(110, 332), wxSize(45, 30));
+    course_ten = new wxTextCtrl(this, ID_COURSE_TEN, "", wxPoint(5, 332), wxSize(57, 30));
+    course_ten_grade = new wxTextCtrl(this, ID_COURSE_TEN_GRADE, "", wxPoint(110, 332), wxSize(20, 30));
     course_ten->SetMaxLength(6);
     course_ten_grade->SetMaxLength(1);
-    course_ten->SetHint("COURSE CODE");
+    course_ten->SetHint("COURSE");
     course_ten_grade->SetHint("A");
 
-    course_eleven = new wxTextCtrl(this, ID_COURSE_ELEVEN, "", wxPoint(5, 364), wxSize(100, 30));
-    course_eleven_grade = new wxTextCtrl(this, ID_COURSE_ELEVEN_GRADE, "", wxPoint(110, 364), wxSize(45, 30));
+    course_eleven = new wxTextCtrl(this, ID_COURSE_ELEVEN, "", wxPoint(5, 364), wxSize(57, 30));
+    course_eleven_grade = new wxTextCtrl(this, ID_COURSE_ELEVEN_GRADE, "", wxPoint(110, 364), wxSize(20, 30));
     course_eleven->SetMaxLength(6);
     course_eleven_grade->SetMaxLength(1);
-    course_eleven->SetHint("COURSE CODE");
+    course_eleven->SetHint("COURSE");
     course_eleven_grade->SetHint("A");
 
-    course_twelve = new wxTextCtrl(this, ID_COURSE_TWELVE, "", wxPoint(5, 396), wxSize(100, 30));
-    course_twelve_grade = new wxTextCtrl(this, ID_COURSE_TWELVE_GRADE, "", wxPoint(110, 396), wxSize(45, 30));
+    course_twelve = new wxTextCtrl(this, ID_COURSE_TWELVE, "", wxPoint(5, 396), wxSize(57, 30));
+    course_twelve_grade = new wxTextCtrl(this, ID_COURSE_TWELVE_GRADE, "", wxPoint(110, 396), wxSize(20, 30));
     course_twelve->SetMaxLength(6);
     course_twelve_grade->SetMaxLength(1);
-    course_twelve->SetHint("COURSE CODE");
+    course_twelve->SetHint("COURSE");
     course_twelve_grade->SetHint("A");
 
     calculate_gp = new wxButton(this, ID_CALCULATE_100_LEVEL_GP, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
