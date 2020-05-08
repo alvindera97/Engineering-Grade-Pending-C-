@@ -54,6 +54,30 @@ enum {
     ID_COURSE_ELEVEN_GRADE = 1111,
     ID_COURSE_TWELVE = 112,
     ID_COURSE_TWELVE_GRADE = 1121,
+    ID_COURSE_THIRTEEN = 113,
+    ID_COURSE_THIRTEEN_GRADE = 1131,
+    ID_COURSE_FOURTEEN = 114,
+    ID_COURSE_FOURTEEN_GRADE = 1141,
+    ID_COURSE_FIFTEEN = 115,
+    ID_COURSE_FIFTEEN_GRADE =  1151,
+    ID_COURSE_SIXTEEN = 116,
+    ID_COURSE_SIXTEEN_GRADE = 1161,
+    ID_COURSE_SEVENTEEN = 117,
+    ID_COURSE_SEVENTEEN_GRADE = 1171,
+    ID_COURSE_EIGHTEEN = 118,
+    ID_COURSE_EIGHTEEN_GRADE = 1181,
+    ID_COURSE_NINETEEN = 119,
+    ID_COURSE_NINETEEN_GRADE = 1191,
+    ID_COURSE_TWENTY = 120,
+    ID_COURSE_TWENTY_GRADE = 1201,
+    ID_COURSE_TWENTY_ONE = 121,
+    ID_COURSE_TWENTY_ONE_GRADE = 1211,
+    ID_COURSE_TWENTY_TWO = 122,
+    ID_COURSE_TWENTY_TWO_GRADE = 1221,
+    ID_COURSE_TWENTY_THREE = 123,
+    ID_COURSE_TWENTY_THREE_GRADE = 1231,
+    ID_COURSE_TWENTY_FOUR = 124,
+    ID_COURSE_TWENTY_FOUR_GRADE = 1241,
 
     // 200 level
     ID_COURSE_ONE_2 = 21,
@@ -232,6 +256,42 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         wxTextCtrl *course_twelve;
         wxTextCtrl *course_twelve_grade;
 
+        wxTextCtrl *course_thirteen;
+        wxTextCtrl *course_thirteen_grade;
+
+        wxTextCtrl *course_fourteen;
+        wxTextCtrl *course_fourteen_grade;
+
+        wxTextCtrl *course_fifteen;
+        wxTextCtrl *course_fifteen_grade;
+
+        wxTextCtrl *course_sixteen;
+        wxTextCtrl *course_sixteen_grade;
+
+        wxTextCtrl *course_seventeen;
+        wxTextCtrl *course_seventeen_grade;
+
+        wxTextCtrl *course_eighteen;
+        wxTextCtrl *course_eighteen_grade;
+
+        wxTextCtrl *course_nineteen;
+        wxTextCtrl *course_nineteen_grade;
+
+        wxTextCtrl *course_twenty;
+        wxTextCtrl *course_twenty_grade;    
+
+        wxTextCtrl *course_twenty_one;
+        wxTextCtrl *course_twenty_one_grade;  
+
+        wxTextCtrl *course_twenty_two;
+        wxTextCtrl *course_twenty_two_grade;  
+
+        wxTextCtrl *course_twenty_three;
+        wxTextCtrl *course_twenty_three_grade;  
+
+        wxTextCtrl *course_twenty_four;
+        wxTextCtrl *course_twenty_four_grade;
+
         // 200 Level
         wxTextCtrl *course_one_2;
         wxTextCtrl *course_one_grade_2;
@@ -268,6 +328,42 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
 
         wxTextCtrl *course_twelve_2;
         wxTextCtrl *course_twelve_grade_2;
+
+        wxTextCtrl *course_thirteen_2;
+        wxTextCtrl *course_thirteen_grade_2;
+
+        wxTextCtrl *course_fourteen_2;
+        wxTextCtrl *course_fourteen_grade_2;
+
+        wxTextCtrl *course_fifteen_2;
+        wxTextCtrl *course_fifteen_grade_2;
+
+        wxTextCtrl *course_sixteen_2;
+        wxTextCtrl *course_sixteen_grade_2;
+
+        wxTextCtrl *course_seventeen_2;
+        wxTextCtrl *course_seventeen_grade_2;
+
+        wxTextCtrl *course_eighteen_2;
+        wxTextCtrl *course_eighteen_grade_2;
+
+        wxTextCtrl *course_nineteen_2;
+        wxTextCtrl *course_nineteen_grade_2;
+
+        wxTextCtrl *course_twenty_2;
+        wxTextCtrl *course_twenty_grade_2;    
+
+        wxTextCtrl *course_twenty_one_2;
+        wxTextCtrl *course_twenty_one_grade_2;  
+
+        wxTextCtrl *course_twenty_two_2;
+        wxTextCtrl *course_twenty_two_grade_2;  
+
+        wxTextCtrl *course_twenty_three_2;
+        wxTextCtrl *course_twenty_three_grade_2;  
+
+        wxTextCtrl *course_twenty_four_2;
+        wxTextCtrl *course_twenty_four_grade_2;  
 
         // 300 Level
         wxTextCtrl *course_one_3;
@@ -534,6 +630,91 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
     course_twelve_grade->SetMaxLength(1);
     course_twelve->SetHint("COURSE");
     course_twelve_grade->SetHint("A");
+
+    course_thirteen = new wxTextCtrl(this, ID_COURSE_THIRTEEN, "", wxPoint(85, 44), wxSize(57, 30));
+    course_thirteen_grade = new wxTextCtrl(this, ID_COURSE_THIRTEEN_GRADE, "", wxPoint(143, 44), wxSize(20, 30));
+    course_thirteen->SetMaxLength(6);
+    course_thirteen_grade->SetMaxLength(1);
+    course_thirteen->SetHint("COURSE");
+    course_thirteen_grade->SetHint("A");
+
+    course_fourteen = new wxTextCtrl(this, ID_COURSE_FOURTEEN, "", wxPoint(85, 76), wxSize(57, 30));
+    course_fourteen_grade = new wxTextCtrl(this, ID_COURSE_FOURTEEN_GRADE, "", wxPoint(143, 76), wxSize(20, 30));
+    course_fourteen->SetMaxLength(6);
+    course_fourteen_grade->SetMaxLength(1);
+    course_fourteen->SetHint("COURSE");
+    course_fourteen_grade->SetHint("A");
+
+    course_fifteen = new wxTextCtrl(this, ID_COURSE_FIFTEEN, "", wxPoint(85, 108), wxSize(57, 30));
+    course_fifteen_grade = new wxTextCtrl(this, ID_COURSE_FIFTEEN_GRADE, "", wxPoint(143, 108), wxSize(20, 30));
+    course_fifteen->SetMaxLength(6);
+    course_fifteen_grade->SetMaxLength(1);
+    course_fifteen->SetHint("COURSE");
+    course_fifteen_grade->SetHint("A");
+
+    course_sixteen = new wxTextCtrl(this, ID_COURSE_SIXTEEN, "", wxPoint(85, 140), wxSize(57, 30));
+    course_sixteen_grade = new wxTextCtrl(this, ID_COURSE_SIXTEEN_GRADE, "", wxPoint(143, 140), wxSize(20, 30));
+    course_sixteen->SetMaxLength(6);
+    course_sixteen_grade->SetMaxLength(1);
+    course_sixteen->SetHint("COURSE");
+    course_sixteen_grade->SetHint("A");
+
+    course_seventeen = new wxTextCtrl(this, ID_COURSE_SEVENTEEN, "", wxPoint(85, 172), wxSize(57, 30));
+    course_seventeen_grade = new wxTextCtrl(this, ID_COURSE_SEVENTEEN_GRADE, "", wxPoint(143, 172), wxSize(20, 30));
+    course_seventeen->SetMaxLength(6);
+    course_seventeen_grade->SetMaxLength(1);
+    course_seventeen->SetHint("COURSE");
+    course_seventeen_grade->SetHint("A");
+
+    course_eighteen = new wxTextCtrl(this, ID_COURSE_EIGHTEEN, "", wxPoint(85, 204), wxSize(57, 30));
+    course_eighteen_grade = new wxTextCtrl(this, ID_COURSE_EIGHTEEN_GRADE, "", wxPoint(143, 204), wxSize(20, 30));
+    course_eighteen->SetMaxLength(6);
+    course_eighteen_grade->SetMaxLength(1);
+    course_eighteen->SetHint("COURSE");
+    course_eighteen_grade->SetHint("A");
+
+    course_nineteen = new wxTextCtrl(this, ID_COURSE_NINETEEN, "", wxPoint(85, 236), wxSize(57, 30));
+    course_nineteen_grade = new wxTextCtrl(this, ID_COURSE_NINETEEN_GRADE, "", wxPoint(143, 236), wxSize(20, 30));
+    course_nineteen->SetMaxLength(6);
+    course_nineteen_grade->SetMaxLength(1);
+    course_nineteen->SetHint("COURSE");
+    course_nineteen_grade->SetHint("A");
+
+    course_twenty = new wxTextCtrl(this, ID_COURSE_TWENTY, "", wxPoint(85, 268), wxSize(57, 30));
+    course_twenty_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_GRADE, "", wxPoint(143, 268), wxSize(20, 30));
+    course_twenty->SetMaxLength(6);
+    course_twenty_grade->SetMaxLength(1);
+    course_twenty->SetHint("COURSE");
+    course_twenty_grade->SetHint("A");
+
+    course_twenty_one = new wxTextCtrl(this, ID_COURSE_TWENTY_ONE, "", wxPoint(85, 300), wxSize(57, 30));
+    course_twenty_one_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_ONE_GRADE, "", wxPoint(143, 300), wxSize(20, 30));
+    course_twenty_one->SetMaxLength(6);
+    course_twenty_one_grade->SetMaxLength(1);
+    course_twenty_one->SetHint("COURSE");
+    course_twenty_one_grade->SetHint("A");
+
+    course_twenty_two = new wxTextCtrl(this, ID_COURSE_TWENTY_TWO, "", wxPoint(85, 332), wxSize(57, 30));
+    course_twenty_two_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_TWO_GRADE, "", wxPoint(143, 332), wxSize(20, 30));
+    course_twenty_two->SetMaxLength(6);
+    course_twenty_two_grade->SetMaxLength(1);
+    course_twenty_two->SetHint("COURSE");
+    course_twenty_two_grade->SetHint("A");
+
+    course_twenty_three = new wxTextCtrl(this, ID_COURSE_TWENTY_THREE, "", wxPoint(85, 364), wxSize(57, 30));
+    course_twenty_three_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_THREE_GRADE, "", wxPoint(143, 364), wxSize(20, 30));
+    course_twenty_three->SetMaxLength(6);
+    course_twenty_three_grade->SetMaxLength(1);
+    course_twenty_three->SetHint("COURSE");
+    course_twenty_three_grade->SetHint("A");
+
+    course_twenty_four = new wxTextCtrl(this, ID_COURSE_TWENTY_FOUR, "", wxPoint(85, 396), wxSize(57, 30));
+    course_twenty_four_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_FOUR_GRADE, "", wxPoint(143, 396), wxSize(20, 30));
+    course_twenty_four->SetMaxLength(6);
+    course_twenty_four_grade->SetMaxLength(1);
+    course_twenty_four->SetHint("COURSE");
+    course_twenty_four_grade->SetHint("A");
+
 
     calculate_gp = new wxButton(this, ID_CALCULATE_100_LEVEL_GP, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
 
@@ -941,7 +1122,7 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     all_courses_dictionary["CHM111"] = 3.0;
     all_courses_dictionary["CHM113"] = 3.0;
-    all_courses_dictionary["MTH111"] = 3.0;
+    all_courses_dictionary["MTH110"] = 3.0;
     all_courses_dictionary["MTH112"] = 3.0;
     all_courses_dictionary["PHY111"] = 3.0;
     all_courses_dictionary["PHY113"] = 3.0;
@@ -1293,9 +1474,33 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     float eleventh_course_grade = all_courses_dictionary[course_eleven_grade->GetValue()];
     float twelveth_course = all_courses_dictionary[course_twelve->GetValue()];
     float twelveth_course_grade = all_courses_dictionary[course_twelve_grade->GetValue()];
+    float thirteenth_course = all_courses_dictionary[course_thirteen->GetValue()];
+    float thirteenth_course_grade = all_courses_dictionary[course_thirteen_grade->GetValue()];
+    float fourteenth_course = all_courses_dictionary[course_fourteen->GetValue()];
+    float fourteenth_course_grade = all_courses_dictionary[course_fourteen_grade->GetValue()];
+    float fifteenth_course = all_courses_dictionary[course_fifteen->GetValue()];
+    float fifteenth_course_grade = all_courses_dictionary[course_fifteen_grade->GetValue()];
+    float sixteenth_course = all_courses_dictionary[course_sixteen->GetValue()];
+    float sixteenth_course_grade = all_courses_dictionary[course_sixteen_grade->GetValue()];
+    float seventeenth_course = all_courses_dictionary[course_seventeen->GetValue()];
+    float seventeenth_course_grade = all_courses_dictionary[course_seventeen_grade->GetValue()];
+    float eighteenth_course = all_courses_dictionary[course_eighteen->GetValue()];
+    float eighteenth_course_grade = all_courses_dictionary[course_eighteen_grade->GetValue()];
+    float ninteenth_course = all_courses_dictionary[course_nineteen->GetValue()];
+    float ninteenth_course_grade = all_courses_dictionary[course_nineteen_grade->GetValue()];
+    float twentieth_course = all_courses_dictionary[course_twenty->GetValue()];
+    float twentieth_course_grade = all_courses_dictionary[course_twenty_grade->GetValue()];
+    float twenty_first_course = all_courses_dictionary[course_twenty_one->GetValue()];
+    float twenty_first_course_grade = all_courses_dictionary[course_twenty_one_grade->GetValue()];
+    float twenty_second_course = all_courses_dictionary[course_twenty_two->GetValue()];
+    float twenty_second_course_grade = all_courses_dictionary[course_twenty_two_grade->GetValue()];
+    float twenty_third_course = all_courses_dictionary[course_twenty_three->GetValue()];
+    float twenty_third_course_grade = all_courses_dictionary[course_twenty_three_grade->GetValue()];
+    float twenty_fourth_course = all_courses_dictionary[course_twenty_four->GetValue()];
+    float twenty_fourth_course_grade = all_courses_dictionary[course_twenty_four_grade->GetValue()];
 
-    float first_year_course_credit_load_sum = (first_course * first_course_grade) + (second_course * second_course_grade) + (third_course * third_course_grade) + (fourth_course + fourth_course_grade) + (fifth_course * fifth_course_grade) + (sixth_course * sixth_course_grade) + (seventh_course * seventh_course_grade) + (eighth_course * eighth_course_grade) + (nineth_course * nineth_course_grade) + (tenth_course * tenth_course_grade) + (eleventh_course * eleventh_course_grade) + (twelveth_course * twelveth_course_grade);
-    float first_year_credit_load_sum = first_course + second_course + third_course + fourth_course + fifth_course + sixth_course + seventh_course + eighth_course + nineth_course + tenth_course + eleventh_course + twelveth_course;
+    float first_year_course_credit_load_sum = (first_course * first_course_grade) + (second_course * second_course_grade) + (third_course * third_course_grade) + (fourth_course + fourth_course_grade) + (fifth_course * fifth_course_grade) + (sixth_course * sixth_course_grade) + (seventh_course * seventh_course_grade) + (eighth_course * eighth_course_grade) + (nineth_course * nineth_course_grade) + (tenth_course * tenth_course_grade) + (eleventh_course * eleventh_course_grade) + (twelveth_course * twelveth_course_grade) + (thirteenth_course * thirteenth_course_grade) + (fourteenth_course * fourteenth_course_grade) + (fifteenth_course * fifteenth_course_grade) + (sixteenth_course * sixteenth_course_grade) + (seventeenth_course * seventeenth_course_grade) + (eighteenth_course * eighteenth_course_grade) + (ninteenth_course * ninteenth_course_grade) + (twentieth_course * twentieth_course_grade) + (twenty_first_course * twenty_first_course_grade) + (twenty_second_course * twenty_second_course_grade) + (twenty_third_course * twenty_third_course_grade) + (twenty_fourth_course * twenty_fourth_course_grade);
+    float first_year_credit_load_sum = first_course + second_course + third_course + fourth_course + fifth_course + sixth_course + seventh_course + eighth_course + nineth_course + tenth_course + eleventh_course + twelveth_course + thirteenth_course + fourteenth_course + fifteenth_course + sixteenth_course + seventeenth_course + eighteenth_course + ninteenth_course + twentieth_course + twenty_first_course + twenty_second_course + twenty_third_course + twenty_fourth_course;
 
     float first_year_total_gp = first_year_course_credit_load_sum / first_year_credit_load_sum;
 
