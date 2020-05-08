@@ -104,6 +104,31 @@ enum {
     ID_COURSE_ELEVEN_GRADE_2 = 2111,
     ID_COURSE_TWELVE_2 = 212,
     ID_COURSE_TWELVE_GRADE_2 = 2121,
+    ID_COURSE_THIRTEEN_2 = 213,
+    ID_COURSE_THIRTEEN_GRADE_2 = 2131,
+    ID_COURSE_FOURTEEN_2 = 214,
+    ID_COURSE_FOURTEEN_GRADE_2 = 2141,
+    ID_COURSE_FIFTEEN_2 = 215,
+    ID_COURSE_FIFTEEN_GRADE_2 =  2151,
+    ID_COURSE_SIXTEEN_2 = 216,
+    ID_COURSE_SIXTEEN_GRADE_2 = 2161,
+    ID_COURSE_SEVENTEEN_2 = 217,
+    ID_COURSE_SEVENTEEN_GRADE_2 = 2171,
+    ID_COURSE_EIGHTEEN_2 = 218,
+    ID_COURSE_EIGHTEEN_GRADE_2 = 2181,
+    ID_COURSE_NINETEEN_2 = 219,
+    ID_COURSE_NINETEEN_GRADE_2 = 2191,
+    ID_COURSE_TWENTY_2 = 220,
+    ID_COURSE_TWENTY_GRADE_2 = 2201,
+    ID_COURSE_TWENTY_ONE_2 = 221,
+    ID_COURSE_TWENTY_ONE_GRADE_2 = 2211,
+    ID_COURSE_TWENTY_TWO_2 = 222,
+    ID_COURSE_TWENTY_TWO_GRADE_2 = 2221,
+    ID_COURSE_TWENTY_THREE_2 = 223,
+    ID_COURSE_TWENTY_THREE_GRADE_2 = 2231,
+    ID_COURSE_TWENTY_FOUR_2 = 224,
+    ID_COURSE_TWENTY_FOUR_GRADE_2 = 2241,
+
 
     // 300 level
     ID_COURSE_ONE_3 = 31,
@@ -130,6 +155,30 @@ enum {
     ID_COURSE_ELEVEN_GRADE_3 = 3111,
     ID_COURSE_TWELVE_3 = 312,
     ID_COURSE_TWELVE_GRADE_3 = 3121,
+    ID_COURSE_THIRTEEN_3 = 313,
+    ID_COURSE_THIRTEEN_GRADE_3 = 3131,
+    ID_COURSE_FOURTEEN_3 = 314,
+    ID_COURSE_FOURTEEN_GRADE_3 = 3141,
+    ID_COURSE_FIFTEEN_3 = 315,
+    ID_COURSE_FIFTEEN_GRADE_3 =  3151,
+    ID_COURSE_SIXTEEN_3 = 316,
+    ID_COURSE_SIXTEEN_GRADE_3 = 3161,
+    ID_COURSE_SEVENTEEN_3 = 317,
+    ID_COURSE_SEVENTEEN_GRADE_3 = 3171,
+    ID_COURSE_EIGHTEEN_3 = 318,
+    ID_COURSE_EIGHTEEN_GRADE_3 = 3181,
+    ID_COURSE_NINETEEN_3 = 319,
+    ID_COURSE_NINETEEN_GRADE_3 = 3191,
+    ID_COURSE_TWENTY_3 = 320,
+    ID_COURSE_TWENTY_GRADE_3 = 3201,
+    ID_COURSE_TWENTY_ONE_3 = 321,
+    ID_COURSE_TWENTY_ONE_GRADE_3 = 3211,
+    ID_COURSE_TWENTY_TWO_3 = 322,
+    ID_COURSE_TWENTY_TWO_GRADE_3 = 3221,
+    ID_COURSE_TWENTY_THREE_3 = 323,
+    ID_COURSE_TWENTY_THREE_GRADE_3 = 3231,
+    ID_COURSE_TWENTY_FOUR_3 = 324,
+    ID_COURSE_TWENTY_FOUR_GRADE_3 = 3241,
 
     // 400 level
     ID_COURSE_ONE_4 = 41,
@@ -402,6 +451,43 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
         wxTextCtrl *course_twelve_3;
         wxTextCtrl *course_twelve_grade_3;
 
+        wxTextCtrl *course_thirteen_3;
+        wxTextCtrl *course_thirteen_grade_3;
+
+        wxTextCtrl *course_fourteen_3;
+        wxTextCtrl *course_fourteen_grade_3;
+
+        wxTextCtrl *course_fifteen_3;
+        wxTextCtrl *course_fifteen_grade_3;
+
+        wxTextCtrl *course_sixteen_3;
+        wxTextCtrl *course_sixteen_grade_3;
+
+        wxTextCtrl *course_seventeen_3;
+        wxTextCtrl *course_seventeen_grade_3;
+
+        wxTextCtrl *course_eighteen_3;
+        wxTextCtrl *course_eighteen_grade_3;
+
+        wxTextCtrl *course_nineteen_3;
+        wxTextCtrl *course_nineteen_grade_3;
+
+        wxTextCtrl *course_twenty_3;
+        wxTextCtrl *course_twenty_grade_3;    
+
+        wxTextCtrl *course_twenty_one_3;
+        wxTextCtrl *course_twenty_one_grade_3;  
+
+        wxTextCtrl *course_twenty_two_3;
+        wxTextCtrl *course_twenty_two_grade_3;  
+
+        wxTextCtrl *course_twenty_three_3;
+        wxTextCtrl *course_twenty_three_grade_3;  
+
+        wxTextCtrl *course_twenty_four_3;
+        wxTextCtrl *course_twenty_four_grade_3;  
+
+
         // 400 Level
         wxTextCtrl *course_one_4;
         wxTextCtrl *course_one_grade_4;
@@ -490,8 +576,9 @@ class MyFrame : public wxFrame {  // defines the options on the top bar of the s
 };
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
-    // EVT_TEXT(ID_COURSE_ONE, MyFrame::OnCourseTextBoxClicked)
     EVT_BUTTON(ID_CALCULATE_100_LEVEL_GP, MyFrame::OnOneHundredLevelDisplayGpButtonClicked)
+    EVT_BUTTON(ID_CALCULATE_200_LEVEL_GP, MyFrame::OnTwoHundredLevelDisplayGpButtonClicked)
+    EVT_BUTTON(ID_CALCULATE_300_LEVEL_GP, MyFrame::OnThreeHundredLevelDisplayGpButtonClicked)
 wxEND_EVENT_TABLE()
 
 
@@ -806,6 +893,90 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
     course_twelve_2->SetHint("COURSE");
     course_twelve_grade_2->SetHint("A");
 
+    course_thirteen_2 = new wxTextCtrl(this, ID_COURSE_THIRTEEN_2, "", wxPoint(250, 44), wxSize(57, 30));
+    course_thirteen_grade_2 = new wxTextCtrl(this, ID_COURSE_THIRTEEN_GRADE_2, "", wxPoint(308, 44), wxSize(20, 30));
+    course_thirteen_2->SetMaxLength(6);
+    course_thirteen_grade_2->SetMaxLength(1);
+    course_thirteen_2->SetHint("COURSE");
+    course_thirteen_grade_2->SetHint("A");
+
+    course_fourteen_2 = new wxTextCtrl(this, ID_COURSE_FOURTEEN_2, "", wxPoint(250, 76), wxSize(57, 30));
+    course_fourteen_grade_2 = new wxTextCtrl(this, ID_COURSE_FOURTEEN_GRADE_2, "", wxPoint(308, 76), wxSize(20, 30));
+    course_fourteen_2->SetMaxLength(6);
+    course_fourteen_grade_2->SetMaxLength(1);
+    course_fourteen_2->SetHint("COURSE");
+    course_fourteen_grade_2->SetHint("A");
+
+    course_fifteen_2 = new wxTextCtrl(this, ID_COURSE_FIFTEEN_2, "", wxPoint(250, 108), wxSize(57, 30));
+    course_fifteen_grade_2 = new wxTextCtrl(this, ID_COURSE_FIFTEEN_GRADE_2, "", wxPoint(308, 108), wxSize(20, 30));
+    course_fifteen_2->SetMaxLength(6);
+    course_fifteen_grade_2->SetMaxLength(1);
+    course_fifteen_2->SetHint("COURSE");
+    course_fifteen_grade_2->SetHint("A");
+
+    course_sixteen_2 = new wxTextCtrl(this, ID_COURSE_SIXTEEN_2, "", wxPoint(250, 140), wxSize(57, 30));
+    course_sixteen_grade_2 = new wxTextCtrl(this, ID_COURSE_SIXTEEN_GRADE_2, "", wxPoint(308, 140), wxSize(20, 30));
+    course_sixteen_2->SetMaxLength(6);
+    course_sixteen_grade_2->SetMaxLength(1);
+    course_sixteen_2->SetHint("COURSE");
+    course_sixteen_grade_2->SetHint("A");
+
+    course_seventeen_2 = new wxTextCtrl(this, ID_COURSE_SEVENTEEN_2, "", wxPoint(250, 172), wxSize(57, 30));
+    course_seventeen_grade_2 = new wxTextCtrl(this, ID_COURSE_SEVENTEEN_GRADE_2, "", wxPoint(308, 172), wxSize(20, 30));
+    course_seventeen_2->SetMaxLength(6);
+    course_seventeen_grade_2->SetMaxLength(1);
+    course_seventeen_2->SetHint("COURSE");
+    course_seventeen_grade_2->SetHint("A");
+
+    course_eighteen_2 = new wxTextCtrl(this, ID_COURSE_EIGHTEEN_2, "", wxPoint(250, 204), wxSize(57, 30));
+    course_eighteen_grade_2 = new wxTextCtrl(this, ID_COURSE_EIGHTEEN_GRADE_2, "", wxPoint(308, 204), wxSize(20, 30));
+    course_eighteen_2->SetMaxLength(6);
+    course_eighteen_grade_2->SetMaxLength(1);
+    course_eighteen_2->SetHint("COURSE");
+    course_eighteen_grade_2->SetHint("A");
+
+    course_nineteen_2 = new wxTextCtrl(this, ID_COURSE_NINETEEN_2, "", wxPoint(250, 236), wxSize(57, 30));
+    course_nineteen_grade_2 = new wxTextCtrl(this, ID_COURSE_NINETEEN_GRADE_2, "", wxPoint(308, 236), wxSize(20, 30));
+    course_nineteen_2->SetMaxLength(6);
+    course_nineteen_grade_2->SetMaxLength(1);
+    course_nineteen_2->SetHint("COURSE");
+    course_nineteen_grade_2->SetHint("A");
+
+    course_twenty_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_2, "", wxPoint(250, 268), wxSize(57, 30));
+    course_twenty_grade_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_GRADE_2, "", wxPoint(308, 268), wxSize(20, 30));
+    course_twenty_2->SetMaxLength(6);
+    course_twenty_grade_2->SetMaxLength(1);
+    course_twenty_2->SetHint("COURSE");
+    course_twenty_grade_2->SetHint("A");
+
+    course_twenty_one_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_ONE_2, "", wxPoint(250, 300), wxSize(57, 30));
+    course_twenty_one_grade_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_ONE_GRADE_2, "", wxPoint(308, 300), wxSize(20, 30));
+    course_twenty_one_2->SetMaxLength(6);
+    course_twenty_one_grade_2->SetMaxLength(1);
+    course_twenty_one_2->SetHint("COURSE");
+    course_twenty_one_grade_2->SetHint("A");
+
+    course_twenty_two_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_TWO_2, "", wxPoint(250, 332), wxSize(57, 30));
+    course_twenty_two_grade_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_TWO_GRADE_2, "", wxPoint(308, 332), wxSize(20, 30));
+    course_twenty_two_2->SetMaxLength(6);
+    course_twenty_two_grade_2->SetMaxLength(1);
+    course_twenty_two_2->SetHint("COURSE");
+    course_twenty_two_grade_2->SetHint("A");
+
+    course_twenty_three_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_THREE_2, "", wxPoint(250, 364), wxSize(57, 30));
+    course_twenty_three_grade_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_THREE_GRADE_2, "", wxPoint(308, 364), wxSize(20, 30));
+    course_twenty_three_2->SetMaxLength(6);
+    course_twenty_three_grade_2->SetMaxLength(1);
+    course_twenty_three_2->SetHint("COURSE");
+    course_twenty_three_grade_2->SetHint("A");
+
+    course_twenty_four_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_FOUR_2, "", wxPoint(250, 396), wxSize(57, 30));
+    course_twenty_four_grade_2 = new wxTextCtrl(this, ID_COURSE_TWENTY_FOUR_GRADE_2, "", wxPoint(308, 396), wxSize(20, 30));
+    course_twenty_four_2->SetMaxLength(6);
+    course_twenty_four_grade_2->SetMaxLength(1);
+    course_twenty_four_2->SetHint("COURSE");
+    course_twenty_four_grade_2->SetHint("A");
+
     calculate_gp_2 = new wxButton(this, ID_CALCULATE_200_LEVEL_GP, "Display GP", wxPoint(207.5, 445), wxSize(75, 50));
 
     // 300 Level
@@ -895,6 +1066,90 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Engineering Grade Pending Calcu
     course_twelve_grade_3->SetMaxLength(1);
     course_twelve_3->SetHint("COURSE");
     course_twelve_grade_3->SetHint("A");
+
+    course_thirteen_3 = new wxTextCtrl(this, ID_COURSE_THIRTEEN_3, "", wxPoint(415, 44), wxSize(57, 30));
+    course_thirteen_grade_3 = new wxTextCtrl(this, ID_COURSE_THIRTEEN_GRADE_3, "", wxPoint(473, 44), wxSize(20, 30));
+    course_thirteen_3->SetMaxLength(6);
+    course_thirteen_grade_3->SetMaxLength(1);
+    course_thirteen_3->SetHint("COURSE");
+    course_thirteen_grade_3->SetHint("A");
+
+    course_fourteen_3 = new wxTextCtrl(this, ID_COURSE_FOURTEEN_3, "", wxPoint(415, 76), wxSize(57, 30));
+    course_fourteen_grade_3 = new wxTextCtrl(this, ID_COURSE_FOURTEEN_GRADE_3, "", wxPoint(473, 76), wxSize(20, 30));
+    course_fourteen_3->SetMaxLength(6);
+    course_fourteen_grade_3->SetMaxLength(1);
+    course_fourteen_3->SetHint("COURSE");
+    course_fourteen_grade_3->SetHint("A");
+
+    course_fifteen_3 = new wxTextCtrl(this, ID_COURSE_FIFTEEN_3, "", wxPoint(415, 108), wxSize(57, 30));
+    course_fifteen_grade_3 = new wxTextCtrl(this, ID_COURSE_FIFTEEN_GRADE_3, "", wxPoint(473, 108), wxSize(20, 30));
+    course_fifteen_3->SetMaxLength(6);
+    course_fifteen_grade_3->SetMaxLength(1);
+    course_fifteen_3->SetHint("COURSE");
+    course_fifteen_grade_3->SetHint("A");
+
+    course_sixteen_3 = new wxTextCtrl(this, ID_COURSE_SIXTEEN_3, "", wxPoint(415, 140), wxSize(57, 30));
+    course_sixteen_grade_3 = new wxTextCtrl(this, ID_COURSE_SIXTEEN_GRADE_3, "", wxPoint(473, 140), wxSize(20, 30));
+    course_sixteen_3->SetMaxLength(6);
+    course_sixteen_grade_3->SetMaxLength(1);
+    course_sixteen_3->SetHint("COURSE");
+    course_sixteen_grade_3->SetHint("A");
+
+    course_seventeen_3 = new wxTextCtrl(this, ID_COURSE_SEVENTEEN_3, "", wxPoint(415, 172), wxSize(57, 30));
+    course_seventeen_grade_3 = new wxTextCtrl(this, ID_COURSE_SEVENTEEN_GRADE_3, "", wxPoint(473, 172), wxSize(20, 30));
+    course_seventeen_3->SetMaxLength(6);
+    course_seventeen_grade_3->SetMaxLength(1);
+    course_seventeen_3->SetHint("COURSE");
+    course_seventeen_grade_3->SetHint("A");
+
+    course_eighteen_3 = new wxTextCtrl(this, ID_COURSE_EIGHTEEN_3, "", wxPoint(415, 204), wxSize(57, 30));
+    course_eighteen_grade_3 = new wxTextCtrl(this, ID_COURSE_EIGHTEEN_GRADE_3, "", wxPoint(473, 204), wxSize(20, 30));
+    course_eighteen_3->SetMaxLength(6);
+    course_eighteen_grade_3->SetMaxLength(1);
+    course_eighteen_3->SetHint("COURSE");
+    course_eighteen_grade_3->SetHint("A");
+
+    course_nineteen_3 = new wxTextCtrl(this, ID_COURSE_NINETEEN_3, "", wxPoint(415, 236), wxSize(57, 30));
+    course_nineteen_grade_3 = new wxTextCtrl(this, ID_COURSE_NINETEEN_GRADE_3, "", wxPoint(473, 236), wxSize(20, 30));
+    course_nineteen_3->SetMaxLength(6);
+    course_nineteen_grade_3->SetMaxLength(1);
+    course_nineteen_3->SetHint("COURSE");
+    course_nineteen_grade_3->SetHint("A");
+
+    course_twenty_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_3, "", wxPoint(415, 268), wxSize(57, 30));
+    course_twenty_grade_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_GRADE_3, "", wxPoint(473, 268), wxSize(20, 30));
+    course_twenty_3->SetMaxLength(6);
+    course_twenty_grade_3->SetMaxLength(1);
+    course_twenty_3->SetHint("COURSE");
+    course_twenty_grade_3->SetHint("A");
+
+    course_twenty_one_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_ONE_3, "", wxPoint(415, 300), wxSize(57, 30));
+    course_twenty_one_grade_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_ONE_GRADE_3, "", wxPoint(473, 300), wxSize(20, 30));
+    course_twenty_one_3->SetMaxLength(6);
+    course_twenty_one_grade_3->SetMaxLength(1);
+    course_twenty_one_3->SetHint("COURSE");
+    course_twenty_one_grade_3->SetHint("A");
+
+    course_twenty_two_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_TWO_3, "", wxPoint(415, 332), wxSize(57, 30));
+    course_twenty_two_grade_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_TWO_GRADE_3, "", wxPoint(473, 332), wxSize(20, 30));
+    course_twenty_two_3->SetMaxLength(6);
+    course_twenty_two_grade_3->SetMaxLength(1);
+    course_twenty_two_2->SetHint("COURSE");
+    course_twenty_two_grade_3->SetHint("A");
+
+    course_twenty_three_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_THREE_3, "", wxPoint(415, 364), wxSize(57, 30));
+    course_twenty_three_grade_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_THREE_GRADE_3, "", wxPoint(473, 364), wxSize(20, 30));
+    course_twenty_three_3->SetMaxLength(6);
+    course_twenty_three_grade_3->SetMaxLength(1);
+    course_twenty_three_3->SetHint("COURSE");
+    course_twenty_three_grade_3->SetHint("A");
+
+    course_twenty_four_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_FOUR_3, "", wxPoint(415, 396), wxSize(57, 30));
+    course_twenty_four_grade_3 = new wxTextCtrl(this, ID_COURSE_TWENTY_FOUR_GRADE_3, "", wxPoint(473, 396), wxSize(20, 30));
+    course_twenty_four_3->SetMaxLength(6);
+    course_twenty_four_grade_3->SetMaxLength(1);
+    course_twenty_four_3->SetHint("COURSE");
+    course_twenty_four_grade_3->SetHint("A");
 
     calculate_gp_3 = new wxButton(this, ID_CALCULATE_300_LEVEL_GP, "Display GP", wxPoint(372.5, 445), wxSize(75, 50));
 
@@ -1106,16 +1361,6 @@ void MyFrame::OnHelp(wxCommandEvent& event) {
 }
 
 void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
-    /*using namespace std;
-
-    wxString course_check = wxT("MEE211");
-    wxString course_check_2 = wxT("MEE212");
-    wxString collected_value = course_one->GetValue();
-
-    std::map<wxString, int> first_courses;
-    first_courses["MEE211"] = 3;
-    first_courses["MEE212"] = 2; */
-
     using namespace std;
 
     std::map<wxString, float> all_courses_dictionary;
@@ -1444,12 +1689,6 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     all_courses_dictionary["F"] = 0.0;
     all_courses_dictionary[""] = 0.0;
 
-
-    /*if (all_courses_dictionary.find(course_one->GetValue()) != all_courses_dictionary.end()) {
-        wxMessageBox(course_one->GetValue());
-        // wxMessageBox(first_courses[colllected_value]);
-    }*/
-
     float first_course = all_courses_dictionary[course_one->GetValue()];
     float first_course_grade = all_courses_dictionary[course_one_grade->GetValue()];
     float second_course = all_courses_dictionary[course_two->GetValue()];
@@ -1512,3 +1751,788 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     event.Skip();
 }
+
+void MyFrame::OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
+    using namespace std;
+
+    std::map<wxString, float> all_courses_dictionary;
+
+    all_courses_dictionary["CHM111"] = 3.0;
+    all_courses_dictionary["CHM113"] = 3.0;
+    all_courses_dictionary["MTH110"] = 3.0;
+    all_courses_dictionary["MTH112"] = 3.0;
+    all_courses_dictionary["PHY111"] = 3.0;
+    all_courses_dictionary["PHY113"] = 3.0;
+    all_courses_dictionary["GST111"] = 2.0;
+    all_courses_dictionary["GST112"] = 2.0;
+    all_courses_dictionary["CHM122"] = 3.0;
+    all_courses_dictionary["CHM124"] = 3.0;
+    all_courses_dictionary["MTH123"] = 3.0;
+    all_courses_dictionary["MTH125"] = 3.0;
+    all_courses_dictionary["PHY109"] = 2.0;
+    all_courses_dictionary["PHY124"] = 4.0;
+    all_courses_dictionary["GST121"] = 2.0;
+    all_courses_dictionary["GST122"] = 2.0;
+    all_courses_dictionary["GST123"] = 2.0;
+    all_courses_dictionary["ECP281"] = 2.0;
+    all_courses_dictionary["ENS211"] = 2.0;
+    all_courses_dictionary["EMA281"] = 3.0;
+    all_courses_dictionary["EMA282"] = 4.0;
+    all_courses_dictionary["EMA381"] = 3.0;
+    all_courses_dictionary["EMA281"] = 4.0;
+    all_courses_dictionary["EMA481"] = 3.0;
+    all_courses_dictionary["MEE211"] = 3.0;
+    all_courses_dictionary["MEE221"] = 3.0;
+    all_courses_dictionary["EEE211"] = 3.0;
+    all_courses_dictionary["CVE211"] = 3.0;
+    all_courses_dictionary["PRE211"] = 2.0;
+    all_courses_dictionary["PRE211"] = 2.0;
+    all_courses_dictionary["CHE211"] = 2.0;
+    all_courses_dictionary["ELA201"] = 2.0;
+    all_courses_dictionary["MEE212"] = 3.0;
+    all_courses_dictionary["EEE211"] = 3.0;
+    all_courses_dictionary["MEE222"] = 3.0;
+    all_courses_dictionary["CHE222"] = 3.0;
+    all_courses_dictionary["CHE212"] = 2.0;
+    all_courses_dictionary["PRE212"] = 2.0;
+    all_courses_dictionary["ELA202"] = 2.0;
+    all_courses_dictionary["CVE212"] = 3.0;
+    all_courses_dictionary["EEE272"] = 2.0;
+    all_courses_dictionary["MEE351"] = 2.0;
+    all_courses_dictionary["MEE361"] = 2.0;
+    all_courses_dictionary["CHE321"] = 3.0;
+    all_courses_dictionary["CHE331"] = 2.0;
+    all_courses_dictionary["CHE341"] = 3.0;
+    all_courses_dictionary["CHE251"] = 3.0;
+    all_courses_dictionary["CHE321"] = 3.0;
+    all_courses_dictionary["CHE301"] = 2.0;
+    all_courses_dictionary["PRE311"] = 2.0;
+    all_courses_dictionary["CHE321"] = 3.0;
+    all_courses_dictionary["CVE341"] = 3.0;
+    all_courses_dictionary["CVE313"] = 3.0;
+    all_courses_dictionary["CVE311"] = 3.0;
+    all_courses_dictionary["STE311"] = 3.0;
+    all_courses_dictionary["CPE381"] = 3.0;
+    all_courses_dictionary["CPE375"] = 3.0;
+    all_courses_dictionary["CPE371"] = 3.0;
+    all_courses_dictionary["CPE311"] = 3.0;
+    all_courses_dictionary["CPE381"] = 2.0;
+    all_courses_dictionary["CPE377"] = 2.0;
+    all_courses_dictionary["CPE301"] = 2.0;
+    all_courses_dictionary["CHE312"] = 2.0;
+    all_courses_dictionary["CHE322"] = 3.0;
+    all_courses_dictionary["CHE332"] = 3.0;
+    all_courses_dictionary["CHE352"] = 3.0;
+    all_courses_dictionary["CHE362"] = 3.0;
+    all_courses_dictionary["CHE372"] = 3.0;
+    all_courses_dictionary["CHE302"] = 2.0;
+    all_courses_dictionary["MEE362"] = 2.0;
+    all_courses_dictionary["CVE312"] = 3.0;
+    all_courses_dictionary["CVE314"] = 2.0;
+    all_courses_dictionary["CVE342"] = 2.0;
+    all_courses_dictionary["CVE344"] = 2.0;
+    all_courses_dictionary["CVE352"] = 3.0;
+    all_courses_dictionary["CVE316"] = 2.0;
+    all_courses_dictionary["STE312"] = 3.0;
+    all_courses_dictionary["CPE382"] = 3.0;
+    all_courses_dictionary["CPE376"] = 3.0;
+    all_courses_dictionary["CPE312"] = 3.0;
+    all_courses_dictionary["CPE314"] = 3.0;
+    all_courses_dictionary["CPE316"] = 3.0;
+    all_courses_dictionary["CPE322"] = 3.0;
+    all_courses_dictionary["CPE372"] = 3.0;
+    all_courses_dictionary["CPE378"] = 3.0;
+    all_courses_dictionary["EEE331"] = 3.0;
+    all_courses_dictionary["EEE371"] = 3.0;
+    all_courses_dictionary["EEE312"] = 3.0;
+    all_courses_dictionary["EEE376"] = 3.0;
+    all_courses_dictionary["EEE311"] = 3.0;
+    all_courses_dictionary["EEE316"] = 3.0;
+    all_courses_dictionary["EEE332"] = 3.0;
+    all_courses_dictionary["EEE372"] = 2.0;
+    all_courses_dictionary["MEE322"] = 3.0;
+    all_courses_dictionary["MEE312"] = 3.0;
+    all_courses_dictionary["MEE332"] = 2.0;
+    all_courses_dictionary["MEE342"] = 2.0;
+    all_courses_dictionary["MEE372"] = 1.0;
+    all_courses_dictionary["PEE311"] = 3.0;
+    all_courses_dictionary["PEE322"] = 4.0;
+    all_courses_dictionary["PEE342"] = 3.0;
+    all_courses_dictionary["PEE332"] = 3.0;
+    all_courses_dictionary["PRE222"] = 2.0;
+    all_courses_dictionary["PRE321"] = 3.0;
+    all_courses_dictionary["PRE322"] = 2.0;
+    all_courses_dictionary["PRE332"] = 2.0;
+    all_courses_dictionary["PRE314"] = 2.0;
+    all_courses_dictionary["ELA302"] = 2.0;
+    all_courses_dictionary["CHE411"] = 2.0;
+    all_courses_dictionary["CHE421"] = 3.0;
+    all_courses_dictionary["CHE431"] = 3.0;
+    all_courses_dictionary["CHE441"] = 3.0;
+    all_courses_dictionary["CHE451"] = 3.0;
+    all_courses_dictionary["CHE461"] = 3.0;
+    all_courses_dictionary["CHE471"] = 2.0;
+    all_courses_dictionary["CHE481"] = 2.0;
+    all_courses_dictionary["CHE401"] = 2.0;
+    all_courses_dictionary["CHE411"] = 2.0;
+    all_courses_dictionary["CVE411"] = 2.0;
+    all_courses_dictionary["CVE415"] = 2.0;
+    all_courses_dictionary["CVE421"] = 2.0;
+    all_courses_dictionary["CVE423"] = 3.0;
+    all_courses_dictionary["CVE431"] = 3.0;
+    all_courses_dictionary["CVE441"] = 2.0;
+    all_courses_dictionary["CVE451"] = 3.0;
+    all_courses_dictionary["CVE471"] = 2.0;
+    all_courses_dictionary["CVE481"] = 3.0;
+    all_courses_dictionary["ELA401"] = 2.0;
+    all_courses_dictionary["STE411"] = 2.0;
+    all_courses_dictionary["STE413"] = 2.0;
+    all_courses_dictionary["STE415"] = 2.0;
+    all_courses_dictionary["STE417"] = 2.0;
+    all_courses_dictionary["STE425"] = 2.0;
+    all_courses_dictionary["CPE481"] = 2.0;
+    all_courses_dictionary["CPE481"] = 3.0;
+    all_courses_dictionary["CPE475"] = 3.0;
+    all_courses_dictionary["CPE423"] = 3.0;
+    all_courses_dictionary["CPE451"] = 3.0;
+    all_courses_dictionary["CPE477"] = 3.0;
+    all_courses_dictionary["CPE471"] = 3.0;
+    all_courses_dictionary["CPE473"] = 3.0;
+    all_courses_dictionary["EEE431"] = 3.0;
+    all_courses_dictionary["EEE433"] = 3.0;
+    all_courses_dictionary["EEE451"] = 3.0;
+    all_courses_dictionary["EEE471"] = 3.0;
+    all_courses_dictionary["EEE473"] = 3.0;
+    all_courses_dictionary["EEE453"] = 3.0;
+    all_courses_dictionary["MEE411"] = 3.0;
+    all_courses_dictionary["MEE421"] = 3.0;
+    all_courses_dictionary["MEE431"] = 2.0;
+    all_courses_dictionary["MEE441"] = 2.0;
+    all_courses_dictionary["MEE451"] = 2.0;
+    all_courses_dictionary["MEE461"] = 3.0;
+    all_courses_dictionary["MEE471"] = 2.0;
+    all_courses_dictionary["PEE431"] = 2.0;
+    all_courses_dictionary["PEE441"] = 3.0;
+    all_courses_dictionary["PEE451"] = 3.0;
+    all_courses_dictionary["PEE461"] = 3.0;
+    all_courses_dictionary["PEE471"] = 3.0;
+    all_courses_dictionary["PEE401"] = 2.0;
+    all_courses_dictionary["PRE411"] = 3.0;
+    all_courses_dictionary["PRE441"] = 3.0;
+    all_courses_dictionary["PRE431"] = 3.0;
+    all_courses_dictionary["PRE421"] = 3.0;
+    all_courses_dictionary["PRE451"] = 3.0;
+    all_courses_dictionary["PRE461"] = 3.0;
+    all_courses_dictionary["PRE401"] = 2.0;
+    all_courses_dictionary["PRE473"] = 3.0;
+    all_courses_dictionary["CED300"] = 2.0;
+    all_courses_dictionary["CHE511"] = 2.0;
+    all_courses_dictionary["CHE521"] = 2.0;
+    all_courses_dictionary["CHE531"] = 3.0;
+    all_courses_dictionary["CHE541"] = 3.0;
+    all_courses_dictionary["CHE521"] = 2.0;
+    all_courses_dictionary["CHE571"] = 3.0;
+    all_courses_dictionary["CHE591"] = 3.0;
+    all_courses_dictionary["CHE581"] = 3.0;
+    all_courses_dictionary["CHE581"] = 2.0;
+    all_courses_dictionary["CVE513"] = 2.0;
+    all_courses_dictionary["CVE521"] = 2.0;
+    all_courses_dictionary["CVE523"] = 2.0;
+    all_courses_dictionary["CVE531"] = 3.0;
+    all_courses_dictionary["CVE541"] = 2.0;
+    all_courses_dictionary["CVE521"] = 3.0;
+    all_courses_dictionary["CVE581"] = 2.0;
+    all_courses_dictionary["STE511"] = 2.0;
+    all_courses_dictionary["STE513"] = 2.0;
+    all_courses_dictionary["STE515"] = 3.0;
+    all_courses_dictionary["STE517"] = 2.0;
+    all_courses_dictionary["STE501"] = 3.0;
+    all_courses_dictionary["CPE591"] = 3.0;
+    all_courses_dictionary["CPE571"] = 3.0;
+    all_courses_dictionary["CPE553"] = 3.0;
+    all_courses_dictionary["CPE573"] = 3.0;
+    all_courses_dictionary["CPE575"] = 3.0;
+    all_courses_dictionary["CPE590"] = 0.0;
+    all_courses_dictionary["CPE590"] = 3.0;
+    all_courses_dictionary["EEE531"] = 3.0;
+    all_courses_dictionary["EEE533"] = 3.0;
+    all_courses_dictionary["EEE591"] = 3.0;
+    all_courses_dictionary["EEE571"] = 3.0;
+    all_courses_dictionary["EEE573"] = 3.0;
+    all_courses_dictionary["EEE522"] = 3.0;
+    all_courses_dictionary["EEE562"] = 3.0;
+    all_courses_dictionary["EEE516"] = 3.0;
+    all_courses_dictionary["ECP576"] = 3.0;
+    all_courses_dictionary["EEE524"] = 3.0;
+    all_courses_dictionary["EEE532"] = 3.0;
+    all_courses_dictionary["EEE534"] = 3.0;
+    all_courses_dictionary["EEE536"] = 3.0;
+    all_courses_dictionary["EEE538"] = 3.0;
+    all_courses_dictionary["EEE552"] = 3.0;
+    all_courses_dictionary["EEE572"] = 3.0;
+    all_courses_dictionary["EEE574"] = 3.0;
+    all_courses_dictionary["EEE576"] = 3.0;
+    all_courses_dictionary["EEE578"] = 3.0;
+    all_courses_dictionary["MEE501"] = 3.0;
+    all_courses_dictionary["MEE505"] = 2.0;
+    all_courses_dictionary["MEE511"] = 3.0;
+    all_courses_dictionary["MEE521"] = 3.0;
+    all_courses_dictionary["MEE531"] = 3.0;
+    all_courses_dictionary["MEE541"] = 3.0;
+    all_courses_dictionary["MEE551"] = 2.0;
+    all_courses_dictionary["MEE561"] = 3.0;
+    all_courses_dictionary["MEE571"] = 2.0;
+    all_courses_dictionary["MEE591"] = 3.0;
+    all_courses_dictionary["MEE502"] = 3.0;
+    all_courses_dictionary["MEE506"] = 2.0;
+    all_courses_dictionary["MEE512"] = 3.0;
+    all_courses_dictionary["MEE522"] = 3.0;
+    all_courses_dictionary["MEE532"] = 3.0;
+    all_courses_dictionary["MEE542"] = 3.0;
+    all_courses_dictionary["MEE552"] = 2.0;
+    all_courses_dictionary["MEE562"] = 3.0;
+    all_courses_dictionary["MEE572"] = 2.0;
+    all_courses_dictionary["MEE582"] = 3.0;
+    all_courses_dictionary["MEE592"] = 3.0;
+    all_courses_dictionary["PEE531"] = 3.0;
+    all_courses_dictionary["PEE561"] = 3.0;
+    all_courses_dictionary["PEE571"] = 3.0;
+    all_courses_dictionary["PEE581"] = 3.0;
+    all_courses_dictionary["PEE591"] = 3.0;
+    all_courses_dictionary["PEE500"] = 3.0;
+    all_courses_dictionary["PEE572"] = 3.0;
+    all_courses_dictionary["PEE582"] = 3.0;
+    all_courses_dictionary["PEE562"] = 3.0;
+    all_courses_dictionary["PEE532"] = 3.0;
+    all_courses_dictionary["PEE592"] = 3.0;
+    all_courses_dictionary["PRE541"] = 2.0;
+    all_courses_dictionary["PRE572"] = 2.0;
+    all_courses_dictionary["PRE571"] = 3.0;
+    all_courses_dictionary["PRE531"] = 3.0;
+    all_courses_dictionary["PRE581"] = 3.0;
+    all_courses_dictionary["PRE521"] = 3.0;
+    all_courses_dictionary["PRE561"] = 2.0;
+    all_courses_dictionary["PRE551"] = 2.0;
+    all_courses_dictionary["PRE501"] = 3.0;
+    all_courses_dictionary["PRE592"] = 3.0;
+    all_courses_dictionary["PRE522"] = 3.0;
+    all_courses_dictionary["PRE541"] = 2.0;
+    all_courses_dictionary["PRE572"] = 2.0;
+    all_courses_dictionary["PRE571"] = 3.0;
+    all_courses_dictionary["PRE531"] = 3.0;
+    all_courses_dictionary["PRE581"] = 3.0;
+    all_courses_dictionary["PRE521"] = 3.0;
+    all_courses_dictionary["PRE561"] = 2.0;
+    all_courses_dictionary["PRE551"] = 2.0;
+    all_courses_dictionary["PRE501"] = 3.0;
+    all_courses_dictionary["PRE592"] = 3.0;
+    all_courses_dictionary["PRE522"] = 3.0;
+    all_courses_dictionary["PRE532"] = 3.0;
+    all_courses_dictionary["PRE562"] = 2.0;
+    all_courses_dictionary["PRE564"] = 2.0;
+    all_courses_dictionary["CVE515"] = 3.0;
+    all_courses_dictionary["CVE525"] = 3.0;
+    all_courses_dictionary["CVE535"] = 3.0;
+    all_courses_dictionary["CVE545"] = 3.0;
+    all_courses_dictionary["CVE565"] = 3.0;
+    all_courses_dictionary["CVE567"] = 3.0;
+    all_courses_dictionary["CHE512"] = 2.0;
+    all_courses_dictionary["CHE522"] = 3.0;
+    all_courses_dictionary["CHE532"] = 3.0;
+    all_courses_dictionary["CHE542"] = 3.0;
+    all_courses_dictionary["CHE552"] = 3.0;
+    all_courses_dictionary["CHE562"] = 3.0;
+    all_courses_dictionary["CHE500"] = 3.0;
+    all_courses_dictionary["CVE572"] = 3.0;
+    all_courses_dictionary["CVE512"] = 2.0;
+    all_courses_dictionary["CVE514"] = 2.0;
+    all_courses_dictionary["CVE522"] = 2.0;
+    all_courses_dictionary["CVE542"] = 2.0;
+    all_courses_dictionary["CVE502"] = 2.0;
+    all_courses_dictionary["STE512"] = 2.0;
+    all_courses_dictionary["STE514"] = 2.0;
+    all_courses_dictionary["STE516"] = 2.0;
+    all_courses_dictionary["STE518"] = 2.0;
+    all_courses_dictionary["STE502"] = 3.0;
+    all_courses_dictionary["EEE590"] = 0.0;
+    all_courses_dictionary["EEE500"] = 3.0;
+    all_courses_dictionary["CPE552"] = 3.0;
+    all_courses_dictionary["CPE586"] = 3.0;
+    all_courses_dictionary["CPE578"] = 3.0;
+    all_courses_dictionary["CPE534"] = 3.0;
+    all_courses_dictionary["CPE554"] = 3.0;
+    all_courses_dictionary["CPE556"] = 3.0;
+    all_courses_dictionary["CPE522"] = 3.0;
+    all_courses_dictionary["CPE578"] = 3.0;
+    all_courses_dictionary["CPE512"] = 3.0;
+    all_courses_dictionary["STE532"] = 3.0;
+    all_courses_dictionary["STE524"] = 3.0;
+    all_courses_dictionary["STE536"] = 3.0;
+    all_courses_dictionary["CVE516"] = 3.0;
+    all_courses_dictionary["CVE526"] = 3.0;
+    all_courses_dictionary["CVE536"] = 3.0;
+    all_courses_dictionary["CVE546"] = 3.0;
+    all_courses_dictionary["CVE566"] = 3.0;
+    all_courses_dictionary["A"] = 5.0;
+    all_courses_dictionary["B"] = 4.0;
+    all_courses_dictionary["C"] = 3.0;
+    all_courses_dictionary["D"] = 2.0;
+    all_courses_dictionary["E"] = 1.0;
+    all_courses_dictionary["F"] = 0.0;
+    all_courses_dictionary[""] = 0.0;
+
+    float first_course_2 = all_courses_dictionary[course_one_2->GetValue()];
+    float first_course_grade_2 = all_courses_dictionary[course_one_grade_2->GetValue()];
+    float second_course_2 = all_courses_dictionary[course_two_2->GetValue()];
+    float second_course_grade_2 = all_courses_dictionary[course_two_grade_2->GetValue()];
+    float third_course_2 = all_courses_dictionary[course_three_2->GetValue()];
+    float third_course_grade_2 = all_courses_dictionary[course_three_grade_2->GetValue()];
+    float fourth_course_2 = all_courses_dictionary[course_four_2->GetValue()];
+    float fourth_course_grade_2 = all_courses_dictionary[course_four_grade_2->GetValue()];
+    float fifth_course_2 = all_courses_dictionary[course_five_2->GetValue()];
+    float fifth_course_grade_2 = all_courses_dictionary[course_five_grade_2->GetValue()];
+    float sixth_course_2 = all_courses_dictionary[course_six_2->GetValue()];
+    float sixth_course_grade_2 = all_courses_dictionary[course_six_grade_2->GetValue()];
+    float seventh_course_2 = all_courses_dictionary[course_seven_2->GetValue()];
+    float seventh_course_grade_2 = all_courses_dictionary[course_seven_grade_2->GetValue()];
+    float eighth_course_2 = all_courses_dictionary[course_eight_2->GetValue()];
+    float eighth_course_grade_2 = all_courses_dictionary[course_eight_grade_2->GetValue()];
+    float nineth_course_2 = all_courses_dictionary[course_nine_2->GetValue()];
+    float nineth_course_grade_2 = all_courses_dictionary[course_nine_grade_2->GetValue()];
+    float tenth_course_2 = all_courses_dictionary[course_ten_2->GetValue()];
+    float tenth_course_grade_2 = all_courses_dictionary[course_ten_grade_2->GetValue()];
+    float eleventh_course_2 = all_courses_dictionary[course_eleven_2->GetValue()];
+    float eleventh_course_grade_2 = all_courses_dictionary[course_eleven_grade_2->GetValue()];
+    float twelveth_course_2 = all_courses_dictionary[course_twelve_2->GetValue()];
+    float twelveth_course_grade_2 = all_courses_dictionary[course_twelve_grade_2->GetValue()];
+    float thirteenth_course_2 = all_courses_dictionary[course_thirteen_2->GetValue()];
+    float thirteenth_course_grade_2 = all_courses_dictionary[course_thirteen_grade_2->GetValue()];
+    float fourteenth_course_2 = all_courses_dictionary[course_fourteen_2->GetValue()];
+    float fourteenth_course_grade_2 = all_courses_dictionary[course_fourteen_grade_2->GetValue()];
+    float fifteenth_course_2 = all_courses_dictionary[course_fifteen_2->GetValue()];
+    float fifteenth_course_grade_2 = all_courses_dictionary[course_fifteen_grade_2->GetValue()];
+    float sixteenth_course_2 = all_courses_dictionary[course_sixteen_2->GetValue()];
+    float sixteenth_course_grade_2 = all_courses_dictionary[course_sixteen_grade_2->GetValue()];
+    float seventeenth_course_2 = all_courses_dictionary[course_seventeen_2->GetValue()];
+    float seventeenth_course_grade_2 = all_courses_dictionary[course_seventeen_grade_2->GetValue()];
+    float eighteenth_course_2 = all_courses_dictionary[course_eighteen_2->GetValue()];
+    float eighteenth_course_grade_2 = all_courses_dictionary[course_eighteen_grade_2->GetValue()];
+    float ninteenth_course_2 = all_courses_dictionary[course_nineteen_2->GetValue()];
+    float ninteenth_course_grade_2 = all_courses_dictionary[course_nineteen_grade_2->GetValue()];
+    float twentieth_course_2 = all_courses_dictionary[course_twenty_2->GetValue()];
+    float twentieth_course_grade_2 = all_courses_dictionary[course_twenty_grade_2->GetValue()];
+    float twenty_first_course_2 = all_courses_dictionary[course_twenty_one_2->GetValue()];
+    float twenty_first_course_grade_2 = all_courses_dictionary[course_twenty_one_grade_2->GetValue()];
+    float twenty_second_course_2 = all_courses_dictionary[course_twenty_two_2->GetValue()];
+    float twenty_second_course_grade_2 = all_courses_dictionary[course_twenty_two_grade_2->GetValue()];
+    float twenty_third_course_2 = all_courses_dictionary[course_twenty_three_2->GetValue()];
+    float twenty_third_course_grade_2 = all_courses_dictionary[course_twenty_three_grade_2->GetValue()];
+    float twenty_fourth_course_2 = all_courses_dictionary[course_twenty_four_2->GetValue()];
+    float twenty_fourth_course_grade_2 = all_courses_dictionary[course_twenty_four_grade_2->GetValue()];
+
+    float second_year_course_credit_load_sum = (first_course_2 * first_course_grade_2) + (second_course_2 * second_course_grade_2) + (third_course_2 * third_course_grade_2) + (fourth_course_2 + fourth_course_grade_2) + (fifth_course_2 * fifth_course_grade_2) + (sixth_course_2 * sixth_course_grade_2) + (seventh_course_2 * seventh_course_grade_2) + (eighth_course_2 * eighth_course_grade_2) + (nineth_course_2 * nineth_course_grade_2) + (tenth_course_2 * tenth_course_grade_2) + (eleventh_course_2 * eleventh_course_grade_2) + (twelveth_course_2 * twelveth_course_grade_2) + (thirteenth_course_2 * thirteenth_course_grade_2) + (fourteenth_course_2 * fourteenth_course_grade_2) + (fifteenth_course_2 * fifteenth_course_grade_2) + (sixteenth_course_2 * sixteenth_course_grade_2) + (seventeenth_course_2 * seventeenth_course_grade_2) + (eighteenth_course_2 * eighteenth_course_grade_2) + (ninteenth_course_2 * ninteenth_course_grade_2) + (twentieth_course_2 * twentieth_course_grade_2) + (twenty_first_course_2 * twenty_first_course_grade_2) + (twenty_second_course_2 * twenty_second_course_grade_2) + (twenty_third_course_2 * twenty_third_course_grade_2) + (twenty_fourth_course_2 * twenty_fourth_course_grade_2);
+    float second_year_credit_load_sum = first_course_2 + second_course_2 + third_course_2 + fourth_course_2 + fifth_course_2 + sixth_course_2 + seventh_course_2 + eighth_course_2 + nineth_course_2 + tenth_course_2 + eleventh_course_2 + twelveth_course_2 + thirteenth_course_2 + fourteenth_course_2 + fifteenth_course_2 + sixteenth_course_2 + seventeenth_course_2 + eighteenth_course_2 + ninteenth_course_2 + twentieth_course_2 + twenty_first_course_2 + twenty_second_course_2 + twenty_third_course_2 + twenty_fourth_course_2;
+
+    float second_year_total_gp = second_year_course_credit_load_sum / second_year_credit_load_sum;
+
+    // convert the gp to wxString 
+
+    wxString second_year_total_gp_wxstring = wxString::Format(wxT("%f"), second_year_total_gp);
+
+    wxMessageBox("200 Level Grade Pending: " + second_year_total_gp_wxstring);
+
+    event.Skip();
+}
+
+void MyFrame::OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
+    using namespace std;
+
+    std::map<wxString, float> all_courses_dictionary;
+
+    all_courses_dictionary["CHM111"] = 3.0;
+    all_courses_dictionary["CHM113"] = 3.0;
+    all_courses_dictionary["MTH110"] = 3.0;
+    all_courses_dictionary["MTH112"] = 3.0;
+    all_courses_dictionary["PHY111"] = 3.0;
+    all_courses_dictionary["PHY113"] = 3.0;
+    all_courses_dictionary["GST111"] = 2.0;
+    all_courses_dictionary["GST112"] = 2.0;
+    all_courses_dictionary["CHM122"] = 3.0;
+    all_courses_dictionary["CHM124"] = 3.0;
+    all_courses_dictionary["MTH123"] = 3.0;
+    all_courses_dictionary["MTH125"] = 3.0;
+    all_courses_dictionary["PHY109"] = 2.0;
+    all_courses_dictionary["PHY124"] = 4.0;
+    all_courses_dictionary["GST121"] = 2.0;
+    all_courses_dictionary["GST122"] = 2.0;
+    all_courses_dictionary["GST123"] = 2.0;
+    all_courses_dictionary["ECP281"] = 2.0;
+    all_courses_dictionary["ENS211"] = 2.0;
+    all_courses_dictionary["EMA281"] = 3.0;
+    all_courses_dictionary["EMA282"] = 4.0;
+    all_courses_dictionary["EMA381"] = 3.0;
+    all_courses_dictionary["EMA281"] = 4.0;
+    all_courses_dictionary["EMA481"] = 3.0;
+    all_courses_dictionary["MEE211"] = 3.0;
+    all_courses_dictionary["MEE221"] = 3.0;
+    all_courses_dictionary["EEE211"] = 3.0;
+    all_courses_dictionary["CVE211"] = 3.0;
+    all_courses_dictionary["PRE211"] = 2.0;
+    all_courses_dictionary["PRE211"] = 2.0;
+    all_courses_dictionary["CHE211"] = 2.0;
+    all_courses_dictionary["ELA201"] = 2.0;
+    all_courses_dictionary["MEE212"] = 3.0;
+    all_courses_dictionary["EEE211"] = 3.0;
+    all_courses_dictionary["MEE222"] = 3.0;
+    all_courses_dictionary["CHE222"] = 3.0;
+    all_courses_dictionary["CHE212"] = 2.0;
+    all_courses_dictionary["PRE212"] = 2.0;
+    all_courses_dictionary["ELA202"] = 2.0;
+    all_courses_dictionary["CVE212"] = 3.0;
+    all_courses_dictionary["EEE272"] = 2.0;
+    all_courses_dictionary["MEE351"] = 2.0;
+    all_courses_dictionary["MEE361"] = 2.0;
+    all_courses_dictionary["CHE321"] = 3.0;
+    all_courses_dictionary["CHE331"] = 2.0;
+    all_courses_dictionary["CHE341"] = 3.0;
+    all_courses_dictionary["CHE251"] = 3.0;
+    all_courses_dictionary["CHE321"] = 3.0;
+    all_courses_dictionary["CHE301"] = 2.0;
+    all_courses_dictionary["PRE311"] = 2.0;
+    all_courses_dictionary["CHE321"] = 3.0;
+    all_courses_dictionary["CVE341"] = 3.0;
+    all_courses_dictionary["CVE313"] = 3.0;
+    all_courses_dictionary["CVE311"] = 3.0;
+    all_courses_dictionary["STE311"] = 3.0;
+    all_courses_dictionary["CPE381"] = 3.0;
+    all_courses_dictionary["CPE375"] = 3.0;
+    all_courses_dictionary["CPE371"] = 3.0;
+    all_courses_dictionary["CPE311"] = 3.0;
+    all_courses_dictionary["CPE381"] = 2.0;
+    all_courses_dictionary["CPE377"] = 2.0;
+    all_courses_dictionary["CPE301"] = 2.0;
+    all_courses_dictionary["CHE312"] = 2.0;
+    all_courses_dictionary["CHE322"] = 3.0;
+    all_courses_dictionary["CHE332"] = 3.0;
+    all_courses_dictionary["CHE352"] = 3.0;
+    all_courses_dictionary["CHE362"] = 3.0;
+    all_courses_dictionary["CHE372"] = 3.0;
+    all_courses_dictionary["CHE302"] = 2.0;
+    all_courses_dictionary["MEE362"] = 2.0;
+    all_courses_dictionary["CVE312"] = 3.0;
+    all_courses_dictionary["CVE314"] = 2.0;
+    all_courses_dictionary["CVE342"] = 2.0;
+    all_courses_dictionary["CVE344"] = 2.0;
+    all_courses_dictionary["CVE352"] = 3.0;
+    all_courses_dictionary["CVE316"] = 2.0;
+    all_courses_dictionary["STE312"] = 3.0;
+    all_courses_dictionary["CPE382"] = 3.0;
+    all_courses_dictionary["CPE376"] = 3.0;
+    all_courses_dictionary["CPE312"] = 3.0;
+    all_courses_dictionary["CPE314"] = 3.0;
+    all_courses_dictionary["CPE316"] = 3.0;
+    all_courses_dictionary["CPE322"] = 3.0;
+    all_courses_dictionary["CPE372"] = 3.0;
+    all_courses_dictionary["CPE378"] = 3.0;
+    all_courses_dictionary["EEE331"] = 3.0;
+    all_courses_dictionary["EEE371"] = 3.0;
+    all_courses_dictionary["EEE312"] = 3.0;
+    all_courses_dictionary["EEE376"] = 3.0;
+    all_courses_dictionary["EEE311"] = 3.0;
+    all_courses_dictionary["EEE316"] = 3.0;
+    all_courses_dictionary["EEE332"] = 3.0;
+    all_courses_dictionary["EEE372"] = 2.0;
+    all_courses_dictionary["MEE322"] = 3.0;
+    all_courses_dictionary["MEE312"] = 3.0;
+    all_courses_dictionary["MEE332"] = 2.0;
+    all_courses_dictionary["MEE342"] = 2.0;
+    all_courses_dictionary["MEE372"] = 1.0;
+    all_courses_dictionary["PEE311"] = 3.0;
+    all_courses_dictionary["PEE322"] = 4.0;
+    all_courses_dictionary["PEE342"] = 3.0;
+    all_courses_dictionary["PEE332"] = 3.0;
+    all_courses_dictionary["PRE222"] = 2.0;
+    all_courses_dictionary["PRE321"] = 3.0;
+    all_courses_dictionary["PRE322"] = 2.0;
+    all_courses_dictionary["PRE332"] = 2.0;
+    all_courses_dictionary["PRE314"] = 2.0;
+    all_courses_dictionary["ELA302"] = 2.0;
+    all_courses_dictionary["CHE411"] = 2.0;
+    all_courses_dictionary["CHE421"] = 3.0;
+    all_courses_dictionary["CHE431"] = 3.0;
+    all_courses_dictionary["CHE441"] = 3.0;
+    all_courses_dictionary["CHE451"] = 3.0;
+    all_courses_dictionary["CHE461"] = 3.0;
+    all_courses_dictionary["CHE471"] = 2.0;
+    all_courses_dictionary["CHE481"] = 2.0;
+    all_courses_dictionary["CHE401"] = 2.0;
+    all_courses_dictionary["CHE411"] = 2.0;
+    all_courses_dictionary["CVE411"] = 2.0;
+    all_courses_dictionary["CVE415"] = 2.0;
+    all_courses_dictionary["CVE421"] = 2.0;
+    all_courses_dictionary["CVE423"] = 3.0;
+    all_courses_dictionary["CVE431"] = 3.0;
+    all_courses_dictionary["CVE441"] = 2.0;
+    all_courses_dictionary["CVE451"] = 3.0;
+    all_courses_dictionary["CVE471"] = 2.0;
+    all_courses_dictionary["CVE481"] = 3.0;
+    all_courses_dictionary["ELA401"] = 2.0;
+    all_courses_dictionary["STE411"] = 2.0;
+    all_courses_dictionary["STE413"] = 2.0;
+    all_courses_dictionary["STE415"] = 2.0;
+    all_courses_dictionary["STE417"] = 2.0;
+    all_courses_dictionary["STE425"] = 2.0;
+    all_courses_dictionary["CPE481"] = 2.0;
+    all_courses_dictionary["CPE481"] = 3.0;
+    all_courses_dictionary["CPE475"] = 3.0;
+    all_courses_dictionary["CPE423"] = 3.0;
+    all_courses_dictionary["CPE451"] = 3.0;
+    all_courses_dictionary["CPE477"] = 3.0;
+    all_courses_dictionary["CPE471"] = 3.0;
+    all_courses_dictionary["CPE473"] = 3.0;
+    all_courses_dictionary["EEE431"] = 3.0;
+    all_courses_dictionary["EEE433"] = 3.0;
+    all_courses_dictionary["EEE451"] = 3.0;
+    all_courses_dictionary["EEE471"] = 3.0;
+    all_courses_dictionary["EEE473"] = 3.0;
+    all_courses_dictionary["EEE453"] = 3.0;
+    all_courses_dictionary["MEE411"] = 3.0;
+    all_courses_dictionary["MEE421"] = 3.0;
+    all_courses_dictionary["MEE431"] = 2.0;
+    all_courses_dictionary["MEE441"] = 2.0;
+    all_courses_dictionary["MEE451"] = 2.0;
+    all_courses_dictionary["MEE461"] = 3.0;
+    all_courses_dictionary["MEE471"] = 2.0;
+    all_courses_dictionary["PEE431"] = 2.0;
+    all_courses_dictionary["PEE441"] = 3.0;
+    all_courses_dictionary["PEE451"] = 3.0;
+    all_courses_dictionary["PEE461"] = 3.0;
+    all_courses_dictionary["PEE471"] = 3.0;
+    all_courses_dictionary["PEE401"] = 2.0;
+    all_courses_dictionary["PRE411"] = 3.0;
+    all_courses_dictionary["PRE441"] = 3.0;
+    all_courses_dictionary["PRE431"] = 3.0;
+    all_courses_dictionary["PRE421"] = 3.0;
+    all_courses_dictionary["PRE451"] = 3.0;
+    all_courses_dictionary["PRE461"] = 3.0;
+    all_courses_dictionary["PRE401"] = 2.0;
+    all_courses_dictionary["PRE473"] = 3.0;
+    all_courses_dictionary["CED300"] = 2.0;
+    all_courses_dictionary["CHE511"] = 2.0;
+    all_courses_dictionary["CHE521"] = 2.0;
+    all_courses_dictionary["CHE531"] = 3.0;
+    all_courses_dictionary["CHE541"] = 3.0;
+    all_courses_dictionary["CHE521"] = 2.0;
+    all_courses_dictionary["CHE571"] = 3.0;
+    all_courses_dictionary["CHE591"] = 3.0;
+    all_courses_dictionary["CHE581"] = 3.0;
+    all_courses_dictionary["CHE581"] = 2.0;
+    all_courses_dictionary["CVE513"] = 2.0;
+    all_courses_dictionary["CVE521"] = 2.0;
+    all_courses_dictionary["CVE523"] = 2.0;
+    all_courses_dictionary["CVE531"] = 3.0;
+    all_courses_dictionary["CVE541"] = 2.0;
+    all_courses_dictionary["CVE521"] = 3.0;
+    all_courses_dictionary["CVE581"] = 2.0;
+    all_courses_dictionary["STE511"] = 2.0;
+    all_courses_dictionary["STE513"] = 2.0;
+    all_courses_dictionary["STE515"] = 3.0;
+    all_courses_dictionary["STE517"] = 2.0;
+    all_courses_dictionary["STE501"] = 3.0;
+    all_courses_dictionary["CPE591"] = 3.0;
+    all_courses_dictionary["CPE571"] = 3.0;
+    all_courses_dictionary["CPE553"] = 3.0;
+    all_courses_dictionary["CPE573"] = 3.0;
+    all_courses_dictionary["CPE575"] = 3.0;
+    all_courses_dictionary["CPE590"] = 0.0;
+    all_courses_dictionary["CPE590"] = 3.0;
+    all_courses_dictionary["EEE531"] = 3.0;
+    all_courses_dictionary["EEE533"] = 3.0;
+    all_courses_dictionary["EEE591"] = 3.0;
+    all_courses_dictionary["EEE571"] = 3.0;
+    all_courses_dictionary["EEE573"] = 3.0;
+    all_courses_dictionary["EEE522"] = 3.0;
+    all_courses_dictionary["EEE562"] = 3.0;
+    all_courses_dictionary["EEE516"] = 3.0;
+    all_courses_dictionary["ECP576"] = 3.0;
+    all_courses_dictionary["EEE524"] = 3.0;
+    all_courses_dictionary["EEE532"] = 3.0;
+    all_courses_dictionary["EEE534"] = 3.0;
+    all_courses_dictionary["EEE536"] = 3.0;
+    all_courses_dictionary["EEE538"] = 3.0;
+    all_courses_dictionary["EEE552"] = 3.0;
+    all_courses_dictionary["EEE572"] = 3.0;
+    all_courses_dictionary["EEE574"] = 3.0;
+    all_courses_dictionary["EEE576"] = 3.0;
+    all_courses_dictionary["EEE578"] = 3.0;
+    all_courses_dictionary["MEE501"] = 3.0;
+    all_courses_dictionary["MEE505"] = 2.0;
+    all_courses_dictionary["MEE511"] = 3.0;
+    all_courses_dictionary["MEE521"] = 3.0;
+    all_courses_dictionary["MEE531"] = 3.0;
+    all_courses_dictionary["MEE541"] = 3.0;
+    all_courses_dictionary["MEE551"] = 2.0;
+    all_courses_dictionary["MEE561"] = 3.0;
+    all_courses_dictionary["MEE571"] = 2.0;
+    all_courses_dictionary["MEE591"] = 3.0;
+    all_courses_dictionary["MEE502"] = 3.0;
+    all_courses_dictionary["MEE506"] = 2.0;
+    all_courses_dictionary["MEE512"] = 3.0;
+    all_courses_dictionary["MEE522"] = 3.0;
+    all_courses_dictionary["MEE532"] = 3.0;
+    all_courses_dictionary["MEE542"] = 3.0;
+    all_courses_dictionary["MEE552"] = 2.0;
+    all_courses_dictionary["MEE562"] = 3.0;
+    all_courses_dictionary["MEE572"] = 2.0;
+    all_courses_dictionary["MEE582"] = 3.0;
+    all_courses_dictionary["MEE592"] = 3.0;
+    all_courses_dictionary["PEE531"] = 3.0;
+    all_courses_dictionary["PEE561"] = 3.0;
+    all_courses_dictionary["PEE571"] = 3.0;
+    all_courses_dictionary["PEE581"] = 3.0;
+    all_courses_dictionary["PEE591"] = 3.0;
+    all_courses_dictionary["PEE500"] = 3.0;
+    all_courses_dictionary["PEE572"] = 3.0;
+    all_courses_dictionary["PEE582"] = 3.0;
+    all_courses_dictionary["PEE562"] = 3.0;
+    all_courses_dictionary["PEE532"] = 3.0;
+    all_courses_dictionary["PEE592"] = 3.0;
+    all_courses_dictionary["PRE541"] = 2.0;
+    all_courses_dictionary["PRE572"] = 2.0;
+    all_courses_dictionary["PRE571"] = 3.0;
+    all_courses_dictionary["PRE531"] = 3.0;
+    all_courses_dictionary["PRE581"] = 3.0;
+    all_courses_dictionary["PRE521"] = 3.0;
+    all_courses_dictionary["PRE561"] = 2.0;
+    all_courses_dictionary["PRE551"] = 2.0;
+    all_courses_dictionary["PRE501"] = 3.0;
+    all_courses_dictionary["PRE592"] = 3.0;
+    all_courses_dictionary["PRE522"] = 3.0;
+    all_courses_dictionary["PRE541"] = 2.0;
+    all_courses_dictionary["PRE572"] = 2.0;
+    all_courses_dictionary["PRE571"] = 3.0;
+    all_courses_dictionary["PRE531"] = 3.0;
+    all_courses_dictionary["PRE581"] = 3.0;
+    all_courses_dictionary["PRE521"] = 3.0;
+    all_courses_dictionary["PRE561"] = 2.0;
+    all_courses_dictionary["PRE551"] = 2.0;
+    all_courses_dictionary["PRE501"] = 3.0;
+    all_courses_dictionary["PRE592"] = 3.0;
+    all_courses_dictionary["PRE522"] = 3.0;
+    all_courses_dictionary["PRE532"] = 3.0;
+    all_courses_dictionary["PRE562"] = 2.0;
+    all_courses_dictionary["PRE564"] = 2.0;
+    all_courses_dictionary["CVE515"] = 3.0;
+    all_courses_dictionary["CVE525"] = 3.0;
+    all_courses_dictionary["CVE535"] = 3.0;
+    all_courses_dictionary["CVE545"] = 3.0;
+    all_courses_dictionary["CVE565"] = 3.0;
+    all_courses_dictionary["CVE567"] = 3.0;
+    all_courses_dictionary["CHE512"] = 2.0;
+    all_courses_dictionary["CHE522"] = 3.0;
+    all_courses_dictionary["CHE532"] = 3.0;
+    all_courses_dictionary["CHE542"] = 3.0;
+    all_courses_dictionary["CHE552"] = 3.0;
+    all_courses_dictionary["CHE562"] = 3.0;
+    all_courses_dictionary["CHE500"] = 3.0;
+    all_courses_dictionary["CVE572"] = 3.0;
+    all_courses_dictionary["CVE512"] = 2.0;
+    all_courses_dictionary["CVE514"] = 2.0;
+    all_courses_dictionary["CVE522"] = 2.0;
+    all_courses_dictionary["CVE542"] = 2.0;
+    all_courses_dictionary["CVE502"] = 2.0;
+    all_courses_dictionary["STE512"] = 2.0;
+    all_courses_dictionary["STE514"] = 2.0;
+    all_courses_dictionary["STE516"] = 2.0;
+    all_courses_dictionary["STE518"] = 2.0;
+    all_courses_dictionary["STE502"] = 3.0;
+    all_courses_dictionary["EEE590"] = 0.0;
+    all_courses_dictionary["EEE500"] = 3.0;
+    all_courses_dictionary["CPE552"] = 3.0;
+    all_courses_dictionary["CPE586"] = 3.0;
+    all_courses_dictionary["CPE578"] = 3.0;
+    all_courses_dictionary["CPE534"] = 3.0;
+    all_courses_dictionary["CPE554"] = 3.0;
+    all_courses_dictionary["CPE556"] = 3.0;
+    all_courses_dictionary["CPE522"] = 3.0;
+    all_courses_dictionary["CPE578"] = 3.0;
+    all_courses_dictionary["CPE512"] = 3.0;
+    all_courses_dictionary["STE532"] = 3.0;
+    all_courses_dictionary["STE524"] = 3.0;
+    all_courses_dictionary["STE536"] = 3.0;
+    all_courses_dictionary["CVE516"] = 3.0;
+    all_courses_dictionary["CVE526"] = 3.0;
+    all_courses_dictionary["CVE536"] = 3.0;
+    all_courses_dictionary["CVE546"] = 3.0;
+    all_courses_dictionary["CVE566"] = 3.0;
+    all_courses_dictionary["A"] = 5.0;
+    all_courses_dictionary["B"] = 4.0;
+    all_courses_dictionary["C"] = 3.0;
+    all_courses_dictionary["D"] = 2.0;
+    all_courses_dictionary["E"] = 1.0;
+    all_courses_dictionary["F"] = 0.0;
+    all_courses_dictionary[""] = 0.0;
+
+    float first_course_3 = all_courses_dictionary[course_one_3->GetValue()];
+    float first_course_grade_3 = all_courses_dictionary[course_one_grade_3->GetValue()];
+    float second_course_3 = all_courses_dictionary[course_two_3->GetValue()];
+    float second_course_grade_3 = all_courses_dictionary[course_two_grade_3->GetValue()];
+    float third_course_3 = all_courses_dictionary[course_three_3->GetValue()];
+    float third_course_grade_3 = all_courses_dictionary[course_three_grade_3->GetValue()];
+    float fourth_course_3 = all_courses_dictionary[course_four_3->GetValue()];
+    float fourth_course_grade_3 = all_courses_dictionary[course_four_grade_3->GetValue()];
+    float fifth_course_3 = all_courses_dictionary[course_five_3->GetValue()];
+    float fifth_course_grade_3 = all_courses_dictionary[course_five_grade_3->GetValue()];
+    float sixth_course_3 = all_courses_dictionary[course_six_3->GetValue()];
+    float sixth_course_grade_3 = all_courses_dictionary[course_six_grade_3->GetValue()];
+    float seventh_course_3 = all_courses_dictionary[course_seven_3->GetValue()];
+    float seventh_course_grade_3 = all_courses_dictionary[course_seven_grade_3->GetValue()];
+    float eighth_course_3 = all_courses_dictionary[course_eight_3->GetValue()];
+    float eighth_course_grade_3 = all_courses_dictionary[course_eight_grade_3->GetValue()];
+    float nineth_course_3 = all_courses_dictionary[course_nine_3->GetValue()];
+    float nineth_course_grade_3 = all_courses_dictionary[course_nine_grade_3->GetValue()];
+    float tenth_course_3 = all_courses_dictionary[course_ten_3->GetValue()];
+    float tenth_course_grade_3 = all_courses_dictionary[course_ten_grade_3->GetValue()];
+    float eleventh_course_3 = all_courses_dictionary[course_eleven_3->GetValue()];
+    float eleventh_course_grade_3 = all_courses_dictionary[course_eleven_grade_3->GetValue()];
+    float twelveth_course_3 = all_courses_dictionary[course_twelve_3->GetValue()];
+    float twelveth_course_grade_3 = all_courses_dictionary[course_twelve_grade_3->GetValue()];
+    float thirteenth_course_3 = all_courses_dictionary[course_thirteen_3->GetValue()];
+    float thirteenth_course_grade_3 = all_courses_dictionary[course_thirteen_grade_3->GetValue()];
+    float fourteenth_course_3 = all_courses_dictionary[course_fourteen_3->GetValue()];
+    float fourteenth_course_grade_3 = all_courses_dictionary[course_fourteen_grade_3->GetValue()];
+    float fifteenth_course_3 = all_courses_dictionary[course_fifteen_3->GetValue()];
+    float fifteenth_course_grade_3 = all_courses_dictionary[course_fifteen_grade_3->GetValue()];
+    float sixteenth_course_3 = all_courses_dictionary[course_sixteen_3->GetValue()];
+    float sixteenth_course_grade_3 = all_courses_dictionary[course_sixteen_grade_3->GetValue()];
+    float seventeenth_course_3 = all_courses_dictionary[course_seventeen_3->GetValue()];
+    float seventeenth_course_grade_3 = all_courses_dictionary[course_seventeen_grade_3->GetValue()];
+    float eighteenth_course_3 = all_courses_dictionary[course_eighteen_3->GetValue()];
+    float eighteenth_course_grade_3 = all_courses_dictionary[course_eighteen_grade_3->GetValue()];
+    float ninteenth_course_3 = all_courses_dictionary[course_nineteen_3->GetValue()];
+    float ninteenth_course_grade_3 = all_courses_dictionary[course_nineteen_grade_3->GetValue()];
+    float twentieth_course_3 = all_courses_dictionary[course_twenty_3->GetValue()];
+    float twentieth_course_grade_3 = all_courses_dictionary[course_twenty_grade_3->GetValue()];
+    float twenty_first_course_3 = all_courses_dictionary[course_twenty_one_3->GetValue()];
+    float twenty_first_course_grade_3 = all_courses_dictionary[course_twenty_one_grade_3->GetValue()];
+    float twenty_second_course_3 = all_courses_dictionary[course_twenty_two_3->GetValue()];
+    float twenty_second_course_grade_3 = all_courses_dictionary[course_twenty_two_grade_3->GetValue()];
+    float twenty_third_course_3 = all_courses_dictionary[course_twenty_three_3->GetValue()];
+    float twenty_third_course_grade_3 = all_courses_dictionary[course_twenty_three_grade_3->GetValue()];
+    float twenty_fourth_course_3 = all_courses_dictionary[course_twenty_four_3->GetValue()];
+    float twenty_fourth_course_grade_3 = all_courses_dictionary[course_twenty_four_grade_3->GetValue()];
+
+    float third_year_course_credit_load_sum = (first_course_3 * first_course_grade_3) + (second_course_3 * second_course_grade_3) + (third_course_3 * third_course_grade_3) + (fourth_course_3 + fourth_course_grade_3) + (fifth_course_3 * fifth_course_grade_3) + (sixth_course_3 * sixth_course_grade_3) + (seventh_course_3 * seventh_course_grade_3) + (eighth_course_3 * eighth_course_grade_3) + (nineth_course_3 * nineth_course_grade_3) + (tenth_course_3 * tenth_course_grade_3) + (eleventh_course_3 * eleventh_course_grade_3) + (twelveth_course_3 * twelveth_course_grade_3) + (thirteenth_course_3 * thirteenth_course_grade_3) + (fourteenth_course_3 * fourteenth_course_grade_3) + (fifteenth_course_3 * fifteenth_course_grade_3) + (sixteenth_course_3 * sixteenth_course_grade_3) + (seventeenth_course_3 * seventeenth_course_grade_3) + (eighteenth_course_3 * eighteenth_course_grade_3) + (ninteenth_course_3 * ninteenth_course_grade_3) + (twentieth_course_3 * twentieth_course_grade_3) + (twenty_first_course_3 * twenty_first_course_grade_3) + (twenty_second_course_3 * twenty_second_course_grade_3) + (twenty_third_course_3 * twenty_third_course_grade_3) + (twenty_fourth_course_3 * twenty_fourth_course_grade_3);
+    float third_year_credit_load_sum = first_course_3 + second_course_3 + third_course_3 + fourth_course_3 + fifth_course_3 + sixth_course_3 + seventh_course_3 + eighth_course_3 + nineth_course_3 + tenth_course_3 + eleventh_course_3 + twelveth_course_3 + thirteenth_course_3 + fourteenth_course_3 + fifteenth_course_3 + sixteenth_course_3 + seventeenth_course_3 + eighteenth_course_3 + ninteenth_course_3 + twentieth_course_3 + twenty_first_course_3 + twenty_second_course_3 + twenty_third_course_3 + twenty_fourth_course_3;
+
+    float third_year_total_gp = third_year_course_credit_load_sum / third_year_credit_load_sum;
+
+    // convert the gp to wxString 
+
+    wxString third_year_total_gp_wxstring = wxString::Format(wxT("%f"), third_year_total_gp);
+
+    wxMessageBox("300 Level Grade Pending: " + third_year_total_gp_wxstring);
+
+    event.Skip();
+}
+
