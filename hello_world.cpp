@@ -1640,7 +1640,7 @@ void MyFrame::OnExit(wxCommandEvent& event) {
 }
 
 void MyFrame::OnAbout(wxCommandEvent& event) {
-    wxMessageBox("This is a programme for calculating the GP of an Engineering student at the Univesity of Benin.",
+    wxMessageBox("This is a programme for calculating the grade pending (GP) of an engineering student at the Univesity of Benin, Ugbowo Campus, Ugbowo, Benin-City, Edo State, Nigeria.",
                  "GP Calculator V0.0.1", wxOK | wxICON_INFORMATION);
 }
 
@@ -2035,9 +2035,9 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     float first_year_total_gp = first_year_course_credit_load_sum / first_year_credit_load_sum;
 
-    // check if the result of the GP calculation is even a number
+    // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
     if (isnan(first_year_total_gp) or first_year_course_credit_load_sum == 0 or first_year_credit_load_sum == 0) {
-        wxString first_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry";
+        wxString first_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
         wxMessageBox(first_year_total_gp_wxstring);
 
         event.Skip();
@@ -2434,14 +2434,21 @@ void MyFrame::OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     float second_year_credit_load_sum = first_course_2 + second_course_2 + third_course_2 + fourth_course_2 + fifth_course_2 + sixth_course_2 + seventh_course_2 + eighth_course_2 + nineth_course_2 + tenth_course_2 + eleventh_course_2 + twelveth_course_2 + thirteenth_course_2 + fourteenth_course_2 + fifteenth_course_2 + sixteenth_course_2 + seventeenth_course_2 + eighteenth_course_2 + ninteenth_course_2 + twentieth_course_2 + twenty_first_course_2 + twenty_second_course_2 + twenty_third_course_2 + twenty_fourth_course_2;
 
     float second_year_total_gp = second_year_course_credit_load_sum / second_year_credit_load_sum;
+    
+    // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
+    if (isnan(second_year_total_gp) or second_year_course_credit_load_sum == 0 or second_year_credit_load_sum == 0) {
+        wxString second_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxMessageBox(second_year_total_gp_wxstring);
 
-    // convert the gp to wxString 
+        event.Skip();
+    }
 
-    wxString second_year_total_gp_wxstring = wxString::Format(wxT("%f"), second_year_total_gp);
-
-    wxMessageBox("200 Level Grade Pending: " + second_year_total_gp_wxstring);
-
-    event.Skip();
+    else {
+        // convert the gp to wxString 
+        wxString second_year_total_gp_wxstring = wxString::Format(wxT("%f"), second_year_total_gp);
+        wxMessageBox("200 Level Grade Pending: " + second_year_total_gp_wxstring);
+        event.Skip();
+    }    
 }
 
 void MyFrame::OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
@@ -2827,13 +2834,21 @@ void MyFrame::OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     float third_year_total_gp = third_year_course_credit_load_sum / third_year_credit_load_sum;
 
-    // convert the gp to wxString 
+    // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
+    if (isnan(third_year_total_gp) or third_year_course_credit_load_sum == 0 or third_year_credit_load_sum == 0) {
+        wxString third_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxMessageBox(third_year_total_gp_wxstring);
 
-    wxString third_year_total_gp_wxstring = wxString::Format(wxT("%f"), third_year_total_gp);
+        event.Skip();
+    }
 
-    wxMessageBox("300 Level Grade Pending: " + third_year_total_gp_wxstring);
+    else {
+        // convert the gp to wxString 
+        wxString third_year_total_gp_wxstring = wxString::Format(wxT("%f"), third_year_total_gp);
+        wxMessageBox("300 Level Grade Pending: " + third_year_total_gp_wxstring);
+        event.Skip();
+    }    
 
-    event.Skip();
 }
 
 void MyFrame::OnFourHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
@@ -3219,13 +3234,21 @@ void MyFrame::OnFourHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     float fourth_year_total_gp = fourth_year_course_credit_load_sum / fourth_year_credit_load_sum;
 
-    // convert the gp to wxString 
+    // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
+    if (isnan(fourth_year_total_gp) or fourth_year_course_credit_load_sum == 0 or fourth_year_credit_load_sum == 0) {
+        wxString fourth_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxMessageBox(fourth_year_total_gp_wxstring);
 
-    wxString fourth_year_total_gp_wxstring = wxString::Format(wxT("%f"), fourth_year_total_gp);
+        event.Skip();
+    }
 
-    wxMessageBox("400 Level Grade Pending: " + fourth_year_total_gp_wxstring);
+    else {
+        // convert the gp to wxString 
+        wxString fourth_year_total_gp_wxstring = wxString::Format(wxT("%f"), fourth_year_total_gp);
+        wxMessageBox("100 Level Grade Pending: " + fourth_year_total_gp_wxstring);
+        event.Skip();
+    }    
 
-    event.Skip();
 }
 
 void MyFrame::OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
@@ -3611,11 +3634,19 @@ void MyFrame::OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     float fifth_year_total_gp = fifth_year_course_credit_load_sum / fifth_year_credit_load_sum;
 
-    // convert the gp to wxString 
+    // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
+    if (isnan(fifth_year_total_gp) or fifth_year_course_credit_load_sum == 0 or fifth_year_credit_load_sum == 0) {
+        wxString fifth_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxMessageBox(fifth_year_total_gp_wxstring);
 
-    wxString fifth_year_total_gp_wxstring = wxString::Format(wxT("%f"), fifth_year_total_gp);
+        event.Skip();
+    }
 
-    wxMessageBox("500 Level Grade Pending: " + fifth_year_total_gp_wxstring);
+    else {
+        // convert the gp to wxString 
+        wxString fifth_year_total_gp_wxstring = wxString::Format(wxT("%f"), fifth_year_total_gp);
+        wxMessageBox("100 Level Grade Pending: " + fifth_year_total_gp_wxstring);
+        event.Skip();
+    }    
 
-    event.Skip();
 }
