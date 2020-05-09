@@ -15,6 +15,7 @@
 #include <unordered_map>
 #include <iterator>
 #include <cmath>
+#include <math.h>
 
 #include <string>
 
@@ -2034,13 +2035,21 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     float first_year_total_gp = first_year_course_credit_load_sum / first_year_credit_load_sum;
 
-    // convert the gp to wxString 
+    // check if the result of the GP calculation is even a number
+    if (isnan(first_year_total_gp) or first_year_course_credit_load_sum == 0 or first_year_credit_load_sum == 0) {
+        wxString first_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry";
+        wxMessageBox(first_year_total_gp_wxstring);
 
-    wxString first_year_total_gp_wxstring = wxString::Format(wxT("%f"), first_year_total_gp);
+        event.Skip();
+    }
 
-    wxMessageBox("100 Level Grade Pending: " + first_year_total_gp_wxstring);
+    else {
+        // convert the gp to wxString 
+        wxString first_year_total_gp_wxstring = wxString::Format(wxT("%f"), first_year_total_gp);
+        wxMessageBox("100 Level Grade Pending: " + first_year_total_gp_wxstring);
+        event.Skip();
+    }    
 
-    event.Skip();
 }
 
 void MyFrame::OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
