@@ -2023,7 +2023,7 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
     if (isnan(first_year_total_gp) or first_year_course_credit_load_sum == 0 or first_year_credit_load_sum == 0) {
-        wxString first_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxString first_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.  If only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(first_year_total_gp_wxstring);
 
         event.Skip();
@@ -2032,7 +2032,23 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     else {
         // convert the gp to wxString 
         wxString first_year_total_gp_wxstring = wxString::Format(wxT("%f"), first_year_total_gp);
-        wxMessageBox("100 Level Grade Pending: " + first_year_total_gp_wxstring);
+        wxString honours_info;
+        if (first_year_total_gp > 4.5) {
+            honours_info = "                                                                                                                                        First Class Student";
+        }
+        if (first_year_total_gp < 4.49 and first_year_total_gp > 3.5) {
+            honours_info = "                                                                                                                                        Second Class Upper Student";
+        }
+        if (first_year_total_gp < 3.49 and first_year_total_gp > 2.4) {
+            honours_info = "                                                                                                                                        Second Class Lower Student";
+        }
+        if (first_year_total_gp < 2.39 and first_year_total_gp > 1.5) {
+            honours_info = "                                                                                                                                        Third Class Student";
+        }
+        else {
+            honours_info = "                                                                                                                                        Pass Student";
+        }
+        wxMessageBox("100 Level Grade Pending: " + first_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
     }    
 
@@ -2423,7 +2439,7 @@ void MyFrame::OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
     if (isnan(second_year_total_gp) or second_year_course_credit_load_sum == 0 or second_year_credit_load_sum == 0) {
-        wxString second_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxString second_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.  If only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(second_year_total_gp_wxstring);
 
         event.Skip();
@@ -2432,7 +2448,23 @@ void MyFrame::OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     else {
         // convert the gp to wxString 
         wxString second_year_total_gp_wxstring = wxString::Format(wxT("%f"), second_year_total_gp);
-        wxMessageBox("200 Level Grade Pending: " + second_year_total_gp_wxstring);
+        wxString honours_info;
+        if (second_year_total_gp > 4.5) {
+            honours_info = "                                                                                                                                        First Class Student";
+        }
+        if (second_year_total_gp < 4.49 and second_year_total_gp > 3.5) {
+            honours_info = "                                                                                                                                        Second Class Upper Student";
+        }
+        if (second_year_total_gp < 3.49 and second_year_total_gp > 2.4) {
+            honours_info = "                                                                                                                                        Second Class Lower Student";
+        }
+        if (second_year_total_gp < 2.39 and second_year_total_gp > 1.5) {
+            honours_info = "                                                                                                                                        Third Class Student";
+        }
+        else {
+            honours_info = "                                                                                                                                        Pass Student";
+        }
+        wxMessageBox("200 Level Grade Pending: " + second_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
     }    
 }
@@ -2822,7 +2854,7 @@ void MyFrame::OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
     if (isnan(third_year_total_gp) or third_year_course_credit_load_sum == 0 or third_year_credit_load_sum == 0) {
-        wxString third_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxString third_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.  If only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(third_year_total_gp_wxstring);
 
         event.Skip();
@@ -2831,7 +2863,23 @@ void MyFrame::OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     else {
         // convert the gp to wxString 
         wxString third_year_total_gp_wxstring = wxString::Format(wxT("%f"), third_year_total_gp);
-        wxMessageBox("300 Level Grade Pending: " + third_year_total_gp_wxstring);
+        wxString honours_info;
+        if (third_year_total_gp > 4.5) {
+            honours_info = "                                                                                                                                        First Class Student";
+        }
+        if (third_year_total_gp < 4.49 and third_year_total_gp > 3.5) {
+            honours_info = "                                                                                                                                        Second Class Upper Student";
+        }
+        if (third_year_total_gp < 3.49 and third_year_total_gp > 2.4) {
+            honours_info = "                                                                                                                                        Second Class Lower Student";
+        }
+        if (third_year_total_gp < 2.39 and third_year_total_gp > 1.5) {
+            honours_info = "                                                                                                                                        Third Class Student";
+        }
+        else {
+            honours_info = "                                                                                                                                        Pass Student";
+        }
+        wxMessageBox("300 Level Grade Pending: " + third_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
     }    
 
@@ -3222,16 +3270,31 @@ void MyFrame::OnFourHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
     if (isnan(fourth_year_total_gp) or fourth_year_course_credit_load_sum == 0 or fourth_year_credit_load_sum == 0) {
-        wxString fourth_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxString fourth_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.  If only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(fourth_year_total_gp_wxstring);
-
         event.Skip();
     }
 
     else {
         // convert the gp to wxString 
         wxString fourth_year_total_gp_wxstring = wxString::Format(wxT("%f"), fourth_year_total_gp);
-        wxMessageBox("100 Level Grade Pending: " + fourth_year_total_gp_wxstring);
+        wxString honours_info;
+        if (fourth_year_total_gp > 4.5) {
+            honours_info = "                                                                                                                                        First Class Student";
+        }
+        if (fourth_year_total_gp < 4.49 and fourth_year_total_gp > 3.5) {
+            honours_info = "                                                                                                                                        Second Class Upper Student";
+        }
+        if (fourth_year_total_gp < 3.49 and fourth_year_total_gp > 2.4) {
+            honours_info = "                                                                                                                                        Second Class Lower Student";
+        }
+        if (fourth_year_total_gp < 2.39 and fourth_year_total_gp > 1.5) {
+            honours_info = "                                                                                                                                        Third Class Student";
+        }
+        else {
+            honours_info = "                                                                                                                                        Pass Student";
+        }
+        wxMessageBox("400 Level Grade Pending: " + fourth_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
     }    
 
@@ -3622,7 +3685,7 @@ void MyFrame::OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
 
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
     if (isnan(fifth_year_total_gp) or fifth_year_course_credit_load_sum == 0 or fifth_year_credit_load_sum == 0) {
-        wxString fifth_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxString fifth_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.  If only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(fifth_year_total_gp_wxstring);
 
         event.Skip();
@@ -3631,7 +3694,23 @@ void MyFrame::OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     else {
         // convert the gp to wxString 
         wxString fifth_year_total_gp_wxstring = wxString::Format(wxT("%f"), fifth_year_total_gp);
-        wxMessageBox("100 Level Grade Pending: " + fifth_year_total_gp_wxstring);
+        wxString honours_info;
+        if (fifth_year_total_gp > 4.5) {
+            honours_info = "                                                                                                                                        First Class Student";
+        }
+        if (fifth_year_total_gp < 4.49 and fifth_year_total_gp > 3.5) {
+            honours_info = "                                                                                                                                        Second Class Upper Student";
+        }
+        if (fifth_year_total_gp < 3.49 and fifth_year_total_gp > 2.4) {
+            honours_info = "                                                                                                                                        Second Class Lower Student";
+        }
+        if (fifth_year_total_gp < 2.39 and fifth_year_total_gp > 1.5) {
+            honours_info = "                                                                                                                                        Third Class Student";
+        }
+        else {
+            honours_info = "                                                                                                                                        Pass Student";
+        }
+        wxMessageBox("400 Level Grade Pending: " + fifth_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
     }    
 
