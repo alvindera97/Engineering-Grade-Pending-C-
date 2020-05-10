@@ -20,8 +20,8 @@
 #include <string>
 
 
-//g++ hello_world.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose
-//g++ hello_world.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose && ./gpCalculator
+//g++ gp_and_cgpa_calculator.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose
+//g++ gp_and_cgpa_calculator.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose && ./gpCalculator
 
 enum {
     ID_Hello = 1,
@@ -703,6 +703,7 @@ wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_BUTTON(ID_CALCULATE_300_LEVEL_GP, MyFrame::OnThreeHundredLevelDisplayGpButtonClicked)
     EVT_BUTTON(ID_CALCULATE_400_LEVEL_GP, MyFrame::OnFourHundredLevelDisplayGpButtonClicked)
     EVT_BUTTON(ID_CALCULATE_500_LEVEL_GP, MyFrame::OnFiveHundredLevelDisplayGpButtonClicked)
+    EVT_BUTTON(ID_CALCULATE_CGPA, MyFrame::OnDisplayCgpaButtonClicked)
 wxEND_EVENT_TABLE()
 
 
@@ -711,6 +712,8 @@ wxIMPLEMENT_APP(GpCalculator);   // initiate main()
 bool GpCalculator::OnInit() {  // append the OnInit() function
     MyFrame *frame = new MyFrame();
     frame->Show(true);
+    wxString capitals_and_caps_lock_and_hint_message = "Note that all courses codes and grades are to be entered in capital letters. A good practice would be to activate and leave the 'Caps Lock' ON.";
+    wxMessageBox(capitals_and_caps_lock_and_hint_message);
     return true;  // this is just to show successfull initialisation
 }
 
@@ -3649,4 +3652,744 @@ void MyFrame::OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
         event.Skip();
     }    
 
+}
+
+void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent& event) {
+    // 100 Level Computation
+    using namespace std;
+
+    std::map<wxString, float> all_courses_dictionary;
+
+    all_courses_dictionary["CHM111"] = 3.0;
+    all_courses_dictionary["CHM113"] = 3.0;
+    all_courses_dictionary["MTH110"] = 3.0;
+    all_courses_dictionary["MTH112"] = 3.0;
+    all_courses_dictionary["PHY111"] = 3.0;
+    all_courses_dictionary["PHY113"] = 3.0;
+    all_courses_dictionary["GST111"] = 2.0;
+    all_courses_dictionary["GST112"] = 2.0;
+    all_courses_dictionary["CHM122"] = 3.0;
+    all_courses_dictionary["CHM124"] = 3.0;
+    all_courses_dictionary["MTH123"] = 3.0;
+    all_courses_dictionary["MTH125"] = 3.0;
+    all_courses_dictionary["PHY109"] = 2.0;
+    all_courses_dictionary["PHY124"] = 4.0;
+    all_courses_dictionary["GST121"] = 2.0;
+    all_courses_dictionary["GST122"] = 2.0;
+    all_courses_dictionary["GST123"] = 2.0;
+    all_courses_dictionary["ECP281"] = 2.0;
+    all_courses_dictionary["ENS211"] = 2.0;
+    all_courses_dictionary["EMA281"] = 3.0;
+    all_courses_dictionary["EMA282"] = 4.0;
+    all_courses_dictionary["EMA381"] = 3.0;
+    all_courses_dictionary["EMA281"] = 4.0;
+    all_courses_dictionary["EMA481"] = 3.0;
+    all_courses_dictionary["MEE211"] = 3.0;
+    all_courses_dictionary["MEE221"] = 3.0;
+    all_courses_dictionary["EEE211"] = 3.0;
+    all_courses_dictionary["CVE211"] = 3.0;
+    all_courses_dictionary["PRE211"] = 2.0;
+    all_courses_dictionary["PRE211"] = 2.0;
+    all_courses_dictionary["CHE211"] = 2.0;
+    all_courses_dictionary["ELA201"] = 2.0;
+    all_courses_dictionary["MEE212"] = 3.0;
+    all_courses_dictionary["EEE211"] = 3.0;
+    all_courses_dictionary["MEE222"] = 3.0;
+    all_courses_dictionary["CHE222"] = 3.0;
+    all_courses_dictionary["CHE212"] = 2.0;
+    all_courses_dictionary["PRE212"] = 2.0;
+    all_courses_dictionary["ELA202"] = 2.0;
+    all_courses_dictionary["CVE212"] = 3.0;
+    all_courses_dictionary["EEE272"] = 2.0;
+    all_courses_dictionary["MEE351"] = 2.0;
+    all_courses_dictionary["MEE361"] = 2.0;
+    all_courses_dictionary["CHE321"] = 3.0;
+    all_courses_dictionary["CHE331"] = 2.0;
+    all_courses_dictionary["CHE341"] = 3.0;
+    all_courses_dictionary["CHE251"] = 3.0;
+    all_courses_dictionary["CHE321"] = 3.0;
+    all_courses_dictionary["CHE301"] = 2.0;
+    all_courses_dictionary["PRE311"] = 2.0;
+    all_courses_dictionary["CHE321"] = 3.0;
+    all_courses_dictionary["CVE341"] = 3.0;
+    all_courses_dictionary["CVE313"] = 3.0;
+    all_courses_dictionary["CVE311"] = 3.0;
+    all_courses_dictionary["STE311"] = 3.0;
+    all_courses_dictionary["CPE381"] = 3.0;
+    all_courses_dictionary["CPE375"] = 3.0;
+    all_courses_dictionary["CPE371"] = 3.0;
+    all_courses_dictionary["CPE311"] = 3.0;
+    all_courses_dictionary["CPE381"] = 2.0;
+    all_courses_dictionary["CPE377"] = 2.0;
+    all_courses_dictionary["CPE301"] = 2.0;
+    all_courses_dictionary["CHE312"] = 2.0;
+    all_courses_dictionary["CHE322"] = 3.0;
+    all_courses_dictionary["CHE332"] = 3.0;
+    all_courses_dictionary["CHE352"] = 3.0;
+    all_courses_dictionary["CHE362"] = 3.0;
+    all_courses_dictionary["CHE372"] = 3.0;
+    all_courses_dictionary["CHE302"] = 2.0;
+    all_courses_dictionary["MEE362"] = 2.0;
+    all_courses_dictionary["CVE312"] = 3.0;
+    all_courses_dictionary["CVE314"] = 2.0;
+    all_courses_dictionary["CVE342"] = 2.0;
+    all_courses_dictionary["CVE344"] = 2.0;
+    all_courses_dictionary["CVE352"] = 3.0;
+    all_courses_dictionary["CVE316"] = 2.0;
+    all_courses_dictionary["STE312"] = 3.0;
+    all_courses_dictionary["CPE382"] = 3.0;
+    all_courses_dictionary["CPE376"] = 3.0;
+    all_courses_dictionary["CPE312"] = 3.0;
+    all_courses_dictionary["CPE314"] = 3.0;
+    all_courses_dictionary["CPE316"] = 3.0;
+    all_courses_dictionary["CPE322"] = 3.0;
+    all_courses_dictionary["CPE372"] = 3.0;
+    all_courses_dictionary["CPE378"] = 3.0;
+    all_courses_dictionary["EEE331"] = 3.0;
+    all_courses_dictionary["EEE371"] = 3.0;
+    all_courses_dictionary["EEE312"] = 3.0;
+    all_courses_dictionary["EEE376"] = 3.0;
+    all_courses_dictionary["EEE311"] = 3.0;
+    all_courses_dictionary["EEE316"] = 3.0;
+    all_courses_dictionary["EEE332"] = 3.0;
+    all_courses_dictionary["EEE372"] = 2.0;
+    all_courses_dictionary["MEE322"] = 3.0;
+    all_courses_dictionary["MEE312"] = 3.0;
+    all_courses_dictionary["MEE332"] = 2.0;
+    all_courses_dictionary["MEE342"] = 2.0;
+    all_courses_dictionary["MEE372"] = 1.0;
+    all_courses_dictionary["PEE311"] = 3.0;
+    all_courses_dictionary["PEE322"] = 4.0;
+    all_courses_dictionary["PEE342"] = 3.0;
+    all_courses_dictionary["PEE332"] = 3.0;
+    all_courses_dictionary["PRE222"] = 2.0;
+    all_courses_dictionary["PRE321"] = 3.0;
+    all_courses_dictionary["PRE322"] = 2.0;
+    all_courses_dictionary["PRE332"] = 2.0;
+    all_courses_dictionary["PRE314"] = 2.0;
+    all_courses_dictionary["ELA302"] = 2.0;
+    all_courses_dictionary["CHE411"] = 2.0;
+    all_courses_dictionary["CHE421"] = 3.0;
+    all_courses_dictionary["CHE431"] = 3.0;
+    all_courses_dictionary["CHE441"] = 3.0;
+    all_courses_dictionary["CHE451"] = 3.0;
+    all_courses_dictionary["CHE461"] = 3.0;
+    all_courses_dictionary["CHE471"] = 2.0;
+    all_courses_dictionary["CHE481"] = 2.0;
+    all_courses_dictionary["CHE401"] = 2.0;
+    all_courses_dictionary["CHE411"] = 2.0;
+    all_courses_dictionary["CVE411"] = 2.0;
+    all_courses_dictionary["CVE415"] = 2.0;
+    all_courses_dictionary["CVE421"] = 2.0;
+    all_courses_dictionary["CVE423"] = 3.0;
+    all_courses_dictionary["CVE431"] = 3.0;
+    all_courses_dictionary["CVE441"] = 2.0;
+    all_courses_dictionary["CVE451"] = 3.0;
+    all_courses_dictionary["CVE471"] = 2.0;
+    all_courses_dictionary["CVE481"] = 3.0;
+    all_courses_dictionary["ELA401"] = 2.0;
+    all_courses_dictionary["STE411"] = 2.0;
+    all_courses_dictionary["STE413"] = 2.0;
+    all_courses_dictionary["STE415"] = 2.0;
+    all_courses_dictionary["STE417"] = 2.0;
+    all_courses_dictionary["STE425"] = 2.0;
+    all_courses_dictionary["CPE481"] = 2.0;
+    all_courses_dictionary["CPE481"] = 3.0;
+    all_courses_dictionary["CPE475"] = 3.0;
+    all_courses_dictionary["CPE423"] = 3.0;
+    all_courses_dictionary["CPE451"] = 3.0;
+    all_courses_dictionary["CPE477"] = 3.0;
+    all_courses_dictionary["CPE471"] = 3.0;
+    all_courses_dictionary["CPE473"] = 3.0;
+    all_courses_dictionary["EEE431"] = 3.0;
+    all_courses_dictionary["EEE433"] = 3.0;
+    all_courses_dictionary["EEE451"] = 3.0;
+    all_courses_dictionary["EEE471"] = 3.0;
+    all_courses_dictionary["EEE473"] = 3.0;
+    all_courses_dictionary["EEE453"] = 3.0;
+    all_courses_dictionary["MEE411"] = 3.0;
+    all_courses_dictionary["MEE421"] = 3.0;
+    all_courses_dictionary["MEE431"] = 2.0;
+    all_courses_dictionary["MEE441"] = 2.0;
+    all_courses_dictionary["MEE451"] = 2.0;
+    all_courses_dictionary["MEE461"] = 3.0;
+    all_courses_dictionary["MEE471"] = 2.0;
+    all_courses_dictionary["PEE431"] = 2.0;
+    all_courses_dictionary["PEE441"] = 3.0;
+    all_courses_dictionary["PEE451"] = 3.0;
+    all_courses_dictionary["PEE461"] = 3.0;
+    all_courses_dictionary["PEE471"] = 3.0;
+    all_courses_dictionary["PEE401"] = 2.0;
+    all_courses_dictionary["PRE411"] = 3.0;
+    all_courses_dictionary["PRE441"] = 3.0;
+    all_courses_dictionary["PRE431"] = 3.0;
+    all_courses_dictionary["PRE421"] = 3.0;
+    all_courses_dictionary["PRE451"] = 3.0;
+    all_courses_dictionary["PRE461"] = 3.0;
+    all_courses_dictionary["PRE401"] = 2.0;
+    all_courses_dictionary["PRE473"] = 3.0;
+    all_courses_dictionary["CED300"] = 2.0;
+    all_courses_dictionary["CHE511"] = 2.0;
+    all_courses_dictionary["CHE521"] = 2.0;
+    all_courses_dictionary["CHE531"] = 3.0;
+    all_courses_dictionary["CHE541"] = 3.0;
+    all_courses_dictionary["CHE521"] = 2.0;
+    all_courses_dictionary["CHE571"] = 3.0;
+    all_courses_dictionary["CHE591"] = 3.0;
+    all_courses_dictionary["CHE581"] = 3.0;
+    all_courses_dictionary["CHE581"] = 2.0;
+    all_courses_dictionary["CVE513"] = 2.0;
+    all_courses_dictionary["CVE521"] = 2.0;
+    all_courses_dictionary["CVE523"] = 2.0;
+    all_courses_dictionary["CVE531"] = 3.0;
+    all_courses_dictionary["CVE541"] = 2.0;
+    all_courses_dictionary["CVE521"] = 3.0;
+    all_courses_dictionary["CVE581"] = 2.0;
+    all_courses_dictionary["STE511"] = 2.0;
+    all_courses_dictionary["STE513"] = 2.0;
+    all_courses_dictionary["STE515"] = 3.0;
+    all_courses_dictionary["STE517"] = 2.0;
+    all_courses_dictionary["STE501"] = 3.0;
+    all_courses_dictionary["CPE591"] = 3.0;
+    all_courses_dictionary["CPE571"] = 3.0;
+    all_courses_dictionary["CPE553"] = 3.0;
+    all_courses_dictionary["CPE573"] = 3.0;
+    all_courses_dictionary["CPE575"] = 3.0;
+    all_courses_dictionary["CPE590"] = 0.0;
+    all_courses_dictionary["CPE590"] = 3.0;
+    all_courses_dictionary["EEE531"] = 3.0;
+    all_courses_dictionary["EEE533"] = 3.0;
+    all_courses_dictionary["EEE591"] = 3.0;
+    all_courses_dictionary["EEE571"] = 3.0;
+    all_courses_dictionary["EEE573"] = 3.0;
+    all_courses_dictionary["EEE522"] = 3.0;
+    all_courses_dictionary["EEE562"] = 3.0;
+    all_courses_dictionary["EEE516"] = 3.0;
+    all_courses_dictionary["ECP576"] = 3.0;
+    all_courses_dictionary["EEE524"] = 3.0;
+    all_courses_dictionary["EEE532"] = 3.0;
+    all_courses_dictionary["EEE534"] = 3.0;
+    all_courses_dictionary["EEE536"] = 3.0;
+    all_courses_dictionary["EEE538"] = 3.0;
+    all_courses_dictionary["EEE552"] = 3.0;
+    all_courses_dictionary["EEE572"] = 3.0;
+    all_courses_dictionary["EEE574"] = 3.0;
+    all_courses_dictionary["EEE576"] = 3.0;
+    all_courses_dictionary["EEE578"] = 3.0;
+    all_courses_dictionary["MEE501"] = 3.0;
+    all_courses_dictionary["MEE505"] = 2.0;
+    all_courses_dictionary["MEE511"] = 3.0;
+    all_courses_dictionary["MEE521"] = 3.0;
+    all_courses_dictionary["MEE531"] = 3.0;
+    all_courses_dictionary["MEE541"] = 3.0;
+    all_courses_dictionary["MEE551"] = 2.0;
+    all_courses_dictionary["MEE561"] = 3.0;
+    all_courses_dictionary["MEE571"] = 2.0;
+    all_courses_dictionary["MEE591"] = 3.0;
+    all_courses_dictionary["MEE502"] = 3.0;
+    all_courses_dictionary["MEE506"] = 2.0;
+    all_courses_dictionary["MEE512"] = 3.0;
+    all_courses_dictionary["MEE522"] = 3.0;
+    all_courses_dictionary["MEE532"] = 3.0;
+    all_courses_dictionary["MEE542"] = 3.0;
+    all_courses_dictionary["MEE552"] = 2.0;
+    all_courses_dictionary["MEE562"] = 3.0;
+    all_courses_dictionary["MEE572"] = 2.0;
+    all_courses_dictionary["MEE582"] = 3.0;
+    all_courses_dictionary["MEE592"] = 3.0;
+    all_courses_dictionary["PEE531"] = 3.0;
+    all_courses_dictionary["PEE561"] = 3.0;
+    all_courses_dictionary["PEE571"] = 3.0;
+    all_courses_dictionary["PEE581"] = 3.0;
+    all_courses_dictionary["PEE591"] = 3.0;
+    all_courses_dictionary["PEE500"] = 3.0;
+    all_courses_dictionary["PEE572"] = 3.0;
+    all_courses_dictionary["PEE582"] = 3.0;
+    all_courses_dictionary["PEE562"] = 3.0;
+    all_courses_dictionary["PEE532"] = 3.0;
+    all_courses_dictionary["PEE592"] = 3.0;
+    all_courses_dictionary["PRE541"] = 2.0;
+    all_courses_dictionary["PRE572"] = 2.0;
+    all_courses_dictionary["PRE571"] = 3.0;
+    all_courses_dictionary["PRE531"] = 3.0;
+    all_courses_dictionary["PRE581"] = 3.0;
+    all_courses_dictionary["PRE521"] = 3.0;
+    all_courses_dictionary["PRE561"] = 2.0;
+    all_courses_dictionary["PRE551"] = 2.0;
+    all_courses_dictionary["PRE501"] = 3.0;
+    all_courses_dictionary["PRE592"] = 3.0;
+    all_courses_dictionary["PRE522"] = 3.0;
+    all_courses_dictionary["PRE541"] = 2.0;
+    all_courses_dictionary["PRE572"] = 2.0;
+    all_courses_dictionary["PRE571"] = 3.0;
+    all_courses_dictionary["PRE531"] = 3.0;
+    all_courses_dictionary["PRE581"] = 3.0;
+    all_courses_dictionary["PRE521"] = 3.0;
+    all_courses_dictionary["PRE561"] = 2.0;
+    all_courses_dictionary["PRE551"] = 2.0;
+    all_courses_dictionary["PRE501"] = 3.0;
+    all_courses_dictionary["PRE592"] = 3.0;
+    all_courses_dictionary["PRE522"] = 3.0;
+    all_courses_dictionary["PRE532"] = 3.0;
+    all_courses_dictionary["PRE562"] = 2.0;
+    all_courses_dictionary["PRE564"] = 2.0;
+    all_courses_dictionary["CVE515"] = 3.0;
+    all_courses_dictionary["CVE525"] = 3.0;
+    all_courses_dictionary["CVE535"] = 3.0;
+    all_courses_dictionary["CVE545"] = 3.0;
+    all_courses_dictionary["CVE565"] = 3.0;
+    all_courses_dictionary["CVE567"] = 3.0;
+    all_courses_dictionary["CHE512"] = 2.0;
+    all_courses_dictionary["CHE522"] = 3.0;
+    all_courses_dictionary["CHE532"] = 3.0;
+    all_courses_dictionary["CHE542"] = 3.0;
+    all_courses_dictionary["CHE552"] = 3.0;
+    all_courses_dictionary["CHE562"] = 3.0;
+    all_courses_dictionary["CHE500"] = 3.0;
+    all_courses_dictionary["CVE572"] = 3.0;
+    all_courses_dictionary["CVE512"] = 2.0;
+    all_courses_dictionary["CVE514"] = 2.0;
+    all_courses_dictionary["CVE522"] = 2.0;
+    all_courses_dictionary["CVE542"] = 2.0;
+    all_courses_dictionary["CVE502"] = 2.0;
+    all_courses_dictionary["STE512"] = 2.0;
+    all_courses_dictionary["STE514"] = 2.0;
+    all_courses_dictionary["STE516"] = 2.0;
+    all_courses_dictionary["STE518"] = 2.0;
+    all_courses_dictionary["STE502"] = 3.0;
+    all_courses_dictionary["EEE590"] = 0.0;
+    all_courses_dictionary["EEE500"] = 3.0;
+    all_courses_dictionary["CPE552"] = 3.0;
+    all_courses_dictionary["CPE586"] = 3.0;
+    all_courses_dictionary["CPE578"] = 3.0;
+    all_courses_dictionary["CPE534"] = 3.0;
+    all_courses_dictionary["CPE554"] = 3.0;
+    all_courses_dictionary["CPE556"] = 3.0;
+    all_courses_dictionary["CPE522"] = 3.0;
+    all_courses_dictionary["CPE578"] = 3.0;
+    all_courses_dictionary["CPE512"] = 3.0;
+    all_courses_dictionary["STE532"] = 3.0;
+    all_courses_dictionary["STE524"] = 3.0;
+    all_courses_dictionary["STE536"] = 3.0;
+    all_courses_dictionary["CVE516"] = 3.0;
+    all_courses_dictionary["CVE526"] = 3.0;
+    all_courses_dictionary["CVE536"] = 3.0;
+    all_courses_dictionary["CVE546"] = 3.0;
+    all_courses_dictionary["CVE566"] = 3.0;
+    all_courses_dictionary["A"] = 5.0;
+    all_courses_dictionary["B"] = 4.0;
+    all_courses_dictionary["C"] = 3.0;
+    all_courses_dictionary["D"] = 2.0;
+    all_courses_dictionary["E"] = 1.0;
+    all_courses_dictionary["F"] = 0.0;
+    all_courses_dictionary[""] = 0.0;
+
+    float first_course = all_courses_dictionary[course_one->GetValue()];
+    float first_course_grade = all_courses_dictionary[course_one_grade->GetValue()];
+    float second_course = all_courses_dictionary[course_two->GetValue()];
+    float second_course_grade = all_courses_dictionary[course_two_grade->GetValue()];
+    float third_course = all_courses_dictionary[course_three->GetValue()];
+    float third_course_grade = all_courses_dictionary[course_three_grade->GetValue()];
+    float fourth_course = all_courses_dictionary[course_four->GetValue()];
+    float fourth_course_grade = all_courses_dictionary[course_four_grade->GetValue()];
+    float fifth_course = all_courses_dictionary[course_five->GetValue()];
+    float fifth_course_grade = all_courses_dictionary[course_five_grade->GetValue()];
+    float sixth_course = all_courses_dictionary[course_six->GetValue()];
+    float sixth_course_grade = all_courses_dictionary[course_six_grade->GetValue()];
+    float seventh_course = all_courses_dictionary[course_seven->GetValue()];
+    float seventh_course_grade = all_courses_dictionary[course_seven_grade->GetValue()];
+    float eighth_course = all_courses_dictionary[course_eight->GetValue()];
+    float eighth_course_grade = all_courses_dictionary[course_eight_grade->GetValue()];
+    float nineth_course = all_courses_dictionary[course_nine->GetValue()];
+    float nineth_course_grade = all_courses_dictionary[course_nine_grade->GetValue()];
+    float tenth_course = all_courses_dictionary[course_ten->GetValue()];
+    float tenth_course_grade = all_courses_dictionary[course_ten_grade->GetValue()];
+    float eleventh_course = all_courses_dictionary[course_eleven->GetValue()];
+    float eleventh_course_grade = all_courses_dictionary[course_eleven_grade->GetValue()];
+    float twelveth_course = all_courses_dictionary[course_twelve->GetValue()];
+    float twelveth_course_grade = all_courses_dictionary[course_twelve_grade->GetValue()];
+    float thirteenth_course = all_courses_dictionary[course_thirteen->GetValue()];
+    float thirteenth_course_grade = all_courses_dictionary[course_thirteen_grade->GetValue()];
+    float fourteenth_course = all_courses_dictionary[course_fourteen->GetValue()];
+    float fourteenth_course_grade = all_courses_dictionary[course_fourteen_grade->GetValue()];
+    float fifteenth_course = all_courses_dictionary[course_fifteen->GetValue()];
+    float fifteenth_course_grade = all_courses_dictionary[course_fifteen_grade->GetValue()];
+    float sixteenth_course = all_courses_dictionary[course_sixteen->GetValue()];
+    float sixteenth_course_grade = all_courses_dictionary[course_sixteen_grade->GetValue()];
+    float seventeenth_course = all_courses_dictionary[course_seventeen->GetValue()];
+    float seventeenth_course_grade = all_courses_dictionary[course_seventeen_grade->GetValue()];
+    float eighteenth_course = all_courses_dictionary[course_eighteen->GetValue()];
+    float eighteenth_course_grade = all_courses_dictionary[course_eighteen_grade->GetValue()];
+    float ninteenth_course = all_courses_dictionary[course_nineteen->GetValue()];
+    float ninteenth_course_grade = all_courses_dictionary[course_nineteen_grade->GetValue()];
+    float twentieth_course = all_courses_dictionary[course_twenty->GetValue()];
+    float twentieth_course_grade = all_courses_dictionary[course_twenty_grade->GetValue()];
+    float twenty_first_course = all_courses_dictionary[course_twenty_one->GetValue()];
+    float twenty_first_course_grade = all_courses_dictionary[course_twenty_one_grade->GetValue()];
+    float twenty_second_course = all_courses_dictionary[course_twenty_two->GetValue()];
+    float twenty_second_course_grade = all_courses_dictionary[course_twenty_two_grade->GetValue()];
+    float twenty_third_course = all_courses_dictionary[course_twenty_three->GetValue()];
+    float twenty_third_course_grade = all_courses_dictionary[course_twenty_three_grade->GetValue()];
+    float twenty_fourth_course = all_courses_dictionary[course_twenty_four->GetValue()];
+    float twenty_fourth_course_grade = all_courses_dictionary[course_twenty_four_grade->GetValue()];
+
+    float first_year_course_credit_load_sum = (first_course * first_course_grade) + (second_course * second_course_grade) + (third_course * third_course_grade) + (fourth_course + fourth_course_grade) + (fifth_course * fifth_course_grade) + (sixth_course * sixth_course_grade) + (seventh_course * seventh_course_grade) + (eighth_course * eighth_course_grade) + (nineth_course * nineth_course_grade) + (tenth_course * tenth_course_grade) + (eleventh_course * eleventh_course_grade) + (twelveth_course * twelveth_course_grade) + (thirteenth_course * thirteenth_course_grade) + (fourteenth_course * fourteenth_course_grade) + (fifteenth_course * fifteenth_course_grade) + (sixteenth_course * sixteenth_course_grade) + (seventeenth_course * seventeenth_course_grade) + (eighteenth_course * eighteenth_course_grade) + (ninteenth_course * ninteenth_course_grade) + (twentieth_course * twentieth_course_grade) + (twenty_first_course * twenty_first_course_grade) + (twenty_second_course * twenty_second_course_grade) + (twenty_third_course * twenty_third_course_grade) + (twenty_fourth_course * twenty_fourth_course_grade);
+    float first_year_credit_load_sum = first_course + second_course + third_course + fourth_course + fifth_course + sixth_course + seventh_course + eighth_course + nineth_course + tenth_course + eleventh_course + twelveth_course + thirteenth_course + fourteenth_course + fifteenth_course + sixteenth_course + seventeenth_course + eighteenth_course + ninteenth_course + twentieth_course + twenty_first_course + twenty_second_course + twenty_third_course + twenty_fourth_course;
+    float first_year_total_gp;
+    float first_year_valid;
+    // check if the sum of any of the two important constants is zero
+    if (first_year_credit_load_sum == 0.0 or first_year_course_credit_load_sum == 0.0) {
+        first_year_total_gp = 0.0;
+        first_year_valid = 0.0;
+    }
+
+    else {
+        first_year_total_gp = first_year_course_credit_load_sum / first_year_credit_load_sum;
+        first_year_valid = 1.0;
+    }
+
+    // 200 Level computation
+    float first_course_2 = all_courses_dictionary[course_one_2->GetValue()];
+    float first_course_grade_2 = all_courses_dictionary[course_one_grade_2->GetValue()];
+    float second_course_2 = all_courses_dictionary[course_two_2->GetValue()];
+    float second_course_grade_2 = all_courses_dictionary[course_two_grade_2->GetValue()];
+    float third_course_2 = all_courses_dictionary[course_three_2->GetValue()];
+    float third_course_grade_2 = all_courses_dictionary[course_three_grade_2->GetValue()];
+    float fourth_course_2 = all_courses_dictionary[course_four_2->GetValue()];
+    float fourth_course_grade_2 = all_courses_dictionary[course_four_grade_2->GetValue()];
+    float fifth_course_2 = all_courses_dictionary[course_five_2->GetValue()];
+    float fifth_course_grade_2 = all_courses_dictionary[course_five_grade_2->GetValue()];
+    float sixth_course_2 = all_courses_dictionary[course_six_2->GetValue()];
+    float sixth_course_grade_2 = all_courses_dictionary[course_six_grade_2->GetValue()];
+    float seventh_course_2 = all_courses_dictionary[course_seven_2->GetValue()];
+    float seventh_course_grade_2 = all_courses_dictionary[course_seven_grade_2->GetValue()];
+    float eighth_course_2 = all_courses_dictionary[course_eight_2->GetValue()];
+    float eighth_course_grade_2 = all_courses_dictionary[course_eight_grade_2->GetValue()];
+    float nineth_course_2 = all_courses_dictionary[course_nine_2->GetValue()];
+    float nineth_course_grade_2 = all_courses_dictionary[course_nine_grade_2->GetValue()];
+    float tenth_course_2 = all_courses_dictionary[course_ten_2->GetValue()];
+    float tenth_course_grade_2 = all_courses_dictionary[course_ten_grade_2->GetValue()];
+    float eleventh_course_2 = all_courses_dictionary[course_eleven_2->GetValue()];
+    float eleventh_course_grade_2 = all_courses_dictionary[course_eleven_grade_2->GetValue()];
+    float twelveth_course_2 = all_courses_dictionary[course_twelve_2->GetValue()];
+    float twelveth_course_grade_2 = all_courses_dictionary[course_twelve_grade_2->GetValue()];
+    float thirteenth_course_2 = all_courses_dictionary[course_thirteen_2->GetValue()];
+    float thirteenth_course_grade_2 = all_courses_dictionary[course_thirteen_grade_2->GetValue()];
+    float fourteenth_course_2 = all_courses_dictionary[course_fourteen_2->GetValue()];
+    float fourteenth_course_grade_2 = all_courses_dictionary[course_fourteen_grade_2->GetValue()];
+    float fifteenth_course_2 = all_courses_dictionary[course_fifteen_2->GetValue()];
+    float fifteenth_course_grade_2 = all_courses_dictionary[course_fifteen_grade_2->GetValue()];
+    float sixteenth_course_2 = all_courses_dictionary[course_sixteen_2->GetValue()];
+    float sixteenth_course_grade_2 = all_courses_dictionary[course_sixteen_grade_2->GetValue()];
+    float seventeenth_course_2 = all_courses_dictionary[course_seventeen_2->GetValue()];
+    float seventeenth_course_grade_2 = all_courses_dictionary[course_seventeen_grade_2->GetValue()];
+    float eighteenth_course_2 = all_courses_dictionary[course_eighteen_2->GetValue()];
+    float eighteenth_course_grade_2 = all_courses_dictionary[course_eighteen_grade_2->GetValue()];
+    float ninteenth_course_2 = all_courses_dictionary[course_nineteen_2->GetValue()];
+    float ninteenth_course_grade_2 = all_courses_dictionary[course_nineteen_grade_2->GetValue()];
+    float twentieth_course_2 = all_courses_dictionary[course_twenty_2->GetValue()];
+    float twentieth_course_grade_2 = all_courses_dictionary[course_twenty_grade_2->GetValue()];
+    float twenty_first_course_2 = all_courses_dictionary[course_twenty_one_2->GetValue()];
+    float twenty_first_course_grade_2 = all_courses_dictionary[course_twenty_one_grade_2->GetValue()];
+    float twenty_second_course_2 = all_courses_dictionary[course_twenty_two_2->GetValue()];
+    float twenty_second_course_grade_2 = all_courses_dictionary[course_twenty_two_grade_2->GetValue()];
+    float twenty_third_course_2 = all_courses_dictionary[course_twenty_three_2->GetValue()];
+    float twenty_third_course_grade_2 = all_courses_dictionary[course_twenty_three_grade_2->GetValue()];
+    float twenty_fourth_course_2 = all_courses_dictionary[course_twenty_four_2->GetValue()];
+    float twenty_fourth_course_grade_2 = all_courses_dictionary[course_twenty_four_grade_2->GetValue()];
+
+    float second_year_course_credit_load_sum = (first_course_2 * first_course_grade_2) + (second_course_2 * second_course_grade_2) + (third_course_2 * third_course_grade_2) + (fourth_course_2 + fourth_course_grade_2) + (fifth_course_2 * fifth_course_grade_2) + (sixth_course_2 * sixth_course_grade_2) + (seventh_course_2 * seventh_course_grade_2) + (eighth_course_2 * eighth_course_grade_2) + (nineth_course_2 * nineth_course_grade_2) + (tenth_course_2 * tenth_course_grade_2) + (eleventh_course_2 * eleventh_course_grade_2) + (twelveth_course_2 * twelveth_course_grade_2) + (thirteenth_course_2 * thirteenth_course_grade_2) + (fourteenth_course_2 * fourteenth_course_grade_2) + (fifteenth_course_2 * fifteenth_course_grade_2) + (sixteenth_course_2 * sixteenth_course_grade_2) + (seventeenth_course_2 * seventeenth_course_grade_2) + (eighteenth_course_2 * eighteenth_course_grade_2) + (ninteenth_course_2 * ninteenth_course_grade_2) + (twentieth_course_2 * twentieth_course_grade_2) + (twenty_first_course_2 * twenty_first_course_grade_2) + (twenty_second_course_2 * twenty_second_course_grade_2) + (twenty_third_course_2 * twenty_third_course_grade_2) + (twenty_fourth_course_2 * twenty_fourth_course_grade_2);
+    float second_year_credit_load_sum = first_course_2 + second_course_2 + third_course_2 + fourth_course_2 + fifth_course_2 + sixth_course_2 + seventh_course_2 + eighth_course_2 + nineth_course_2 + tenth_course_2 + eleventh_course_2 + twelveth_course_2 + thirteenth_course_2 + fourteenth_course_2 + fifteenth_course_2 + sixteenth_course_2 + seventeenth_course_2 + eighteenth_course_2 + ninteenth_course_2 + twentieth_course_2 + twenty_first_course_2 + twenty_second_course_2 + twenty_third_course_2 + twenty_fourth_course_2;
+    float second_year_total_gp;
+    float second_year_valid;
+
+    // check if the sum of the two important constants is zero
+    if (second_year_credit_load_sum == 0.0 or second_year_course_credit_load_sum == 0.0) {
+        second_year_total_gp = 0.0;
+        second_year_valid = 0.0;
+    }
+
+    else{
+        second_year_total_gp = second_year_course_credit_load_sum / second_year_credit_load_sum;
+        second_year_valid = 1.0;
+    }
+
+
+    // 300 Level Computation
+    float first_course_3 = all_courses_dictionary[course_one_3->GetValue()];
+    float first_course_grade_3 = all_courses_dictionary[course_one_grade_3->GetValue()];
+    float second_course_3 = all_courses_dictionary[course_two_3->GetValue()];
+    float second_course_grade_3 = all_courses_dictionary[course_two_grade_3->GetValue()];
+    float third_course_3 = all_courses_dictionary[course_three_3->GetValue()];
+    float third_course_grade_3 = all_courses_dictionary[course_three_grade_3->GetValue()];
+    float fourth_course_3 = all_courses_dictionary[course_four_3->GetValue()];
+    float fourth_course_grade_3 = all_courses_dictionary[course_four_grade_3->GetValue()];
+    float fifth_course_3 = all_courses_dictionary[course_five_3->GetValue()];
+    float fifth_course_grade_3 = all_courses_dictionary[course_five_grade_3->GetValue()];
+    float sixth_course_3 = all_courses_dictionary[course_six_3->GetValue()];
+    float sixth_course_grade_3 = all_courses_dictionary[course_six_grade_3->GetValue()];
+    float seventh_course_3 = all_courses_dictionary[course_seven_3->GetValue()];
+    float seventh_course_grade_3 = all_courses_dictionary[course_seven_grade_3->GetValue()];
+    float eighth_course_3 = all_courses_dictionary[course_eight_3->GetValue()];
+    float eighth_course_grade_3 = all_courses_dictionary[course_eight_grade_3->GetValue()];
+    float nineth_course_3 = all_courses_dictionary[course_nine_3->GetValue()];
+    float nineth_course_grade_3 = all_courses_dictionary[course_nine_grade_3->GetValue()];
+    float tenth_course_3 = all_courses_dictionary[course_ten_3->GetValue()];
+    float tenth_course_grade_3 = all_courses_dictionary[course_ten_grade_3->GetValue()];
+    float eleventh_course_3 = all_courses_dictionary[course_eleven_3->GetValue()];
+    float eleventh_course_grade_3 = all_courses_dictionary[course_eleven_grade_3->GetValue()];
+    float twelveth_course_3 = all_courses_dictionary[course_twelve_3->GetValue()];
+    float twelveth_course_grade_3 = all_courses_dictionary[course_twelve_grade_3->GetValue()];
+    float thirteenth_course_3 = all_courses_dictionary[course_thirteen_3->GetValue()];
+    float thirteenth_course_grade_3 = all_courses_dictionary[course_thirteen_grade_3->GetValue()];
+    float fourteenth_course_3 = all_courses_dictionary[course_fourteen_3->GetValue()];
+    float fourteenth_course_grade_3 = all_courses_dictionary[course_fourteen_grade_3->GetValue()];
+    float fifteenth_course_3 = all_courses_dictionary[course_fifteen_3->GetValue()];
+    float fifteenth_course_grade_3 = all_courses_dictionary[course_fifteen_grade_3->GetValue()];
+    float sixteenth_course_3 = all_courses_dictionary[course_sixteen_3->GetValue()];
+    float sixteenth_course_grade_3 = all_courses_dictionary[course_sixteen_grade_3->GetValue()];
+    float seventeenth_course_3 = all_courses_dictionary[course_seventeen_3->GetValue()];
+    float seventeenth_course_grade_3 = all_courses_dictionary[course_seventeen_grade_3->GetValue()];
+    float eighteenth_course_3 = all_courses_dictionary[course_eighteen_3->GetValue()];
+    float eighteenth_course_grade_3 = all_courses_dictionary[course_eighteen_grade_3->GetValue()];
+    float ninteenth_course_3 = all_courses_dictionary[course_nineteen_3->GetValue()];
+    float ninteenth_course_grade_3 = all_courses_dictionary[course_nineteen_grade_3->GetValue()];
+    float twentieth_course_3 = all_courses_dictionary[course_twenty_3->GetValue()];
+    float twentieth_course_grade_3 = all_courses_dictionary[course_twenty_grade_3->GetValue()];
+    float twenty_first_course_3 = all_courses_dictionary[course_twenty_one_3->GetValue()];
+    float twenty_first_course_grade_3 = all_courses_dictionary[course_twenty_one_grade_3->GetValue()];
+    float twenty_second_course_3 = all_courses_dictionary[course_twenty_two_3->GetValue()];
+    float twenty_second_course_grade_3 = all_courses_dictionary[course_twenty_two_grade_3->GetValue()];
+    float twenty_third_course_3 = all_courses_dictionary[course_twenty_three_3->GetValue()];
+    float twenty_third_course_grade_3 = all_courses_dictionary[course_twenty_three_grade_3->GetValue()];
+    float twenty_fourth_course_3 = all_courses_dictionary[course_twenty_four_3->GetValue()];
+    float twenty_fourth_course_grade_3 = all_courses_dictionary[course_twenty_four_grade_3->GetValue()];
+
+    float third_year_course_credit_load_sum = (first_course_3 * first_course_grade_3) + (second_course_3 * second_course_grade_3) + (third_course_3 * third_course_grade_3) + (fourth_course_3 + fourth_course_grade_3) + (fifth_course_3 * fifth_course_grade_3) + (sixth_course_3 * sixth_course_grade_3) + (seventh_course_3 * seventh_course_grade_3) + (eighth_course_3 * eighth_course_grade_3) + (nineth_course_3 * nineth_course_grade_3) + (tenth_course_3 * tenth_course_grade_3) + (eleventh_course_3 * eleventh_course_grade_3) + (twelveth_course_3 * twelveth_course_grade_3) + (thirteenth_course_3 * thirteenth_course_grade_3) + (fourteenth_course_3 * fourteenth_course_grade_3) + (fifteenth_course_3 * fifteenth_course_grade_3) + (sixteenth_course_3 * sixteenth_course_grade_3) + (seventeenth_course_3 * seventeenth_course_grade_3) + (eighteenth_course_3 * eighteenth_course_grade_3) + (ninteenth_course_3 * ninteenth_course_grade_3) + (twentieth_course_3 * twentieth_course_grade_3) + (twenty_first_course_3 * twenty_first_course_grade_3) + (twenty_second_course_3 * twenty_second_course_grade_3) + (twenty_third_course_3 * twenty_third_course_grade_3) + (twenty_fourth_course_3 * twenty_fourth_course_grade_3);
+    float third_year_credit_load_sum = first_course_3 + second_course_3 + third_course_3 + fourth_course_3 + fifth_course_3 + sixth_course_3 + seventh_course_3 + eighth_course_3 + nineth_course_3 + tenth_course_3 + eleventh_course_3 + twelveth_course_3 + thirteenth_course_3 + fourteenth_course_3 + fifteenth_course_3 + sixteenth_course_3 + seventeenth_course_3 + eighteenth_course_3 + ninteenth_course_3 + twentieth_course_3 + twenty_first_course_3 + twenty_second_course_3 + twenty_third_course_3 + twenty_fourth_course_3;
+    float third_year_total_gp;
+    float third_year_valid;
+
+    // check if the value of any important constants is zero
+    if (third_year_credit_load_sum == 0.0 or third_year_course_credit_load_sum == 0.0) {
+        third_year_total_gp = 0.0;
+        third_year_valid = 0.0;
+    }
+
+    else{
+        third_year_total_gp = third_year_course_credit_load_sum / third_year_credit_load_sum;
+        third_year_valid = 1.0;
+    }
+
+    // 400 Level computtation
+    float first_course_4 = all_courses_dictionary[course_one_4->GetValue()];
+    float first_course_grade_4 = all_courses_dictionary[course_one_grade_4->GetValue()];
+    float second_course_4 = all_courses_dictionary[course_two_4->GetValue()];
+    float second_course_grade_4 = all_courses_dictionary[course_two_grade_4->GetValue()];
+    float third_course_4 = all_courses_dictionary[course_three_4->GetValue()];
+    float third_course_grade_4 = all_courses_dictionary[course_three_grade_4->GetValue()];
+    float fourth_course_4 = all_courses_dictionary[course_four_4->GetValue()];
+    float fourth_course_grade_4 = all_courses_dictionary[course_four_grade_4->GetValue()];
+    float fifth_course_4 = all_courses_dictionary[course_five_4->GetValue()];
+    float fifth_course_grade_4 = all_courses_dictionary[course_five_grade_4->GetValue()];
+    float sixth_course_4 = all_courses_dictionary[course_six_4->GetValue()];
+    float sixth_course_grade_4 = all_courses_dictionary[course_six_grade_4->GetValue()];
+    float seventh_course_4 = all_courses_dictionary[course_seven_4->GetValue()];
+    float seventh_course_grade_4 = all_courses_dictionary[course_seven_grade_4->GetValue()];
+    float eighth_course_4 = all_courses_dictionary[course_eight_4->GetValue()];
+    float eighth_course_grade_4 = all_courses_dictionary[course_eight_grade_4->GetValue()];
+    float nineth_course_4 = all_courses_dictionary[course_nine_4->GetValue()];
+    float nineth_course_grade_4 = all_courses_dictionary[course_nine_grade_4->GetValue()];
+    float tenth_course_4 = all_courses_dictionary[course_ten_4->GetValue()];
+    float tenth_course_grade_4 = all_courses_dictionary[course_ten_grade_4->GetValue()];
+    float eleventh_course_4 = all_courses_dictionary[course_eleven_4->GetValue()];
+    float eleventh_course_grade_4 = all_courses_dictionary[course_eleven_grade_4->GetValue()];
+    float twelveth_course_4 = all_courses_dictionary[course_twelve_4->GetValue()];
+    float twelveth_course_grade_4 = all_courses_dictionary[course_twelve_grade_4->GetValue()];
+    float thirteenth_course_4 = all_courses_dictionary[course_thirteen_4->GetValue()];
+    float thirteenth_course_grade_4 = all_courses_dictionary[course_thirteen_grade_4->GetValue()];
+    float fourteenth_course_4 = all_courses_dictionary[course_fourteen_4->GetValue()];
+    float fourteenth_course_grade_4 = all_courses_dictionary[course_fourteen_grade_4->GetValue()];
+    float fifteenth_course_4 = all_courses_dictionary[course_fifteen_4->GetValue()];
+    float fifteenth_course_grade_4 = all_courses_dictionary[course_fifteen_grade_4->GetValue()];
+    float sixteenth_course_4 = all_courses_dictionary[course_sixteen_4->GetValue()];
+    float sixteenth_course_grade_4 = all_courses_dictionary[course_sixteen_grade_4->GetValue()];
+    float seventeenth_course_4 = all_courses_dictionary[course_seventeen_4->GetValue()];
+    float seventeenth_course_grade_4 = all_courses_dictionary[course_seventeen_grade_4->GetValue()];
+    float eighteenth_course_4 = all_courses_dictionary[course_eighteen_4->GetValue()];
+    float eighteenth_course_grade_4 = all_courses_dictionary[course_eighteen_grade_4->GetValue()];
+    float ninteenth_course_4 = all_courses_dictionary[course_nineteen_4->GetValue()];
+    float ninteenth_course_grade_4 = all_courses_dictionary[course_nineteen_grade_4->GetValue()];
+    float twentieth_course_4 = all_courses_dictionary[course_twenty_4->GetValue()];
+    float twentieth_course_grade_4 = all_courses_dictionary[course_twenty_grade_4->GetValue()];
+    float twenty_first_course_4 = all_courses_dictionary[course_twenty_one_4->GetValue()];
+    float twenty_first_course_grade_4 = all_courses_dictionary[course_twenty_one_grade_4->GetValue()];
+    float twenty_second_course_4 = all_courses_dictionary[course_twenty_two_4->GetValue()];
+    float twenty_second_course_grade_4 = all_courses_dictionary[course_twenty_two_grade_4->GetValue()];
+    float twenty_third_course_4 = all_courses_dictionary[course_twenty_three_4->GetValue()];
+    float twenty_third_course_grade_4 = all_courses_dictionary[course_twenty_three_grade_4->GetValue()];
+    float twenty_fourth_course_4 = all_courses_dictionary[course_twenty_four_4->GetValue()];
+    float twenty_fourth_course_grade_4 = all_courses_dictionary[course_twenty_four_grade_4->GetValue()];
+
+    float fourth_year_course_credit_load_sum = (first_course_4 * first_course_grade_4) + (second_course_4 * second_course_grade_4) + (third_course_4 * third_course_grade_4) + (fourth_course_4 + fourth_course_grade_4) + (fifth_course_4 * fifth_course_grade_4) + (sixth_course_4 * sixth_course_grade_4) + (seventh_course_4 * seventh_course_grade_4) + (eighth_course_4 * eighth_course_grade_4) + (nineth_course_4 * nineth_course_grade_4) + (tenth_course_4 * tenth_course_grade_4) + (eleventh_course_4 * eleventh_course_grade_4) + (twelveth_course_4 * twelveth_course_grade_4) + (thirteenth_course_4 * thirteenth_course_grade_4) + (fourteenth_course_4 * fourteenth_course_grade_4) + (fifteenth_course_4 * fifteenth_course_grade_4) + (sixteenth_course_4 * sixteenth_course_grade_4) + (seventeenth_course_4 * seventeenth_course_grade_4) + (eighteenth_course_4 * eighteenth_course_grade_4) + (ninteenth_course_4 * ninteenth_course_grade_4) + (twentieth_course_4 * twentieth_course_grade_4) + (twenty_first_course_4 * twenty_first_course_grade_4) + (twenty_second_course_4 * twenty_second_course_grade_4) + (twenty_third_course_4 * twenty_third_course_grade_4) + (twenty_fourth_course_4 * twenty_fourth_course_grade_4);
+    float fourth_year_credit_load_sum = first_course_4 + second_course_4 + third_course_4 + fourth_course_4 + fifth_course_4 + sixth_course_4 + seventh_course_4 + eighth_course_4 + nineth_course_4 + tenth_course_4 + eleventh_course_4 + twelveth_course_4 + thirteenth_course_4 + fourteenth_course_4 + fifteenth_course_4 + sixteenth_course_4 + seventeenth_course_4 + eighteenth_course_4 + ninteenth_course_4 + twentieth_course_4 + twenty_first_course_4 + twenty_second_course_4 + twenty_third_course_4 + twenty_fourth_course_4;
+    float fourth_year_total_gp;
+    float fourth_year_valid;
+
+    // check if any of the required constants is zero
+    if (fourth_year_credit_load_sum == 0.0 or fourth_year_course_credit_load_sum == 0.0) {
+        fourth_year_total_gp = 0.0;
+        fourth_year_valid = 0.0;
+    }
+
+    else {
+        fourth_year_total_gp = fourth_year_course_credit_load_sum / fourth_year_credit_load_sum;
+        fourth_year_valid = 1.0;
+    }
+
+    // 500 level computation
+    float first_course_5 = all_courses_dictionary[course_one_5->GetValue()];
+    float first_course_grade_5 = all_courses_dictionary[course_one_grade_5->GetValue()];
+    float second_course_5 = all_courses_dictionary[course_two_5->GetValue()];
+    float second_course_grade_5 = all_courses_dictionary[course_two_grade_5->GetValue()];
+    float third_course_5 = all_courses_dictionary[course_three_5->GetValue()];
+    float third_course_grade_5 = all_courses_dictionary[course_three_grade_5->GetValue()];
+    float fourth_course_5 = all_courses_dictionary[course_four_5->GetValue()];
+    float fourth_course_grade_5 = all_courses_dictionary[course_four_grade_5->GetValue()];
+    float fifth_course_5 = all_courses_dictionary[course_five_5->GetValue()];
+    float fifth_course_grade_5 = all_courses_dictionary[course_five_grade_5->GetValue()];
+    float sixth_course_5 = all_courses_dictionary[course_six_5->GetValue()];
+    float sixth_course_grade_5 = all_courses_dictionary[course_six_grade_5->GetValue()];
+    float seventh_course_5 = all_courses_dictionary[course_seven_5->GetValue()];
+    float seventh_course_grade_5 = all_courses_dictionary[course_seven_grade_5->GetValue()];
+    float eighth_course_5 = all_courses_dictionary[course_eight_5->GetValue()];
+    float eighth_course_grade_5 = all_courses_dictionary[course_eight_grade_5->GetValue()];
+    float nineth_course_5 = all_courses_dictionary[course_nine_5->GetValue()];
+    float nineth_course_grade_5 = all_courses_dictionary[course_nine_grade_5->GetValue()];
+    float tenth_course_5 = all_courses_dictionary[course_ten_5->GetValue()];
+    float tenth_course_grade_5 = all_courses_dictionary[course_ten_grade_5->GetValue()];
+    float eleventh_course_5 = all_courses_dictionary[course_eleven_5->GetValue()];
+    float eleventh_course_grade_5 = all_courses_dictionary[course_eleven_grade_5->GetValue()];
+    float twelveth_course_5 = all_courses_dictionary[course_twelve_5->GetValue()];
+    float twelveth_course_grade_5 = all_courses_dictionary[course_twelve_grade_5->GetValue()];
+    float thirteenth_course_5 = all_courses_dictionary[course_thirteen_5->GetValue()];
+    float thirteenth_course_grade_5 = all_courses_dictionary[course_thirteen_grade_5->GetValue()];
+    float fourteenth_course_5 = all_courses_dictionary[course_fourteen_5->GetValue()];
+    float fourteenth_course_grade_5 = all_courses_dictionary[course_fourteen_grade_5->GetValue()];
+    float fifteenth_course_5 = all_courses_dictionary[course_fifteen_5->GetValue()];
+    float fifteenth_course_grade_5 = all_courses_dictionary[course_fifteen_grade_5->GetValue()];
+    float sixteenth_course_5 = all_courses_dictionary[course_sixteen_5->GetValue()];
+    float sixteenth_course_grade_5 = all_courses_dictionary[course_sixteen_grade_5->GetValue()];
+    float seventeenth_course_5 = all_courses_dictionary[course_seventeen_5->GetValue()];
+    float seventeenth_course_grade_5 = all_courses_dictionary[course_seventeen_grade_5->GetValue()];
+    float eighteenth_course_5 = all_courses_dictionary[course_eighteen_5->GetValue()];
+    float eighteenth_course_grade_5 = all_courses_dictionary[course_eighteen_grade_5->GetValue()];
+    float ninteenth_course_5 = all_courses_dictionary[course_nineteen_5->GetValue()];
+    float ninteenth_course_grade_5 = all_courses_dictionary[course_nineteen_grade_5->GetValue()];
+    float twentieth_course_5 = all_courses_dictionary[course_twenty_5->GetValue()];
+    float twentieth_course_grade_5 = all_courses_dictionary[course_twenty_grade_5->GetValue()];
+    float twenty_first_course_5 = all_courses_dictionary[course_twenty_one_5->GetValue()];
+    float twenty_first_course_grade_5 = all_courses_dictionary[course_twenty_one_grade_5->GetValue()];
+    float twenty_second_course_5 = all_courses_dictionary[course_twenty_two_5->GetValue()];
+    float twenty_second_course_grade_5 = all_courses_dictionary[course_twenty_two_grade_5->GetValue()];
+    float twenty_third_course_5 = all_courses_dictionary[course_twenty_three_5->GetValue()];
+    float twenty_third_course_grade_5 = all_courses_dictionary[course_twenty_three_grade_5->GetValue()];
+    float twenty_fourth_course_5 = all_courses_dictionary[course_twenty_four_5->GetValue()];
+    float twenty_fourth_course_grade_5 = all_courses_dictionary[course_twenty_four_grade_5->GetValue()];
+
+    float fifth_year_course_credit_load_sum = (first_course_5 * first_course_grade_5) + (second_course_5 * second_course_grade_5) + (third_course_5 * third_course_grade_5) + (fourth_course_5 + fourth_course_grade_5) + (fifth_course_5 * fifth_course_grade_5) + (sixth_course_5 * sixth_course_grade_5) + (seventh_course_5 * seventh_course_grade_5) + (eighth_course_5 * eighth_course_grade_5) + (nineth_course_5 * nineth_course_grade_5) + (tenth_course_5 * tenth_course_grade_5) + (eleventh_course_5 * eleventh_course_grade_5) + (twelveth_course_5 * twelveth_course_grade_5) + (thirteenth_course_5 * thirteenth_course_grade_5) + (fourteenth_course_5 * fourteenth_course_grade_5) + (fifteenth_course_5 * fifteenth_course_grade_5) + (sixteenth_course_5 * sixteenth_course_grade_5) + (seventeenth_course_5 * seventeenth_course_grade_5) + (eighteenth_course_5 * eighteenth_course_grade_5) + (ninteenth_course_5 * ninteenth_course_grade_5) + (twentieth_course_5 * twentieth_course_grade_5) + (twenty_first_course_5 * twenty_first_course_grade_5) + (twenty_second_course_5 * twenty_second_course_grade_5) + (twenty_third_course_5 * twenty_third_course_grade_5) + (twenty_fourth_course_5 * twenty_fourth_course_grade_5);
+    float fifth_year_credit_load_sum = first_course_5 + second_course_5 + third_course_5 + fourth_course_5 + fifth_course_5 + sixth_course_5 + seventh_course_5 + eighth_course_5 + nineth_course_5 + tenth_course_5 + eleventh_course_5 + twelveth_course_5 + thirteenth_course_5 + fourteenth_course_5 + fifteenth_course_5 + sixteenth_course_5 + seventeenth_course_5 + eighteenth_course_5 + ninteenth_course_5 + twentieth_course_5 + twenty_first_course_5 + twenty_second_course_5 + twenty_third_course_5 + twenty_fourth_course_5;
+    float fifth_year_total_gp;
+    float fifth_year_valid;
+
+    // check if any of the required constants is zero
+    if (fifth_year_credit_load_sum == 0.0 or fifth_year_course_credit_load_sum == 0.0) {
+        fifth_year_total_gp = 0.0;
+        fifth_year_valid = 0.0;
+    }
+
+    else{
+        fifth_year_total_gp = fifth_year_course_credit_load_sum / fifth_year_credit_load_sum;
+        fifth_year_valid = 1.0;
+    }
+
+    // implement percentages ..... 10, 15, 20, 25, 30
+    float first_year_percentage = 0.1;
+    float second_year_percentage = 0.15;
+    float third_year_percentage = 0.2;
+    float fourth_year_percentage = 0.25;
+    float  fifth_year_percentage = 0.3;
+
+    // get total applicable CGPA
+    float first_year_effective_gp;
+    float second_year_effective_gp;
+    float third_year_effective_gp;
+    float fourth_year_effective_gp;
+    float fifth_year_effective_gp;
+
+    /* 100 Level */
+    first_year_effective_gp = first_year_total_gp * first_year_percentage;
+
+    /* 200 Level */
+    second_year_effective_gp = second_year_total_gp * second_year_percentage;
+
+    /* 300 Level */
+    third_year_effective_gp = third_year_total_gp * third_year_percentage;
+
+
+    /* 400 Level */
+    fourth_year_effective_gp = fourth_year_total_gp * fourth_year_percentage;
+    
+
+    /* 500 Level */
+    fifth_year_effective_gp = fifth_year_total_gp * fifth_year_percentage;
+
+
+    // check if anything was even written in the check boxes
+    if ( first_year_valid +  second_year_valid + third_year_valid + fourth_year_valid + fifth_year_valid == 0.0) {
+        wxString cgpa_computation_error_message = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.";
+        wxMessageBox(cgpa_computation_error_message);
+    }
+
+    // check if it's only 100 level that is avaliable
+    if (first_year_valid != 0 and second_year_valid == 0 and third_year_valid == 0 and fourth_year_valid == 0 and fifth_year_valid == 0) {
+        float final_cgpa = first_year_total_gp;
+        wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
+        wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
+        wxMessageBox(final_cgpa_message);
+    }
+
+    // check if it's 100 level and 200 level available
+    if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid == 0 and fourth_year_valid == 0 and fifth_year_valid == 0) {
+        float final_cgpa = (first_year_total_gp + second_year_total_gp) / 2;
+        wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
+        wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
+        wxMessageBox(final_cgpa_message);
+    }
+
+    // check if it's 100 level, 200 level and 300 level available
+    if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid != 0 and fourth_year_valid == 0 and fifth_year_valid == 0) {
+        float final_cgpa = (first_year_total_gp + second_year_total_gp + third_year_total_gp) / 3;
+        wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
+        wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
+        wxMessageBox(final_cgpa_message);
+    }
+
+    // check if it's 100 level, 200 level, 300 level and 400 level available
+    if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid != 0 and fourth_year_valid != 0 and fifth_year_valid == 0) {
+        float final_cgpa = (first_year_total_gp + second_year_total_gp + third_year_total_gp + fourth_year_total_gp) / 4;
+        wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
+        wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
+        wxMessageBox(final_cgpa_message);
+    }
+
+    else if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid != 0 and fourth_year_valid != 0 and fifth_year_valid != 0){
+        float final_cgpa = first_year_effective_gp + second_year_effective_gp + third_year_effective_gp + fourth_year_effective_gp + fifth_year_effective_gp;
+        // convert cgpa to wxString
+        wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
+        wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
+        wxMessageBox(final_cgpa_message);
+    }
+
+    event.Skip();
 }
