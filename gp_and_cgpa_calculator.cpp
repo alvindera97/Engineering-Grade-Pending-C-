@@ -712,7 +712,7 @@ wxIMPLEMENT_APP(GpCalculator);   // initiate main()
 bool GpCalculator::OnInit() {  // append the OnInit() function
     MyFrame *frame = new MyFrame();
     frame->Show(true);
-    wxString capitals_and_caps_lock_and_hint_message = "Note that all courses codes and grades are to be entered in capital letters. A good practice would be to activate and leave the 'Caps Lock' ON throughout the course code and grade entries.";
+    wxString capitals_and_caps_lock_and_hint_message = "Note that all courses codes and grades are to be entered in capital letters. A good practice would be to activate and leave the 'Caps Lock' ON throughout the course code and grade entries process.";
     wxMessageBox(capitals_and_caps_lock_and_hint_message);
     return true;  // this is just to show successfull initialisation
 }
@@ -721,23 +721,7 @@ bool GpCalculator::OnInit() {  // append the OnInit() function
 MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pending Calculator", wxPoint(100, 100), wxSize(828, 650)) {  // Frame of the program
     wxMenu *menuFile = new wxMenu;
     menuFile->AppendSeparator();
-    menuFile->Append(wxID_NEW);
-    menuFile->AppendSeparator();
-    menuFile->Append(wxID_SAVE);
-    menuFile->AppendSeparator();
-    menuFile->Append(wxID_SAVEAS);
-    menuFile->AppendSeparator();
-    menuFile->Append(wxID_UNDO);
-    menuFile->AppendSeparator();
-    menuFile->Append(wxID_REDO);
-    menuFile->AppendSeparator();
-
     menuFile->Append(wxID_EXIT);
-
-    wxMenu *menuCourses = new wxMenu;
-    menuCourses->Append(ID_Course_list, "&All Courses");
-    menuCourses->AppendSeparator();
-    menuCourses->Append(wxID_ANY, "&New Course");
 
     wxMenu *menuHelp = new wxMenu;
     menuHelp->Append(wxID_ABOUT);
@@ -748,12 +732,11 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pe
 
     // append menus to the menubar
     menuBar->Append(menuFile, "&File");  
-    menuBar->Append(menuCourses, "&Course");
     menuBar->Append(menuHelp, "&Help");
 
     SetMenuBar( menuBar );
     CreateStatusBar();
-    SetStatusText("University of Benin, Ugbowo Campus, Ugbowo, Benin-City, Edo State, Nigeria.");
+    SetStatusText("                                                  University of Benin, Ugbowo Campus, Ugbowo, Benin-City, Edo State, Nigeria.");
 
 // add course add buttons and list box
 
@@ -1652,7 +1635,7 @@ void MyFrame::OnHello(wxCommandEvent& event) {
 }
 
 void MyFrame::OnHelp(wxCommandEvent& event) {
-    wxMessageBox("For help on how to use this programme, please use the manual");
+    wxMessageBox("For help on how to use this program, please contact the administrator.");
 }
 
 void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
