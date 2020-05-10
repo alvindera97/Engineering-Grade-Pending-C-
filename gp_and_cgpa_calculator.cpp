@@ -712,7 +712,7 @@ wxIMPLEMENT_APP(GpCalculator);   // initiate main()
 bool GpCalculator::OnInit() {  // append the OnInit() function
     MyFrame *frame = new MyFrame();
     frame->Show(true);
-    wxString capitals_and_caps_lock_and_hint_message = "Note that all courses codes and grades are to be entered in capital letters. A good practice would be to activate and leave the 'Caps Lock' ON.";
+    wxString capitals_and_caps_lock_and_hint_message = "Note that all courses codes and grades are to be entered in capital letters. A good practice would be to activate and leave the 'Caps Lock' ON throughout the course code and grade entries.";
     wxMessageBox(capitals_and_caps_lock_and_hint_message);
     return true;  // this is just to show successfull initialisation
 }
