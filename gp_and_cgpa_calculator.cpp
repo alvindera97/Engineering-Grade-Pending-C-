@@ -741,7 +741,7 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pe
 
     // 100 Level
     wxString level_text = wxT("100 LEVEL");
-    wxStaticText *st = new wxStaticText(this, wxID_ANY, level_text, wxPoint(5, 20), wxDefaultSize, wxALIGN_LEFT);
+    wxStaticText *st = new wxStaticText(this, wxID_ANY, level_text, wxPoint(65, 20), wxDefaultSize, wxALIGN_LEFT);
 
     course_one = new wxTextCtrl(this, ID_COURSE_ONE, "", wxPoint(5, 44), wxSize(65, 30), wxTE_RIGHT);
     course_one_grade = new wxTextCtrl(this, ID_COURSE_ONE_GRADE, "", wxPoint(70, 44), wxSize(25, 30), wxTE_RIGHT);
@@ -911,11 +911,11 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pe
     course_twenty_four->SetHint("COURSE");
     course_twenty_four_grade->SetHint("A");
 
-    calculate_gp = new wxButton(this, ID_CALCULATE_100_LEVEL_GP, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
+    calculate_gp = new wxButton(this, ID_CALCULATE_100_LEVEL_GP, "Display GP", wxPoint(60, 445), wxSize(75, 50));
 
     // 200 Level
     wxString level_text_2 = wxT("200 LEVEL");
-    wxStaticText *st_2 = new wxStaticText(this, wxID_ANY, level_text_2, wxPoint(189, 20), wxDefaultSize, wxALIGN_LEFT);
+    wxStaticText *st_2 = new wxStaticText(this, wxID_ANY, level_text_2, wxPoint(249, 20), wxDefaultSize, wxALIGN_LEFT);
 
     course_one_2 = new wxTextCtrl(this, ID_COURSE_ONE_2, "", wxPoint(189, 44), wxSize(65, 30));
     course_one_grade_2 = new wxTextCtrl(this, ID_COURSE_ONE_GRADE_2, "", wxPoint(254, 44), wxSize(25, 30));
@@ -1085,11 +1085,11 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pe
     course_twenty_four_2->SetHint("COURSE");
     course_twenty_four_grade_2->SetHint("A");
 
-    calculate_gp_2 = new wxButton(this, ID_CALCULATE_200_LEVEL_GP, "Display GP", wxPoint(207.5, 445), wxSize(75, 50));
+    calculate_gp_2 = new wxButton(this, ID_CALCULATE_200_LEVEL_GP, "Display GP", wxPoint(244, 445), wxSize(75, 50));
 
     // 300 Level
     wxString level_text_3 = wxT("300 LEVEL");
-    wxStaticText *st_3 = new wxStaticText(this, wxID_ANY, level_text_3, wxPoint(373, 20), wxDefaultSize, wxALIGN_LEFT);
+    wxStaticText *st_3 = new wxStaticText(this, wxID_ANY, level_text_3, wxPoint(433, 20), wxDefaultSize, wxALIGN_LEFT);
 
     course_one_3 = new wxTextCtrl(this, ID_COURSE_ONE_3, "", wxPoint(373, 44), wxSize(65, 30));
     course_one_grade_3 = new wxTextCtrl(this, ID_COURSE_ONE_GRADE_3, "", wxPoint(438, 44), wxSize(25, 30));
@@ -1259,11 +1259,11 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pe
     course_twenty_four_3->SetHint("COURSE");
     course_twenty_four_grade_3->SetHint("A");
 
-    calculate_gp_3 = new wxButton(this, ID_CALCULATE_300_LEVEL_GP, "Display GP", wxPoint(372.5, 445), wxSize(75, 50));
+    calculate_gp_3 = new wxButton(this, ID_CALCULATE_300_LEVEL_GP, "Display GP", wxPoint(428, 445), wxSize(75, 50));
 
     // 400 Level
     wxString level_text_4 = wxT("400 LEVEL");
-    wxStaticText *st_4 = new wxStaticText(this, wxID_ANY, level_text_4, wxPoint(557, 20), wxDefaultSize, wxALIGN_LEFT);
+    wxStaticText *st_4 = new wxStaticText(this, wxID_ANY, level_text_4, wxPoint(617, 20), wxDefaultSize, wxALIGN_LEFT);
 
     course_one_4 = new wxTextCtrl(this, ID_COURSE_ONE_4, "", wxPoint(557, 44), wxSize(65, 30));
     course_one_grade_4 = new wxTextCtrl(this, ID_COURSE_ONE_GRADE_4, "", wxPoint(622, 44), wxSize(25, 30));
@@ -1433,11 +1433,11 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pe
     course_twenty_four_4->SetHint("COURSE");
     course_twenty_four_grade_4->SetHint("A");
 
-    calculate_gp_4 = new wxButton(this, ID_CALCULATE_400_LEVEL_GP, "Display GP", wxPoint(537.5, 445), wxSize(75, 50));
+    calculate_gp_4 = new wxButton(this, ID_CALCULATE_400_LEVEL_GP, "Display GP", wxPoint(612, 445), wxSize(75, 50));
 
     // 500 Level
     wxString level_text_5 = wxT("500 LEVEL");
-    wxStaticText *st_5 = new wxStaticText(this, wxID_ANY, level_text_5, wxPoint(741, 20), wxDefaultSize, wxALIGN_LEFT);
+    wxStaticText *st_5 = new wxStaticText(this, wxID_ANY, level_text_5, wxPoint(801, 20), wxDefaultSize, wxALIGN_LEFT);
 
     course_one_5 = new wxTextCtrl(this, ID_COURSE_ONE_5, "", wxPoint(741, 44), wxSize(65, 30));
     course_one_grade_5 = new wxTextCtrl(this, ID_COURSE_ONE_GRADE_5, "", wxPoint(806, 44), wxSize(25, 30));
@@ -1607,14 +1607,14 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pe
     course_twenty_four_5->SetHint("COURSE");
     course_twenty_four_grade_5->SetHint("A");
 
-    calculate_gp_5 = new wxButton(this, ID_CALCULATE_500_LEVEL_GP, "Display GP", wxPoint(702.5, 445), wxSize(75, 50));
+    calculate_gp_5 = new wxButton(this, ID_CALCULATE_500_LEVEL_GP, "Display GP", wxPoint(796, 445), wxSize(75, 50));
 
     Bind(wxEVT_MENU, &MyFrame::OnHello, this, ID_Hello);
     Bind(wxEVT_MENU, &MyFrame::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &MyFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_MENU, &MyFrame::OnHelp, this, wxID_HELP);
 
-    calculate_cgpa = new wxButton(this, ID_CALCULATE_CGPA, "Show CGPA", wxPoint(335, 510), wxSize(155, 50));
+    calculate_cgpa = new wxButton(this, ID_CALCULATE_CGPA, "Show CGPA", wxPoint(385, 510), wxSize(155, 50));
 
     // Bind(wxEVT_TEXT, &MyFrame::OnCourseTextBoxClicked, this, ID_COURSE_ONE);
 }
