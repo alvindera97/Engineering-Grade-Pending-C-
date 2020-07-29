@@ -7,7 +7,7 @@
 #include <wx/stattext.h>
 
 #ifndef WX_PRECOMP
-    #include <wx/wx.h>
+#include <wx/wx.h>
 #endif
 
 #include <iostream>
@@ -19,11 +19,11 @@
 
 #include <string>
 
-
 //g++ gp_and_cgpa_calculator.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose
 //g++ gp_and_cgpa_calculator.cpp `wx-config --cxxflags --libs` -o gpCalculator --verbose && ./gpCalculator
 
-enum {
+enum
+{
     ID_Hello = 1,
     ID_Course_list = 2,
     ID_New_Calculation = 3,
@@ -61,7 +61,7 @@ enum {
     ID_COURSE_FOURTEEN = 114,
     ID_COURSE_FOURTEEN_GRADE = 1141,
     ID_COURSE_FIFTEEN = 115,
-    ID_COURSE_FIFTEEN_GRADE =  1151,
+    ID_COURSE_FIFTEEN_GRADE = 1151,
     ID_COURSE_SIXTEEN = 116,
     ID_COURSE_SIXTEEN_GRADE = 1161,
     ID_COURSE_SEVENTEEN = 117,
@@ -111,7 +111,7 @@ enum {
     ID_COURSE_FOURTEEN_2 = 214,
     ID_COURSE_FOURTEEN_GRADE_2 = 2141,
     ID_COURSE_FIFTEEN_2 = 215,
-    ID_COURSE_FIFTEEN_GRADE_2 =  2151,
+    ID_COURSE_FIFTEEN_GRADE_2 = 2151,
     ID_COURSE_SIXTEEN_2 = 216,
     ID_COURSE_SIXTEEN_GRADE_2 = 2161,
     ID_COURSE_SEVENTEEN_2 = 217,
@@ -130,7 +130,6 @@ enum {
     ID_COURSE_TWENTY_THREE_GRADE_2 = 2231,
     ID_COURSE_TWENTY_FOUR_2 = 224,
     ID_COURSE_TWENTY_FOUR_GRADE_2 = 2241,
-
 
     // 300 level
     ID_COURSE_ONE_3 = 31,
@@ -162,7 +161,7 @@ enum {
     ID_COURSE_FOURTEEN_3 = 314,
     ID_COURSE_FOURTEEN_GRADE_3 = 3141,
     ID_COURSE_FIFTEEN_3 = 315,
-    ID_COURSE_FIFTEEN_GRADE_3 =  3151,
+    ID_COURSE_FIFTEEN_GRADE_3 = 3151,
     ID_COURSE_SIXTEEN_3 = 316,
     ID_COURSE_SIXTEEN_GRADE_3 = 3161,
     ID_COURSE_SEVENTEEN_3 = 317,
@@ -212,7 +211,7 @@ enum {
     ID_COURSE_FOURTEEN_4 = 414,
     ID_COURSE_FOURTEEN_GRADE_4 = 4141,
     ID_COURSE_FIFTEEN_4 = 415,
-    ID_COURSE_FIFTEEN_GRADE_4 =  4151,
+    ID_COURSE_FIFTEEN_GRADE_4 = 4151,
     ID_COURSE_SIXTEEN_4 = 416,
     ID_COURSE_SIXTEEN_GRADE_4 = 4161,
     ID_COURSE_SEVENTEEN_4 = 417,
@@ -262,7 +261,7 @@ enum {
     ID_COURSE_FOURTEEN_5 = 514,
     ID_COURSE_FOURTEEN_GRADE_5 = 5141,
     ID_COURSE_FIFTEEN_5 = 515,
-    ID_COURSE_FIFTEEN_GRADE_5 =  5151,
+    ID_COURSE_FIFTEEN_GRADE_5 = 5151,
     ID_COURSE_SIXTEEN_5 = 516,
     ID_COURSE_SIXTEEN_GRADE_5 = 5161,
     ID_COURSE_SEVENTEEN_5 = 517,
@@ -291,434 +290,434 @@ enum {
     ID_CALCULATE_CGPA = 12345,
 };
 
-class GpCalculator : public wxApp {
-    public:
-        virtual bool OnInit();
-
+class GpCalculator : public wxApp
+{
+public:
+    virtual bool OnInit();
 };
 
+class MyFrame : public wxFrame
+{ // defines the options on the top bar of the screen here we have:
+public:
+    MyFrame();
 
-class MyFrame : public wxFrame {  // defines the options on the top bar of the screen here we have:
-    public:
-        MyFrame();
-    private:
-        void OnHello(wxCommandEvent& event);  // hello option
-        void OnExit(wxCommandEvent& event);  // exit option
-        void OnAbout(wxCommandEvent& event);  // about option
-        void OnHelp(wxCommandEvent& event); // event option
+private:
+    void OnHello(wxCommandEvent &event); // hello option
+    void OnExit(wxCommandEvent &event);  // exit option
+    void OnAbout(wxCommandEvent &event); // about option
+    void OnHelp(wxCommandEvent &event);  // event option
 
-        // void OnCourseTextBoxClicked(wxCommandEvent &event);
-        void OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
-        void OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
-        void OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
-        void OnFourHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
-        void OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+    // void OnCourseTextBoxClicked(wxCommandEvent &event);
+    void OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+    void OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+    void OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+    void OnFourHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
+    void OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent &event);
 
-        void OnDisplayCgpaButtonClicked(wxCommandEvent &event);
+    void OnDisplayCgpaButtonClicked(wxCommandEvent &event);
 
-        // all courses map
-            
-        // 100 Level
-        wxTextCtrl *course_one;
-        wxTextCtrl *course_one_grade;
+    // all courses map
 
-        wxTextCtrl *course_two;
-        wxTextCtrl *course_two_grade;
+    // 100 Level
+    wxTextCtrl *course_one;
+    wxTextCtrl *course_one_grade;
 
-        wxTextCtrl *course_three;
-        wxTextCtrl *course_three_grade;
+    wxTextCtrl *course_two;
+    wxTextCtrl *course_two_grade;
 
-        wxTextCtrl *course_four;
-        wxTextCtrl *course_four_grade;
+    wxTextCtrl *course_three;
+    wxTextCtrl *course_three_grade;
 
-        wxTextCtrl *course_five;
-        wxTextCtrl *course_five_grade;
+    wxTextCtrl *course_four;
+    wxTextCtrl *course_four_grade;
 
-        wxTextCtrl *course_six;
-        wxTextCtrl *course_six_grade;
+    wxTextCtrl *course_five;
+    wxTextCtrl *course_five_grade;
 
-        wxTextCtrl *course_seven;
-        wxTextCtrl *course_seven_grade;
+    wxTextCtrl *course_six;
+    wxTextCtrl *course_six_grade;
 
-        wxTextCtrl *course_eight;
-        wxTextCtrl *course_eight_grade;
+    wxTextCtrl *course_seven;
+    wxTextCtrl *course_seven_grade;
 
-        wxTextCtrl *course_nine;
-        wxTextCtrl *course_nine_grade;
+    wxTextCtrl *course_eight;
+    wxTextCtrl *course_eight_grade;
 
-        wxTextCtrl *course_ten;
-        wxTextCtrl *course_ten_grade;
+    wxTextCtrl *course_nine;
+    wxTextCtrl *course_nine_grade;
 
-        wxTextCtrl *course_eleven;
-        wxTextCtrl *course_eleven_grade;
+    wxTextCtrl *course_ten;
+    wxTextCtrl *course_ten_grade;
 
-        wxTextCtrl *course_twelve;
-        wxTextCtrl *course_twelve_grade;
+    wxTextCtrl *course_eleven;
+    wxTextCtrl *course_eleven_grade;
 
-        wxTextCtrl *course_thirteen;
-        wxTextCtrl *course_thirteen_grade;
+    wxTextCtrl *course_twelve;
+    wxTextCtrl *course_twelve_grade;
 
-        wxTextCtrl *course_fourteen;
-        wxTextCtrl *course_fourteen_grade;
+    wxTextCtrl *course_thirteen;
+    wxTextCtrl *course_thirteen_grade;
 
-        wxTextCtrl *course_fifteen;
-        wxTextCtrl *course_fifteen_grade;
+    wxTextCtrl *course_fourteen;
+    wxTextCtrl *course_fourteen_grade;
 
-        wxTextCtrl *course_sixteen;
-        wxTextCtrl *course_sixteen_grade;
+    wxTextCtrl *course_fifteen;
+    wxTextCtrl *course_fifteen_grade;
 
-        wxTextCtrl *course_seventeen;
-        wxTextCtrl *course_seventeen_grade;
+    wxTextCtrl *course_sixteen;
+    wxTextCtrl *course_sixteen_grade;
 
-        wxTextCtrl *course_eighteen;
-        wxTextCtrl *course_eighteen_grade;
+    wxTextCtrl *course_seventeen;
+    wxTextCtrl *course_seventeen_grade;
 
-        wxTextCtrl *course_nineteen;
-        wxTextCtrl *course_nineteen_grade;
+    wxTextCtrl *course_eighteen;
+    wxTextCtrl *course_eighteen_grade;
 
-        wxTextCtrl *course_twenty;
-        wxTextCtrl *course_twenty_grade;    
+    wxTextCtrl *course_nineteen;
+    wxTextCtrl *course_nineteen_grade;
 
-        wxTextCtrl *course_twenty_one;
-        wxTextCtrl *course_twenty_one_grade;  
+    wxTextCtrl *course_twenty;
+    wxTextCtrl *course_twenty_grade;
 
-        wxTextCtrl *course_twenty_two;
-        wxTextCtrl *course_twenty_two_grade;  
+    wxTextCtrl *course_twenty_one;
+    wxTextCtrl *course_twenty_one_grade;
 
-        wxTextCtrl *course_twenty_three;
-        wxTextCtrl *course_twenty_three_grade;  
+    wxTextCtrl *course_twenty_two;
+    wxTextCtrl *course_twenty_two_grade;
 
-        wxTextCtrl *course_twenty_four;
-        wxTextCtrl *course_twenty_four_grade;
+    wxTextCtrl *course_twenty_three;
+    wxTextCtrl *course_twenty_three_grade;
 
-        // 200 Level
-        wxTextCtrl *course_one_2;
-        wxTextCtrl *course_one_grade_2;
+    wxTextCtrl *course_twenty_four;
+    wxTextCtrl *course_twenty_four_grade;
 
-        wxTextCtrl *course_two_2;
-        wxTextCtrl *course_two_grade_2;
+    // 200 Level
+    wxTextCtrl *course_one_2;
+    wxTextCtrl *course_one_grade_2;
 
-        wxTextCtrl *course_three_2;
-        wxTextCtrl *course_three_grade_2;
+    wxTextCtrl *course_two_2;
+    wxTextCtrl *course_two_grade_2;
 
-        wxTextCtrl *course_four_2;
-        wxTextCtrl *course_four_grade_2;
+    wxTextCtrl *course_three_2;
+    wxTextCtrl *course_three_grade_2;
 
-        wxTextCtrl *course_five_2;
-        wxTextCtrl *course_five_grade_2;
+    wxTextCtrl *course_four_2;
+    wxTextCtrl *course_four_grade_2;
 
-        wxTextCtrl *course_six_2;
-        wxTextCtrl *course_six_grade_2;
+    wxTextCtrl *course_five_2;
+    wxTextCtrl *course_five_grade_2;
 
-        wxTextCtrl *course_seven_2;
-        wxTextCtrl *course_seven_grade_2;
+    wxTextCtrl *course_six_2;
+    wxTextCtrl *course_six_grade_2;
 
-        wxTextCtrl *course_eight_2;
-        wxTextCtrl *course_eight_grade_2;
+    wxTextCtrl *course_seven_2;
+    wxTextCtrl *course_seven_grade_2;
 
-        wxTextCtrl *course_nine_2;
-        wxTextCtrl *course_nine_grade_2;
+    wxTextCtrl *course_eight_2;
+    wxTextCtrl *course_eight_grade_2;
 
-        wxTextCtrl *course_ten_2;
-        wxTextCtrl *course_ten_grade_2;
+    wxTextCtrl *course_nine_2;
+    wxTextCtrl *course_nine_grade_2;
 
-        wxTextCtrl *course_eleven_2;
-        wxTextCtrl *course_eleven_grade_2;
+    wxTextCtrl *course_ten_2;
+    wxTextCtrl *course_ten_grade_2;
 
-        wxTextCtrl *course_twelve_2;
-        wxTextCtrl *course_twelve_grade_2;
+    wxTextCtrl *course_eleven_2;
+    wxTextCtrl *course_eleven_grade_2;
 
-        wxTextCtrl *course_thirteen_2;
-        wxTextCtrl *course_thirteen_grade_2;
+    wxTextCtrl *course_twelve_2;
+    wxTextCtrl *course_twelve_grade_2;
 
-        wxTextCtrl *course_fourteen_2;
-        wxTextCtrl *course_fourteen_grade_2;
+    wxTextCtrl *course_thirteen_2;
+    wxTextCtrl *course_thirteen_grade_2;
 
-        wxTextCtrl *course_fifteen_2;
-        wxTextCtrl *course_fifteen_grade_2;
+    wxTextCtrl *course_fourteen_2;
+    wxTextCtrl *course_fourteen_grade_2;
 
-        wxTextCtrl *course_sixteen_2;
-        wxTextCtrl *course_sixteen_grade_2;
+    wxTextCtrl *course_fifteen_2;
+    wxTextCtrl *course_fifteen_grade_2;
 
-        wxTextCtrl *course_seventeen_2;
-        wxTextCtrl *course_seventeen_grade_2;
+    wxTextCtrl *course_sixteen_2;
+    wxTextCtrl *course_sixteen_grade_2;
 
-        wxTextCtrl *course_eighteen_2;
-        wxTextCtrl *course_eighteen_grade_2;
+    wxTextCtrl *course_seventeen_2;
+    wxTextCtrl *course_seventeen_grade_2;
 
-        wxTextCtrl *course_nineteen_2;
-        wxTextCtrl *course_nineteen_grade_2;
+    wxTextCtrl *course_eighteen_2;
+    wxTextCtrl *course_eighteen_grade_2;
 
-        wxTextCtrl *course_twenty_2;
-        wxTextCtrl *course_twenty_grade_2;    
+    wxTextCtrl *course_nineteen_2;
+    wxTextCtrl *course_nineteen_grade_2;
 
-        wxTextCtrl *course_twenty_one_2;
-        wxTextCtrl *course_twenty_one_grade_2;  
+    wxTextCtrl *course_twenty_2;
+    wxTextCtrl *course_twenty_grade_2;
 
-        wxTextCtrl *course_twenty_two_2;
-        wxTextCtrl *course_twenty_two_grade_2;  
+    wxTextCtrl *course_twenty_one_2;
+    wxTextCtrl *course_twenty_one_grade_2;
 
-        wxTextCtrl *course_twenty_three_2;
-        wxTextCtrl *course_twenty_three_grade_2;  
+    wxTextCtrl *course_twenty_two_2;
+    wxTextCtrl *course_twenty_two_grade_2;
 
-        wxTextCtrl *course_twenty_four_2;
-        wxTextCtrl *course_twenty_four_grade_2;  
+    wxTextCtrl *course_twenty_three_2;
+    wxTextCtrl *course_twenty_three_grade_2;
 
-        // 300 Level
-        wxTextCtrl *course_one_3;
-        wxTextCtrl *course_one_grade_3;
+    wxTextCtrl *course_twenty_four_2;
+    wxTextCtrl *course_twenty_four_grade_2;
 
-        wxTextCtrl *course_two_3;
-        wxTextCtrl *course_two_grade_3;
+    // 300 Level
+    wxTextCtrl *course_one_3;
+    wxTextCtrl *course_one_grade_3;
 
-        wxTextCtrl *course_three_3;
-        wxTextCtrl *course_three_grade_3;
+    wxTextCtrl *course_two_3;
+    wxTextCtrl *course_two_grade_3;
 
-        wxTextCtrl *course_four_3;
-        wxTextCtrl *course_four_grade_3;
+    wxTextCtrl *course_three_3;
+    wxTextCtrl *course_three_grade_3;
 
-        wxTextCtrl *course_five_3;
-        wxTextCtrl *course_five_grade_3;
+    wxTextCtrl *course_four_3;
+    wxTextCtrl *course_four_grade_3;
 
-        wxTextCtrl *course_six_3;
-        wxTextCtrl *course_six_grade_3;
+    wxTextCtrl *course_five_3;
+    wxTextCtrl *course_five_grade_3;
 
-        wxTextCtrl *course_seven_3;
-        wxTextCtrl *course_seven_grade_3;
+    wxTextCtrl *course_six_3;
+    wxTextCtrl *course_six_grade_3;
 
-        wxTextCtrl *course_eight_3;
-        wxTextCtrl *course_eight_grade_3;
+    wxTextCtrl *course_seven_3;
+    wxTextCtrl *course_seven_grade_3;
 
-        wxTextCtrl *course_nine_3;
-        wxTextCtrl *course_nine_grade_3;
+    wxTextCtrl *course_eight_3;
+    wxTextCtrl *course_eight_grade_3;
 
-        wxTextCtrl *course_ten_3;
-        wxTextCtrl *course_ten_grade_3;
+    wxTextCtrl *course_nine_3;
+    wxTextCtrl *course_nine_grade_3;
 
-        wxTextCtrl *course_eleven_3;
-        wxTextCtrl *course_eleven_grade_3;
+    wxTextCtrl *course_ten_3;
+    wxTextCtrl *course_ten_grade_3;
 
-        wxTextCtrl *course_twelve_3;
-        wxTextCtrl *course_twelve_grade_3;
+    wxTextCtrl *course_eleven_3;
+    wxTextCtrl *course_eleven_grade_3;
 
-        wxTextCtrl *course_thirteen_3;
-        wxTextCtrl *course_thirteen_grade_3;
+    wxTextCtrl *course_twelve_3;
+    wxTextCtrl *course_twelve_grade_3;
 
-        wxTextCtrl *course_fourteen_3;
-        wxTextCtrl *course_fourteen_grade_3;
+    wxTextCtrl *course_thirteen_3;
+    wxTextCtrl *course_thirteen_grade_3;
 
-        wxTextCtrl *course_fifteen_3;
-        wxTextCtrl *course_fifteen_grade_3;
+    wxTextCtrl *course_fourteen_3;
+    wxTextCtrl *course_fourteen_grade_3;
 
-        wxTextCtrl *course_sixteen_3;
-        wxTextCtrl *course_sixteen_grade_3;
+    wxTextCtrl *course_fifteen_3;
+    wxTextCtrl *course_fifteen_grade_3;
 
-        wxTextCtrl *course_seventeen_3;
-        wxTextCtrl *course_seventeen_grade_3;
+    wxTextCtrl *course_sixteen_3;
+    wxTextCtrl *course_sixteen_grade_3;
 
-        wxTextCtrl *course_eighteen_3;
-        wxTextCtrl *course_eighteen_grade_3;
+    wxTextCtrl *course_seventeen_3;
+    wxTextCtrl *course_seventeen_grade_3;
 
-        wxTextCtrl *course_nineteen_3;
-        wxTextCtrl *course_nineteen_grade_3;
+    wxTextCtrl *course_eighteen_3;
+    wxTextCtrl *course_eighteen_grade_3;
 
-        wxTextCtrl *course_twenty_3;
-        wxTextCtrl *course_twenty_grade_3;    
+    wxTextCtrl *course_nineteen_3;
+    wxTextCtrl *course_nineteen_grade_3;
 
-        wxTextCtrl *course_twenty_one_3;
-        wxTextCtrl *course_twenty_one_grade_3;  
+    wxTextCtrl *course_twenty_3;
+    wxTextCtrl *course_twenty_grade_3;
 
-        wxTextCtrl *course_twenty_two_3;
-        wxTextCtrl *course_twenty_two_grade_3;  
+    wxTextCtrl *course_twenty_one_3;
+    wxTextCtrl *course_twenty_one_grade_3;
 
-        wxTextCtrl *course_twenty_three_3;
-        wxTextCtrl *course_twenty_three_grade_3;  
+    wxTextCtrl *course_twenty_two_3;
+    wxTextCtrl *course_twenty_two_grade_3;
 
-        wxTextCtrl *course_twenty_four_3;
-        wxTextCtrl *course_twenty_four_grade_3;  
+    wxTextCtrl *course_twenty_three_3;
+    wxTextCtrl *course_twenty_three_grade_3;
 
+    wxTextCtrl *course_twenty_four_3;
+    wxTextCtrl *course_twenty_four_grade_3;
 
-        // 400 Level
-        wxTextCtrl *course_one_4;
-        wxTextCtrl *course_one_grade_4;
+    // 400 Level
+    wxTextCtrl *course_one_4;
+    wxTextCtrl *course_one_grade_4;
 
-        wxTextCtrl *course_two_4;
-        wxTextCtrl *course_two_grade_4;
+    wxTextCtrl *course_two_4;
+    wxTextCtrl *course_two_grade_4;
 
-        wxTextCtrl *course_three_4;
-        wxTextCtrl *course_three_grade_4;
+    wxTextCtrl *course_three_4;
+    wxTextCtrl *course_three_grade_4;
 
-        wxTextCtrl *course_four_4;
-        wxTextCtrl *course_four_grade_4;
+    wxTextCtrl *course_four_4;
+    wxTextCtrl *course_four_grade_4;
 
-        wxTextCtrl *course_five_4;
-        wxTextCtrl *course_five_grade_4;
+    wxTextCtrl *course_five_4;
+    wxTextCtrl *course_five_grade_4;
 
-        wxTextCtrl *course_six_4;
-        wxTextCtrl *course_six_grade_4;
+    wxTextCtrl *course_six_4;
+    wxTextCtrl *course_six_grade_4;
 
-        wxTextCtrl *course_seven_4;
-        wxTextCtrl *course_seven_grade_4;
+    wxTextCtrl *course_seven_4;
+    wxTextCtrl *course_seven_grade_4;
 
-        wxTextCtrl *course_eight_4;
-        wxTextCtrl *course_eight_grade_4;
+    wxTextCtrl *course_eight_4;
+    wxTextCtrl *course_eight_grade_4;
 
-        wxTextCtrl *course_nine_4;
-        wxTextCtrl *course_nine_grade_4;
+    wxTextCtrl *course_nine_4;
+    wxTextCtrl *course_nine_grade_4;
 
-        wxTextCtrl *course_ten_4;
-        wxTextCtrl *course_ten_grade_4;
+    wxTextCtrl *course_ten_4;
+    wxTextCtrl *course_ten_grade_4;
 
-        wxTextCtrl *course_eleven_4;
-        wxTextCtrl *course_eleven_grade_4;
+    wxTextCtrl *course_eleven_4;
+    wxTextCtrl *course_eleven_grade_4;
 
-        wxTextCtrl *course_twelve_4;
-        wxTextCtrl *course_twelve_grade_4;
+    wxTextCtrl *course_twelve_4;
+    wxTextCtrl *course_twelve_grade_4;
 
-        wxTextCtrl *course_thirteen_4;
-        wxTextCtrl *course_thirteen_grade_4;
+    wxTextCtrl *course_thirteen_4;
+    wxTextCtrl *course_thirteen_grade_4;
 
-        wxTextCtrl *course_fourteen_4;
-        wxTextCtrl *course_fourteen_grade_4;
+    wxTextCtrl *course_fourteen_4;
+    wxTextCtrl *course_fourteen_grade_4;
 
-        wxTextCtrl *course_fifteen_4;
-        wxTextCtrl *course_fifteen_grade_4;
+    wxTextCtrl *course_fifteen_4;
+    wxTextCtrl *course_fifteen_grade_4;
 
-        wxTextCtrl *course_sixteen_4;
-        wxTextCtrl *course_sixteen_grade_4;
+    wxTextCtrl *course_sixteen_4;
+    wxTextCtrl *course_sixteen_grade_4;
 
-        wxTextCtrl *course_seventeen_4;
-        wxTextCtrl *course_seventeen_grade_4;
+    wxTextCtrl *course_seventeen_4;
+    wxTextCtrl *course_seventeen_grade_4;
 
-        wxTextCtrl *course_eighteen_4;
-        wxTextCtrl *course_eighteen_grade_4;
+    wxTextCtrl *course_eighteen_4;
+    wxTextCtrl *course_eighteen_grade_4;
 
-        wxTextCtrl *course_nineteen_4;
-        wxTextCtrl *course_nineteen_grade_4;
+    wxTextCtrl *course_nineteen_4;
+    wxTextCtrl *course_nineteen_grade_4;
 
-        wxTextCtrl *course_twenty_4;
-        wxTextCtrl *course_twenty_grade_4;    
+    wxTextCtrl *course_twenty_4;
+    wxTextCtrl *course_twenty_grade_4;
 
-        wxTextCtrl *course_twenty_one_4;
-        wxTextCtrl *course_twenty_one_grade_4;  
+    wxTextCtrl *course_twenty_one_4;
+    wxTextCtrl *course_twenty_one_grade_4;
 
-        wxTextCtrl *course_twenty_two_4;
-        wxTextCtrl *course_twenty_two_grade_4;  
+    wxTextCtrl *course_twenty_two_4;
+    wxTextCtrl *course_twenty_two_grade_4;
 
-        wxTextCtrl *course_twenty_three_4;
-        wxTextCtrl *course_twenty_three_grade_4;  
+    wxTextCtrl *course_twenty_three_4;
+    wxTextCtrl *course_twenty_three_grade_4;
 
-        wxTextCtrl *course_twenty_four_4;
-        wxTextCtrl *course_twenty_four_grade_4;  
+    wxTextCtrl *course_twenty_four_4;
+    wxTextCtrl *course_twenty_four_grade_4;
 
-        // 500 Level
-        wxTextCtrl *course_one_5;
-        wxTextCtrl *course_one_grade_5;
+    // 500 Level
+    wxTextCtrl *course_one_5;
+    wxTextCtrl *course_one_grade_5;
 
-        wxTextCtrl *course_two_5;
-        wxTextCtrl *course_two_grade_5;
+    wxTextCtrl *course_two_5;
+    wxTextCtrl *course_two_grade_5;
 
-        wxTextCtrl *course_three_5;
-        wxTextCtrl *course_three_grade_5;
+    wxTextCtrl *course_three_5;
+    wxTextCtrl *course_three_grade_5;
 
-        wxTextCtrl *course_four_5;
-        wxTextCtrl *course_four_grade_5;
+    wxTextCtrl *course_four_5;
+    wxTextCtrl *course_four_grade_5;
 
-        wxTextCtrl *course_five_5;
-        wxTextCtrl *course_five_grade_5;
+    wxTextCtrl *course_five_5;
+    wxTextCtrl *course_five_grade_5;
 
-        wxTextCtrl *course_six_5;
-        wxTextCtrl *course_six_grade_5;
+    wxTextCtrl *course_six_5;
+    wxTextCtrl *course_six_grade_5;
 
-        wxTextCtrl *course_seven_5;
-        wxTextCtrl *course_seven_grade_5;
+    wxTextCtrl *course_seven_5;
+    wxTextCtrl *course_seven_grade_5;
 
-        wxTextCtrl *course_eight_5;
-        wxTextCtrl *course_eight_grade_5;
+    wxTextCtrl *course_eight_5;
+    wxTextCtrl *course_eight_grade_5;
 
-        wxTextCtrl *course_nine_5;
-        wxTextCtrl *course_nine_grade_5;
+    wxTextCtrl *course_nine_5;
+    wxTextCtrl *course_nine_grade_5;
 
-        wxTextCtrl *course_ten_5;
-        wxTextCtrl *course_ten_grade_5;
+    wxTextCtrl *course_ten_5;
+    wxTextCtrl *course_ten_grade_5;
 
-        wxTextCtrl *course_eleven_5;
-        wxTextCtrl *course_eleven_grade_5;
+    wxTextCtrl *course_eleven_5;
+    wxTextCtrl *course_eleven_grade_5;
 
-        wxTextCtrl *course_twelve_5;
-        wxTextCtrl *course_twelve_grade_5;
+    wxTextCtrl *course_twelve_5;
+    wxTextCtrl *course_twelve_grade_5;
 
-        wxTextCtrl *course_thirteen_5;
-        wxTextCtrl *course_thirteen_grade_5;
+    wxTextCtrl *course_thirteen_5;
+    wxTextCtrl *course_thirteen_grade_5;
 
-        wxTextCtrl *course_fourteen_5;
-        wxTextCtrl *course_fourteen_grade_5;
+    wxTextCtrl *course_fourteen_5;
+    wxTextCtrl *course_fourteen_grade_5;
 
-        wxTextCtrl *course_fifteen_5;
-        wxTextCtrl *course_fifteen_grade_5;
+    wxTextCtrl *course_fifteen_5;
+    wxTextCtrl *course_fifteen_grade_5;
 
-        wxTextCtrl *course_sixteen_5;
-        wxTextCtrl *course_sixteen_grade_5;
+    wxTextCtrl *course_sixteen_5;
+    wxTextCtrl *course_sixteen_grade_5;
 
-        wxTextCtrl *course_seventeen_5;
-        wxTextCtrl *course_seventeen_grade_5;
+    wxTextCtrl *course_seventeen_5;
+    wxTextCtrl *course_seventeen_grade_5;
 
-        wxTextCtrl *course_eighteen_5;
-        wxTextCtrl *course_eighteen_grade_5;
+    wxTextCtrl *course_eighteen_5;
+    wxTextCtrl *course_eighteen_grade_5;
 
-        wxTextCtrl *course_nineteen_5;
-        wxTextCtrl *course_nineteen_grade_5;
+    wxTextCtrl *course_nineteen_5;
+    wxTextCtrl *course_nineteen_grade_5;
 
-        wxTextCtrl *course_twenty_5;
-        wxTextCtrl *course_twenty_grade_5;    
+    wxTextCtrl *course_twenty_5;
+    wxTextCtrl *course_twenty_grade_5;
 
-        wxTextCtrl *course_twenty_one_5;
-        wxTextCtrl *course_twenty_one_grade_5;  
+    wxTextCtrl *course_twenty_one_5;
+    wxTextCtrl *course_twenty_one_grade_5;
 
-        wxTextCtrl *course_twenty_two_5;
-        wxTextCtrl *course_twenty_two_grade_5;  
+    wxTextCtrl *course_twenty_two_5;
+    wxTextCtrl *course_twenty_two_grade_5;
 
-        wxTextCtrl *course_twenty_three_5;
-        wxTextCtrl *course_twenty_three_grade_5;  
+    wxTextCtrl *course_twenty_three_5;
+    wxTextCtrl *course_twenty_three_grade_5;
 
-        wxTextCtrl *course_twenty_four_5;
-        wxTextCtrl *course_twenty_four_grade_5;  
+    wxTextCtrl *course_twenty_four_5;
+    wxTextCtrl *course_twenty_four_grade_5;
 
-        // display GP buttons
-        wxButton *calculate_gp;
-        wxButton *calculate_gp_2;
-        wxButton *calculate_gp_3;
-        wxButton *calculate_gp_4;
-        wxButton *calculate_gp_5;
+    // display GP buttons
+    wxButton *calculate_gp;
+    wxButton *calculate_gp_2;
+    wxButton *calculate_gp_3;
+    wxButton *calculate_gp_4;
+    wxButton *calculate_gp_5;
 
-        // calculate CGPA button
-        wxButton *calculate_cgpa;
+    // calculate CGPA button
+    wxButton *calculate_cgpa;
 
-        wxDECLARE_EVENT_TABLE();
+    wxDECLARE_EVENT_TABLE();
 };
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_BUTTON(ID_CALCULATE_100_LEVEL_GP, MyFrame::OnOneHundredLevelDisplayGpButtonClicked)
-    EVT_BUTTON(ID_CALCULATE_200_LEVEL_GP, MyFrame::OnTwoHundredLevelDisplayGpButtonClicked)
-    EVT_BUTTON(ID_CALCULATE_300_LEVEL_GP, MyFrame::OnThreeHundredLevelDisplayGpButtonClicked)
-    EVT_BUTTON(ID_CALCULATE_400_LEVEL_GP, MyFrame::OnFourHundredLevelDisplayGpButtonClicked)
-    EVT_BUTTON(ID_CALCULATE_500_LEVEL_GP, MyFrame::OnFiveHundredLevelDisplayGpButtonClicked)
-    EVT_BUTTON(ID_CALCULATE_CGPA, MyFrame::OnDisplayCgpaButtonClicked)
-wxEND_EVENT_TABLE()
+        EVT_BUTTON(ID_CALCULATE_200_LEVEL_GP, MyFrame::OnTwoHundredLevelDisplayGpButtonClicked)
+            EVT_BUTTON(ID_CALCULATE_300_LEVEL_GP, MyFrame::OnThreeHundredLevelDisplayGpButtonClicked)
+                EVT_BUTTON(ID_CALCULATE_400_LEVEL_GP, MyFrame::OnFourHundredLevelDisplayGpButtonClicked)
+                    EVT_BUTTON(ID_CALCULATE_500_LEVEL_GP, MyFrame::OnFiveHundredLevelDisplayGpButtonClicked)
+                        EVT_BUTTON(ID_CALCULATE_CGPA, MyFrame::OnDisplayCgpaButtonClicked)
+                            wxEND_EVENT_TABLE()
 
+                                wxIMPLEMENT_APP(GpCalculator); // initiate main()
 
-wxIMPLEMENT_APP(GpCalculator);   // initiate main()
-
-bool GpCalculator::OnInit() {  // append the OnInit() function
+bool GpCalculator::OnInit()
+{ // append the OnInit() function
     MyFrame *frame = new MyFrame();
     frame->Show(true);
     wxString capitals_and_caps_lock_and_hint_message = "Note that all courses codes and grades are to be entered in capital letters. A good practice would be to activate and leave the 'Caps Lock' ON throughout the course code and grade entries process.";
     wxMessageBox(capitals_and_caps_lock_and_hint_message);
-    return true;  // this is just to show successfull initialisation
+    return true; // this is just to show successfull initialisation
 }
 
-
-MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pending Calculator", wxPoint(100, 100), wxSize(828, 650)) {  // Frame of the program
+MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pending Calculator", wxPoint(100, 100), wxSize(828, 650))
+{ // Frame of the program
     wxMenu *menuFile = new wxMenu;
     menuFile->AppendSeparator();
     menuFile->Append(wxID_EXIT);
@@ -728,190 +727,189 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pe
     menuHelp->AppendSeparator();
     menuHelp->Append(wxID_HELP);
 
-    wxMenuBar *menuBar = new wxMenuBar;  // create the menubar where menus would live
+    wxMenuBar *menuBar = new wxMenuBar; // create the menubar where menus would live
 
     // append menus to the menubar
-    menuBar->Append(menuFile, "&File");  
+    menuBar->Append(menuFile, "&File");
     menuBar->Append(menuHelp, "&Help");
 
-    SetMenuBar( menuBar );
+    SetMenuBar(menuBar);
     CreateStatusBar();
     SetStatusText("                                                  University of Benin, Ugbowo Campus, Ugbowo, Benin-City, Edo State, Nigeria.");
 
-// add course add buttons and list box
+    // add course add buttons and list box
 
     // 100 Level
     wxString level_text = wxT("100 LEVEL");
     wxStaticText *st = new wxStaticText(this, wxID_ANY, level_text, wxPoint(52, 20), wxDefaultSize, wxALIGN_LEFT);
 
-    course_one = new wxTextCtrl(this, ID_COURSE_ONE, "", wxPoint(5, 44), wxSize(57, 30));
-    course_one_grade = new wxTextCtrl(this, ID_COURSE_ONE_GRADE, "", wxPoint(63, 44), wxSize(20, 30));
+    course_one = new wxTextCtrl(this, ID_COURSE_ONE, "", wxPoint(5, 44), wxSize(65, 30), wxTE_RIGHT);
+    course_one_grade = new wxTextCtrl(this, ID_COURSE_ONE_GRADE, "", wxPoint(70, 44), wxSize(25, 30));
     course_one->SetMaxLength(6);
     course_one_grade->SetMaxLength(1);
     course_one->SetHint("COURSE");
     course_one_grade->SetHint("A");
 
-    course_two = new wxTextCtrl(this, ID_COURSE_TWO, "", wxPoint(5, 76), wxSize(57, 30));
-    course_two_grade = new wxTextCtrl(this, ID_COURSE_TWO_GRADE, "", wxPoint(63, 76), wxSize(20, 30));
+    course_two = new wxTextCtrl(this, ID_COURSE_TWO, "", wxPoint(5, 76), wxSize(65, 30));
+    course_two_grade = new wxTextCtrl(this, ID_COURSE_TWO_GRADE, "", wxPoint(70, 76), wxSize(25, 30));
     course_two->SetMaxLength(6);
     course_two_grade->SetMaxLength(1);
     course_two->SetHint("COURSE");
     course_two_grade->SetHint("A");
 
-    course_three = new wxTextCtrl(this, ID_COURSE_THREE, "", wxPoint(5, 108), wxSize(57, 30));
-    course_three_grade = new wxTextCtrl(this, ID_COURSE_THREE_GRADE, "", wxPoint(63, 108), wxSize(20, 30));
+    course_three = new wxTextCtrl(this, ID_COURSE_THREE, "", wxPoint(5, 108), wxSize(65, 30));
+    course_three_grade = new wxTextCtrl(this, ID_COURSE_THREE_GRADE, "", wxPoint(70, 108), wxSize(25, 30));
     course_three->SetMaxLength(6);
     course_three_grade->SetMaxLength(1);
     course_three->SetHint("COURSE");
     course_three_grade->SetHint("A");
 
-    course_four = new wxTextCtrl(this, ID_COURSE_FOUR, "", wxPoint(5, 140), wxSize(57, 30));
-    course_four_grade = new wxTextCtrl(this, ID_COURSE_FOUR_GRADE, "", wxPoint(63, 140), wxSize(20, 30));
+    course_four = new wxTextCtrl(this, ID_COURSE_FOUR, "", wxPoint(5, 140), wxSize(65, 30));
+    course_four_grade = new wxTextCtrl(this, ID_COURSE_FOUR_GRADE, "", wxPoint(70, 140), wxSize(25, 30));
     course_four->SetMaxLength(6);
     course_four_grade->SetMaxLength(1);
     course_four->SetHint("COURSE");
     course_four_grade->SetHint("A");
 
-    course_five = new wxTextCtrl(this, ID_COURSE_FIVE, "", wxPoint(5, 172), wxSize(57, 30));
-    course_five_grade = new wxTextCtrl(this, ID_COURSE_FIVE_GRADE, "", wxPoint(63, 172), wxSize(20, 30));
+    course_five = new wxTextCtrl(this, ID_COURSE_FIVE, "", wxPoint(5, 172), wxSize(65, 30));
+    course_five_grade = new wxTextCtrl(this, ID_COURSE_FIVE_GRADE, "", wxPoint(70, 172), wxSize(25, 30));
     course_five->SetMaxLength(6);
     course_five_grade->SetMaxLength(1);
     course_five->SetHint("COURSE");
     course_five_grade->SetHint("A");
 
-    course_six = new wxTextCtrl(this, ID_COURSE_SIX, "", wxPoint(5, 204), wxSize(57, 30));
-    course_six_grade = new wxTextCtrl(this, ID_COURSE_SIX_GRADE, "", wxPoint(63, 204), wxSize(20, 30));
+    course_six = new wxTextCtrl(this, ID_COURSE_SIX, "", wxPoint(5, 204), wxSize(65, 30));
+    course_six_grade = new wxTextCtrl(this, ID_COURSE_SIX_GRADE, "", wxPoint(70, 204), wxSize(25, 30));
     course_six->SetMaxLength(6);
     course_six_grade->SetMaxLength(1);
     course_six->SetHint("COURSE");
     course_six_grade->SetHint("A");
 
-    course_seven = new wxTextCtrl(this, ID_COURSE_SEVEN, "", wxPoint(5, 236), wxSize(57, 30));
-    course_seven_grade = new wxTextCtrl(this, ID_COURSE_SEVEN_GRADE, "", wxPoint(63, 236), wxSize(20, 30));
+    course_seven = new wxTextCtrl(this, ID_COURSE_SEVEN, "", wxPoint(5, 236), wxSize(65, 30));
+    course_seven_grade = new wxTextCtrl(this, ID_COURSE_SEVEN_GRADE, "", wxPoint(70, 236), wxSize(25, 30));
     course_seven->SetMaxLength(6);
     course_seven_grade->SetMaxLength(1);
     course_seven->SetHint("COURSE");
     course_seven_grade->SetHint("A");
 
-    course_eight = new wxTextCtrl(this, ID_COURSE_EIGHT, "", wxPoint(5, 268), wxSize(57, 30));
-    course_eight_grade = new wxTextCtrl(this, ID_COURSE_EIGHT_GRADE, "", wxPoint(63, 268), wxSize(20, 30));
+    course_eight = new wxTextCtrl(this, ID_COURSE_EIGHT, "", wxPoint(5, 268), wxSize(65, 30));
+    course_eight_grade = new wxTextCtrl(this, ID_COURSE_EIGHT_GRADE, "", wxPoint(70, 268), wxSize(25, 30));
     course_eight->SetMaxLength(6);
     course_eight_grade->SetMaxLength(1);
     course_eight->SetHint("COURSE");
     course_eight_grade->SetHint("A");
 
-    course_nine = new wxTextCtrl(this, ID_COURSE_NINE, "", wxPoint(5, 300), wxSize(57, 30));
-    course_nine_grade = new wxTextCtrl(this, ID_COURSE_NINE_GRADE, "", wxPoint(63, 300), wxSize(20, 30));
+    course_nine = new wxTextCtrl(this, ID_COURSE_NINE, "", wxPoint(5, 300), wxSize(65, 30));
+    course_nine_grade = new wxTextCtrl(this, ID_COURSE_NINE_GRADE, "", wxPoint(70, 300), wxSize(25, 30));
     course_nine->SetMaxLength(6);
     course_nine_grade->SetMaxLength(1);
     course_nine->SetHint("COURSE");
     course_nine_grade->SetHint("A");
 
-    course_ten = new wxTextCtrl(this, ID_COURSE_TEN, "", wxPoint(5, 332), wxSize(57, 30));
-    course_ten_grade = new wxTextCtrl(this, ID_COURSE_TEN_GRADE, "", wxPoint(63, 332), wxSize(20, 30));
+    course_ten = new wxTextCtrl(this, ID_COURSE_TEN, "", wxPoint(5, 332), wxSize(65, 30));
+    course_ten_grade = new wxTextCtrl(this, ID_COURSE_TEN_GRADE, "", wxPoint(70, 332), wxSize(25, 30));
     course_ten->SetMaxLength(6);
     course_ten_grade->SetMaxLength(1);
     course_ten->SetHint("COURSE");
     course_ten_grade->SetHint("A");
 
-    course_eleven = new wxTextCtrl(this, ID_COURSE_ELEVEN, "", wxPoint(5, 364), wxSize(57, 30));
-    course_eleven_grade = new wxTextCtrl(this, ID_COURSE_ELEVEN_GRADE, "", wxPoint(63, 364), wxSize(20, 30));
+    course_eleven = new wxTextCtrl(this, ID_COURSE_ELEVEN, "", wxPoint(5, 364), wxSize(65, 30));
+    course_eleven_grade = new wxTextCtrl(this, ID_COURSE_ELEVEN_GRADE, "", wxPoint(70, 364), wxSize(25, 30));
     course_eleven->SetMaxLength(6);
     course_eleven_grade->SetMaxLength(1);
     course_eleven->SetHint("COURSE");
     course_eleven_grade->SetHint("A");
 
-    course_twelve = new wxTextCtrl(this, ID_COURSE_TWELVE, "", wxPoint(5, 396), wxSize(57, 30));
-    course_twelve_grade = new wxTextCtrl(this, ID_COURSE_TWELVE_GRADE, "", wxPoint(63, 396), wxSize(20, 30));
+    course_twelve = new wxTextCtrl(this, ID_COURSE_TWELVE, "", wxPoint(5, 396), wxSize(65, 30));
+    course_twelve_grade = new wxTextCtrl(this, ID_COURSE_TWELVE_GRADE, "", wxPoint(70, 396), wxSize(25, 30));
     course_twelve->SetMaxLength(6);
     course_twelve_grade->SetMaxLength(1);
     course_twelve->SetHint("COURSE");
     course_twelve_grade->SetHint("A");
 
-    course_thirteen = new wxTextCtrl(this, ID_COURSE_THIRTEEN, "", wxPoint(85, 44), wxSize(57, 30));
+    course_thirteen = new wxTextCtrl(this, ID_COURSE_THIRTEEN, "", wxPoint(95, 44), wxSize(57, 30));
     course_thirteen_grade = new wxTextCtrl(this, ID_COURSE_THIRTEEN_GRADE, "", wxPoint(143, 44), wxSize(20, 30));
     course_thirteen->SetMaxLength(6);
     course_thirteen_grade->SetMaxLength(1);
     course_thirteen->SetHint("COURSE");
     course_thirteen_grade->SetHint("A");
 
-    course_fourteen = new wxTextCtrl(this, ID_COURSE_FOURTEEN, "", wxPoint(85, 76), wxSize(57, 30));
+    course_fourteen = new wxTextCtrl(this, ID_COURSE_FOURTEEN, "", wxPoint(95, 76), wxSize(57, 30));
     course_fourteen_grade = new wxTextCtrl(this, ID_COURSE_FOURTEEN_GRADE, "", wxPoint(143, 76), wxSize(20, 30));
     course_fourteen->SetMaxLength(6);
     course_fourteen_grade->SetMaxLength(1);
     course_fourteen->SetHint("COURSE");
     course_fourteen_grade->SetHint("A");
 
-    course_fifteen = new wxTextCtrl(this, ID_COURSE_FIFTEEN, "", wxPoint(85, 108), wxSize(57, 30));
+    course_fifteen = new wxTextCtrl(this, ID_COURSE_FIFTEEN, "", wxPoint(95, 108), wxSize(57, 30));
     course_fifteen_grade = new wxTextCtrl(this, ID_COURSE_FIFTEEN_GRADE, "", wxPoint(143, 108), wxSize(20, 30));
     course_fifteen->SetMaxLength(6);
     course_fifteen_grade->SetMaxLength(1);
     course_fifteen->SetHint("COURSE");
     course_fifteen_grade->SetHint("A");
 
-    course_sixteen = new wxTextCtrl(this, ID_COURSE_SIXTEEN, "", wxPoint(85, 140), wxSize(57, 30));
+    course_sixteen = new wxTextCtrl(this, ID_COURSE_SIXTEEN, "", wxPoint(95, 140), wxSize(57, 30));
     course_sixteen_grade = new wxTextCtrl(this, ID_COURSE_SIXTEEN_GRADE, "", wxPoint(143, 140), wxSize(20, 30));
     course_sixteen->SetMaxLength(6);
     course_sixteen_grade->SetMaxLength(1);
     course_sixteen->SetHint("COURSE");
     course_sixteen_grade->SetHint("A");
 
-    course_seventeen = new wxTextCtrl(this, ID_COURSE_SEVENTEEN, "", wxPoint(85, 172), wxSize(57, 30));
+    course_seventeen = new wxTextCtrl(this, ID_COURSE_SEVENTEEN, "", wxPoint(95, 172), wxSize(57, 30));
     course_seventeen_grade = new wxTextCtrl(this, ID_COURSE_SEVENTEEN_GRADE, "", wxPoint(143, 172), wxSize(20, 30));
     course_seventeen->SetMaxLength(6);
     course_seventeen_grade->SetMaxLength(1);
     course_seventeen->SetHint("COURSE");
     course_seventeen_grade->SetHint("A");
 
-    course_eighteen = new wxTextCtrl(this, ID_COURSE_EIGHTEEN, "", wxPoint(85, 204), wxSize(57, 30));
+    course_eighteen = new wxTextCtrl(this, ID_COURSE_EIGHTEEN, "", wxPoint(95, 204), wxSize(57, 30));
     course_eighteen_grade = new wxTextCtrl(this, ID_COURSE_EIGHTEEN_GRADE, "", wxPoint(143, 204), wxSize(20, 30));
     course_eighteen->SetMaxLength(6);
     course_eighteen_grade->SetMaxLength(1);
     course_eighteen->SetHint("COURSE");
     course_eighteen_grade->SetHint("A");
 
-    course_nineteen = new wxTextCtrl(this, ID_COURSE_NINETEEN, "", wxPoint(85, 236), wxSize(57, 30));
+    course_nineteen = new wxTextCtrl(this, ID_COURSE_NINETEEN, "", wxPoint(95, 236), wxSize(57, 30));
     course_nineteen_grade = new wxTextCtrl(this, ID_COURSE_NINETEEN_GRADE, "", wxPoint(143, 236), wxSize(20, 30));
     course_nineteen->SetMaxLength(6);
     course_nineteen_grade->SetMaxLength(1);
     course_nineteen->SetHint("COURSE");
     course_nineteen_grade->SetHint("A");
 
-    course_twenty = new wxTextCtrl(this, ID_COURSE_TWENTY, "", wxPoint(85, 268), wxSize(57, 30));
+    course_twenty = new wxTextCtrl(this, ID_COURSE_TWENTY, "", wxPoint(95, 268), wxSize(57, 30));
     course_twenty_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_GRADE, "", wxPoint(143, 268), wxSize(20, 30));
     course_twenty->SetMaxLength(6);
     course_twenty_grade->SetMaxLength(1);
     course_twenty->SetHint("COURSE");
     course_twenty_grade->SetHint("A");
 
-    course_twenty_one = new wxTextCtrl(this, ID_COURSE_TWENTY_ONE, "", wxPoint(85, 300), wxSize(57, 30));
+    course_twenty_one = new wxTextCtrl(this, ID_COURSE_TWENTY_ONE, "", wxPoint(95, 300), wxSize(57, 30));
     course_twenty_one_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_ONE_GRADE, "", wxPoint(143, 300), wxSize(20, 30));
     course_twenty_one->SetMaxLength(6);
     course_twenty_one_grade->SetMaxLength(1);
     course_twenty_one->SetHint("COURSE");
     course_twenty_one_grade->SetHint("A");
 
-    course_twenty_two = new wxTextCtrl(this, ID_COURSE_TWENTY_TWO, "", wxPoint(85, 332), wxSize(57, 30));
+    course_twenty_two = new wxTextCtrl(this, ID_COURSE_TWENTY_TWO, "", wxPoint(95, 332), wxSize(57, 30));
     course_twenty_two_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_TWO_GRADE, "", wxPoint(143, 332), wxSize(20, 30));
     course_twenty_two->SetMaxLength(6);
     course_twenty_two_grade->SetMaxLength(1);
     course_twenty_two->SetHint("COURSE");
     course_twenty_two_grade->SetHint("A");
 
-    course_twenty_three = new wxTextCtrl(this, ID_COURSE_TWENTY_THREE, "", wxPoint(85, 364), wxSize(57, 30));
+    course_twenty_three = new wxTextCtrl(this, ID_COURSE_TWENTY_THREE, "", wxPoint(95, 364), wxSize(57, 30));
     course_twenty_three_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_THREE_GRADE, "", wxPoint(143, 364), wxSize(20, 30));
     course_twenty_three->SetMaxLength(6);
     course_twenty_three_grade->SetMaxLength(1);
     course_twenty_three->SetHint("COURSE");
     course_twenty_three_grade->SetHint("A");
 
-    course_twenty_four = new wxTextCtrl(this, ID_COURSE_TWENTY_FOUR, "", wxPoint(85, 396), wxSize(57, 30));
+    course_twenty_four = new wxTextCtrl(this, ID_COURSE_TWENTY_FOUR, "", wxPoint(95, 396), wxSize(57, 30));
     course_twenty_four_grade = new wxTextCtrl(this, ID_COURSE_TWENTY_FOUR_GRADE, "", wxPoint(143, 396), wxSize(20, 30));
     course_twenty_four->SetMaxLength(6);
     course_twenty_four_grade->SetMaxLength(1);
     course_twenty_four->SetHint("COURSE");
     course_twenty_four_grade->SetHint("A");
-
 
     calculate_gp = new wxButton(this, ID_CALCULATE_100_LEVEL_GP, "Display GP", wxPoint(42.5, 445), wxSize(75, 50));
 
@@ -1621,24 +1619,29 @@ MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "Faculty of Engineering Grade Pe
     // Bind(wxEVT_TEXT, &MyFrame::OnCourseTextBoxClicked, this, ID_COURSE_ONE);
 }
 
-void MyFrame::OnExit(wxCommandEvent& event) {
+void MyFrame::OnExit(wxCommandEvent &event)
+{
     Close(true);
 }
 
-void MyFrame::OnAbout(wxCommandEvent& event) {
+void MyFrame::OnAbout(wxCommandEvent &event)
+{
     wxMessageBox("This is a programme for calculating the grade pending (GP) of an engineering student at the Univesity of Benin, Ugbowo Campus, Ugbowo, Benin-City, Edo State, Nigeria.",
                  "GP Calculator V0.0.1", wxOK | wxICON_INFORMATION);
 }
 
-void MyFrame::OnHello(wxCommandEvent& event) {
+void MyFrame::OnHello(wxCommandEvent &event)
+{
     wxLogMessage("Hello world from wxWidgets!");
 }
 
-void MyFrame::OnHelp(wxCommandEvent& event) {
+void MyFrame::OnHelp(wxCommandEvent &event)
+{
     wxMessageBox("For help on how to use this program, please contact the administrator.");
 }
 
-void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
+void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent &event)
+{
     using namespace std;
 
     std::map<wxString, float> all_courses_dictionary;
@@ -2022,39 +2025,46 @@ void MyFrame::OnOneHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     float first_year_total_gp = first_year_course_credit_load_sum / first_year_credit_load_sum;
 
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
-    if (isnan(first_year_total_gp) or first_year_course_credit_load_sum == 0 or first_year_credit_load_sum == 0) {
+    if (isnan(first_year_total_gp) or first_year_course_credit_load_sum == 0 or first_year_credit_load_sum == 0)
+    {
         wxString first_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.\n\nIf only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(first_year_total_gp_wxstring);
 
         event.Skip();
     }
 
-    else {
-        // convert the gp to wxString 
+    else
+    {
+        // convert the gp to wxString
         wxString first_year_total_gp_wxstring = wxString::Format(wxT("%f"), first_year_total_gp);
         wxString honours_info;
-        if (first_year_total_gp > 4.5) {
+        if (first_year_total_gp > 4.5)
+        {
             honours_info = "\nFirst Class Student";
         }
-        if (first_year_total_gp < 4.49 and first_year_total_gp > 3.5) {
+        if (first_year_total_gp < 4.49 and first_year_total_gp > 3.5)
+        {
             honours_info = "\nSecond Class Upper Student";
         }
-        if (first_year_total_gp < 3.49 and first_year_total_gp > 2.4) {
+        if (first_year_total_gp < 3.49 and first_year_total_gp > 2.4)
+        {
             honours_info = "\nSecond Class Lower Student";
         }
-        if (first_year_total_gp < 2.39 and first_year_total_gp > 1.5) {
+        if (first_year_total_gp < 2.39 and first_year_total_gp > 1.5)
+        {
             honours_info = "\nThird Class Student";
         }
-        else if (first_year_total_gp < 1.49) {
+        else if (first_year_total_gp < 1.49)
+        {
             honours_info = "\nPass Student";
         }
         wxMessageBox("100 Level Grade Pending: " + first_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
-    }    
-
+    }
 }
 
-void MyFrame::OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
+void MyFrame::OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent &event)
+{
     using namespace std;
 
     std::map<wxString, float> all_courses_dictionary;
@@ -2436,40 +2446,48 @@ void MyFrame::OnTwoHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     float second_year_credit_load_sum = first_course_2 + second_course_2 + third_course_2 + fourth_course_2 + fifth_course_2 + sixth_course_2 + seventh_course_2 + eighth_course_2 + nineth_course_2 + tenth_course_2 + eleventh_course_2 + twelveth_course_2 + thirteenth_course_2 + fourteenth_course_2 + fifteenth_course_2 + sixteenth_course_2 + seventeenth_course_2 + eighteenth_course_2 + ninteenth_course_2 + twentieth_course_2 + twenty_first_course_2 + twenty_second_course_2 + twenty_third_course_2 + twenty_fourth_course_2;
 
     float second_year_total_gp = second_year_course_credit_load_sum / second_year_credit_load_sum;
-    
+
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
-    if (isnan(second_year_total_gp) or second_year_course_credit_load_sum == 0 or second_year_credit_load_sum == 0) {
+    if (isnan(second_year_total_gp) or second_year_course_credit_load_sum == 0 or second_year_credit_load_sum == 0)
+    {
         wxString second_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.\n\nIf only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(second_year_total_gp_wxstring);
 
         event.Skip();
     }
 
-    else {
-        // convert the gp to wxString 
+    else
+    {
+        // convert the gp to wxString
         wxString second_year_total_gp_wxstring = wxString::Format(wxT("%f"), second_year_total_gp);
         wxString honours_info;
-        if (second_year_total_gp > 4.5) {
+        if (second_year_total_gp > 4.5)
+        {
             honours_info = "\nFirst Class Student";
         }
-        if (second_year_total_gp < 4.49 and second_year_total_gp > 3.5) {
+        if (second_year_total_gp < 4.49 and second_year_total_gp > 3.5)
+        {
             honours_info = "\nSecond Class Upper Student";
         }
-        if (second_year_total_gp < 3.49 and second_year_total_gp > 2.4) {
+        if (second_year_total_gp < 3.49 and second_year_total_gp > 2.4)
+        {
             honours_info = "\nSecond Class Lower Student";
         }
-        if (second_year_total_gp < 2.39 and second_year_total_gp > 1.5) {
+        if (second_year_total_gp < 2.39 and second_year_total_gp > 1.5)
+        {
             honours_info = "\nThird Class Student";
         }
-        else if (second_year_total_gp < 1.49) {
+        else if (second_year_total_gp < 1.49)
+        {
             honours_info = "\nPass Student";
         }
         wxMessageBox("200 Level Grade Pending: " + second_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
-    }    
+    }
 }
 
-void MyFrame::OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
+void MyFrame::OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent &event)
+{
     using namespace std;
 
     std::map<wxString, float> all_courses_dictionary;
@@ -2853,39 +2871,46 @@ void MyFrame::OnThreeHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     float third_year_total_gp = third_year_course_credit_load_sum / third_year_credit_load_sum;
 
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
-    if (isnan(third_year_total_gp) or third_year_course_credit_load_sum == 0 or third_year_credit_load_sum == 0) {
+    if (isnan(third_year_total_gp) or third_year_course_credit_load_sum == 0 or third_year_credit_load_sum == 0)
+    {
         wxString third_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.\n\nIf only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(third_year_total_gp_wxstring);
 
         event.Skip();
     }
 
-    else {
-        // convert the gp to wxString 
+    else
+    {
+        // convert the gp to wxString
         wxString third_year_total_gp_wxstring = wxString::Format(wxT("%f"), third_year_total_gp);
         wxString honours_info;
-        if (third_year_total_gp > 4.5) {
+        if (third_year_total_gp > 4.5)
+        {
             honours_info = "\nFirst Class Student";
         }
-        if (third_year_total_gp < 4.49 and third_year_total_gp > 3.5) {
+        if (third_year_total_gp < 4.49 and third_year_total_gp > 3.5)
+        {
             honours_info = "\nSecond Class Upper Student";
         }
-        if (third_year_total_gp < 3.49 and third_year_total_gp > 2.4) {
+        if (third_year_total_gp < 3.49 and third_year_total_gp > 2.4)
+        {
             honours_info = "\nSecond Class Lower Student";
         }
-        if (third_year_total_gp < 2.39 and third_year_total_gp > 1.5) {
+        if (third_year_total_gp < 2.39 and third_year_total_gp > 1.5)
+        {
             honours_info = "\nThird Class Student";
         }
-        else if (third_year_total_gp < 1.49) {
+        else if (third_year_total_gp < 1.49)
+        {
             honours_info = "\nPass Student";
         }
         wxMessageBox("300 Level Grade Pending: " + third_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
-    }    
-
+    }
 }
 
-void MyFrame::OnFourHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
+void MyFrame::OnFourHundredLevelDisplayGpButtonClicked(wxCommandEvent &event)
+{
     using namespace std;
 
     std::map<wxString, float> all_courses_dictionary;
@@ -3269,38 +3294,45 @@ void MyFrame::OnFourHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     float fourth_year_total_gp = fourth_year_course_credit_load_sum / fourth_year_credit_load_sum;
 
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
-    if (isnan(fourth_year_total_gp) or fourth_year_course_credit_load_sum == 0 or fourth_year_credit_load_sum == 0) {
+    if (isnan(fourth_year_total_gp) or fourth_year_course_credit_load_sum == 0 or fourth_year_credit_load_sum == 0)
+    {
         wxString fourth_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.\n\nIf only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(fourth_year_total_gp_wxstring);
         event.Skip();
     }
 
-    else {
-        // convert the gp to wxString 
+    else
+    {
+        // convert the gp to wxString
         wxString fourth_year_total_gp_wxstring = wxString::Format(wxT("%f"), fourth_year_total_gp);
         wxString honours_info;
-        if (fourth_year_total_gp > 4.5) {
+        if (fourth_year_total_gp > 4.5)
+        {
             honours_info = "\nFirst Class Student";
         }
-        if (fourth_year_total_gp < 4.49 and fourth_year_total_gp > 3.5) {
+        if (fourth_year_total_gp < 4.49 and fourth_year_total_gp > 3.5)
+        {
             honours_info = "\nSecond Class Upper Student";
         }
-        if (fourth_year_total_gp < 3.49 and fourth_year_total_gp > 2.4) {
+        if (fourth_year_total_gp < 3.49 and fourth_year_total_gp > 2.4)
+        {
             honours_info = "\nSecond Class Lower Student";
         }
-        if (fourth_year_total_gp < 2.39 and fourth_year_total_gp > 1.5) {
+        if (fourth_year_total_gp < 2.39 and fourth_year_total_gp > 1.5)
+        {
             honours_info = "\nThird Class Student";
         }
-        else if (fourth_year_total_gp < 1.49) {
+        else if (fourth_year_total_gp < 1.49)
+        {
             honours_info = "\nPass Student";
         }
         wxMessageBox("400 Level Grade Pending: " + fourth_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
-    }    
-
+    }
 }
 
-void MyFrame::OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
+void MyFrame::OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent &event)
+{
     using namespace std;
 
     std::map<wxString, float> all_courses_dictionary;
@@ -3684,39 +3716,46 @@ void MyFrame::OnFiveHundredLevelDisplayGpButtonClicked(wxCommandEvent& event) {
     float fifth_year_total_gp = fifth_year_course_credit_load_sum / fifth_year_credit_load_sum;
 
     // check if the result of the GP calculation is even a number or incorrect/incomplete entries were made
-    if (isnan(fifth_year_total_gp) or fifth_year_course_credit_load_sum == 0 or fifth_year_credit_load_sum == 0) {
+    if (isnan(fifth_year_total_gp) or fifth_year_course_credit_load_sum == 0 or fifth_year_credit_load_sum == 0)
+    {
         wxString fifth_year_total_gp_wxstring = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.\n\nIf only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(fifth_year_total_gp_wxstring);
 
         event.Skip();
     }
 
-    else {
-        // convert the gp to wxString 
+    else
+    {
+        // convert the gp to wxString
         wxString fifth_year_total_gp_wxstring = wxString::Format(wxT("%f"), fifth_year_total_gp);
         wxString honours_info;
-        if (fifth_year_total_gp > 4.5) {
+        if (fifth_year_total_gp > 4.5)
+        {
             honours_info = "\nFirst Class Student";
         }
-        if (fifth_year_total_gp < 4.49 and fifth_year_total_gp > 3.5) {
+        if (fifth_year_total_gp < 4.49 and fifth_year_total_gp > 3.5)
+        {
             honours_info = "\nSecond Class Upper Student";
         }
-        if (fifth_year_total_gp < 3.49 and fifth_year_total_gp > 2.4) {
+        if (fifth_year_total_gp < 3.49 and fifth_year_total_gp > 2.4)
+        {
             honours_info = "\nSecond Class Lower Student";
         }
-        if (fifth_year_total_gp < 2.39 and fifth_year_total_gp > 1.5) {
+        if (fifth_year_total_gp < 2.39 and fifth_year_total_gp > 1.5)
+        {
             honours_info = "\nThird Class Student";
         }
-        else if (fifth_year_total_gp < 1.49) {
+        else if (fifth_year_total_gp < 1.49)
+        {
             honours_info = "\nPass Student";
         }
         wxMessageBox("500 Level Grade Pending: " + fifth_year_total_gp_wxstring + " " + honours_info);
         event.Skip();
-    }    
-
+    }
 }
 
-void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent& event) {
+void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent &event)
+{
     // 100 Level Computation
     using namespace std;
 
@@ -4100,12 +4139,14 @@ void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent& event) {
     float first_year_total_gp;
     float first_year_valid;
     // check if the sum of any of the two important constants is zero
-    if (first_year_credit_load_sum == 0.0 or first_year_course_credit_load_sum == 0.0) {
+    if (first_year_credit_load_sum == 0.0 or first_year_course_credit_load_sum == 0.0)
+    {
         first_year_total_gp = 0.0;
         first_year_valid = 0.0;
     }
 
-    else {
+    else
+    {
         first_year_total_gp = first_year_course_credit_load_sum / first_year_credit_load_sum;
         first_year_valid = 1.0;
     }
@@ -4166,16 +4207,17 @@ void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent& event) {
     float second_year_valid;
 
     // check if the sum of the two important constants is zero
-    if (second_year_credit_load_sum == 0.0 or second_year_course_credit_load_sum == 0.0) {
+    if (second_year_credit_load_sum == 0.0 or second_year_course_credit_load_sum == 0.0)
+    {
         second_year_total_gp = 0.0;
         second_year_valid = 0.0;
     }
 
-    else{
+    else
+    {
         second_year_total_gp = second_year_course_credit_load_sum / second_year_credit_load_sum;
         second_year_valid = 1.0;
     }
-
 
     // 300 Level Computation
     float first_course_3 = all_courses_dictionary[course_one_3->GetValue()];
@@ -4233,12 +4275,14 @@ void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent& event) {
     float third_year_valid;
 
     // check if the value of any important constants is zero
-    if (third_year_credit_load_sum == 0.0 or third_year_course_credit_load_sum == 0.0) {
+    if (third_year_credit_load_sum == 0.0 or third_year_course_credit_load_sum == 0.0)
+    {
         third_year_total_gp = 0.0;
         third_year_valid = 0.0;
     }
 
-    else{
+    else
+    {
         third_year_total_gp = third_year_course_credit_load_sum / third_year_credit_load_sum;
         third_year_valid = 1.0;
     }
@@ -4299,12 +4343,14 @@ void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent& event) {
     float fourth_year_valid;
 
     // check if any of the required constants is zero
-    if (fourth_year_credit_load_sum == 0.0 or fourth_year_course_credit_load_sum == 0.0) {
+    if (fourth_year_credit_load_sum == 0.0 or fourth_year_course_credit_load_sum == 0.0)
+    {
         fourth_year_total_gp = 0.0;
         fourth_year_valid = 0.0;
     }
 
-    else {
+    else
+    {
         fourth_year_total_gp = fourth_year_course_credit_load_sum / fourth_year_credit_load_sum;
         fourth_year_valid = 1.0;
     }
@@ -4365,12 +4411,14 @@ void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent& event) {
     float fifth_year_valid;
 
     // check if any of the required constants is zero
-    if (fifth_year_credit_load_sum == 0.0 or fifth_year_course_credit_load_sum == 0.0) {
+    if (fifth_year_credit_load_sum == 0.0 or fifth_year_course_credit_load_sum == 0.0)
+    {
         fifth_year_total_gp = 0.0;
         fifth_year_valid = 0.0;
     }
 
-    else{
+    else
+    {
         fifth_year_total_gp = fifth_year_course_credit_load_sum / fifth_year_credit_load_sum;
         fifth_year_valid = 1.0;
     }
@@ -4380,7 +4428,7 @@ void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent& event) {
     float second_year_percentage = 0.15;
     float third_year_percentage = 0.2;
     float fourth_year_percentage = 0.25;
-    float  fifth_year_percentage = 0.3;
+    float fifth_year_percentage = 0.3;
 
     // get total applicable CGPA
     float first_year_effective_gp;
@@ -4398,144 +4446,171 @@ void MyFrame::OnDisplayCgpaButtonClicked(wxCommandEvent& event) {
     /* 300 Level */
     third_year_effective_gp = third_year_total_gp * third_year_percentage;
 
-
     /* 400 Level */
     fourth_year_effective_gp = fourth_year_total_gp * fourth_year_percentage;
-    
 
     /* 500 Level */
     fifth_year_effective_gp = fifth_year_total_gp * fifth_year_percentage;
 
-
     // check if anything was even written in the check boxes
-    if ( first_year_valid +  second_year_valid + third_year_valid + fourth_year_valid + fifth_year_valid == 0.0) {
+    if (first_year_valid + second_year_valid + third_year_valid + fourth_year_valid + fifth_year_valid == 0.0)
+    {
         wxString cgpa_computation_error_message = "Cannot compute your request as invalid values have been submitted for computation. Please correct your entry/entries and retry.\n\nIf only one course was registered - with the grade 'F' or all the courses registered have the grade 'F', the Grade Pending is 0.0";
         wxMessageBox(cgpa_computation_error_message);
         event.Skip();
     }
 
     // check if it's only 100 level that is avaliable
-    if (first_year_valid != 0 and second_year_valid == 0 and third_year_valid == 0 and fourth_year_valid == 0 and fifth_year_valid == 0) {
+    if (first_year_valid != 0 and second_year_valid == 0 and third_year_valid == 0 and fourth_year_valid == 0 and fifth_year_valid == 0)
+    {
         float final_cgpa = first_year_total_gp;
         wxString honours_info;
-        if (final_cgpa > 4.5) {
+        if (final_cgpa > 4.5)
+        {
             honours_info = "\n\nCurrently, First Class Graduate";
         }
-        if (final_cgpa < 4.49 and final_cgpa > 3.5) {
+        if (final_cgpa < 4.49 and final_cgpa > 3.5)
+        {
             honours_info = "\n\nCurrently, Second Class Upper Graduate";
         }
-        if (final_cgpa < 3.49 and final_cgpa > 2.4) {
+        if (final_cgpa < 3.49 and final_cgpa > 2.4)
+        {
             honours_info = "\n\nCurrently, Second Class Lower Graduate";
         }
-        if (final_cgpa < 2.39 and final_cgpa > 1.5) {
+        if (final_cgpa < 2.39 and final_cgpa > 1.5)
+        {
             honours_info = "\n\nCurrently, Third Class Graduate";
         }
-        else if (final_cgpa < 1.49) {
+        else if (final_cgpa < 1.49)
+        {
             honours_info = "\n\nCurrently, Pass Graduate";
         }
         wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
         wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
-        wxMessageBox(final_cgpa_message+ " " + honours_info);
+        wxMessageBox(final_cgpa_message + " " + honours_info);
         event.Skip();
     }
 
     // check if it's 100 level and 200 level available
-    if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid == 0 and fourth_year_valid == 0 and fifth_year_valid == 0) {
+    if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid == 0 and fourth_year_valid == 0 and fifth_year_valid == 0)
+    {
         float final_cgpa = (first_year_total_gp + second_year_total_gp) / 2;
         wxString honours_info;
-        if (final_cgpa > 4.5) {
+        if (final_cgpa > 4.5)
+        {
             honours_info = "\n\nCurrently, First Class Graduate";
         }
-        if (final_cgpa < 4.49 and final_cgpa > 3.5) {
+        if (final_cgpa < 4.49 and final_cgpa > 3.5)
+        {
             honours_info = "\n\nCurrently, Second Class Upper Graduate";
         }
-        if (final_cgpa < 3.49 and final_cgpa > 2.4) {
+        if (final_cgpa < 3.49 and final_cgpa > 2.4)
+        {
             honours_info = "\n\nCurrently, Second Class Lower Graduate";
         }
-        if (final_cgpa < 2.39 and final_cgpa > 1.5) {
+        if (final_cgpa < 2.39 and final_cgpa > 1.5)
+        {
             honours_info = "\n\nCurrently, Class Graduate";
         }
-        else if (final_cgpa < 1.49) {
+        else if (final_cgpa < 1.49)
+        {
             honours_info = "\n\nCurrently, Pass Graduate";
         }
         wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
         wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
-        wxMessageBox(final_cgpa_message+ " " + honours_info);
+        wxMessageBox(final_cgpa_message + " " + honours_info);
         event.Skip();
-
     }
 
     // check if it's 100 level, 200 level and 300 level available
-    if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid != 0 and fourth_year_valid == 0 and fifth_year_valid == 0) {
+    if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid != 0 and fourth_year_valid == 0 and fifth_year_valid == 0)
+    {
         float final_cgpa = (first_year_total_gp + second_year_total_gp + third_year_total_gp) / 3;
         wxString honours_info;
-        if (final_cgpa > 4.5) {
+        if (final_cgpa > 4.5)
+        {
             honours_info = "\n\nCurrently, First Class Graduate";
         }
-        if (final_cgpa < 4.49 and final_cgpa > 3.5) {
+        if (final_cgpa < 4.49 and final_cgpa > 3.5)
+        {
             honours_info = "\n\nCurrently, Second Class Upper Graduate";
         }
-        if (final_cgpa < 3.49 and final_cgpa > 2.4) {
+        if (final_cgpa < 3.49 and final_cgpa > 2.4)
+        {
             honours_info = "\n\nCurrently, Second Class Lower Graduate";
         }
-        if (final_cgpa < 2.39 and final_cgpa > 1.5) {
+        if (final_cgpa < 2.39 and final_cgpa > 1.5)
+        {
             honours_info = "\n\nCurrently, Third Class Graduate";
         }
-        else if (final_cgpa < 1.49) {
+        else if (final_cgpa < 1.49)
+        {
             honours_info = "\n\nCurrently, Pass Graduate";
         }
         wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
         wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
-        wxMessageBox(final_cgpa_message+ " " + honours_info);
+        wxMessageBox(final_cgpa_message + " " + honours_info);
         event.Skip();
     }
 
     // check if it's 100 level, 200 level, 300 level and 400 level available
-    if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid != 0 and fourth_year_valid != 0 and fifth_year_valid == 0) {
+    if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid != 0 and fourth_year_valid != 0 and fifth_year_valid == 0)
+    {
         float final_cgpa = (first_year_total_gp + second_year_total_gp + third_year_total_gp + fourth_year_total_gp) / 4;
         wxString honours_info;
-        if (final_cgpa > 4.5) {
+        if (final_cgpa > 4.5)
+        {
             honours_info = "\n\nCurrently, First Class Graduate";
         }
-        if (final_cgpa < 4.49 and final_cgpa > 3.5) {
+        if (final_cgpa < 4.49 and final_cgpa > 3.5)
+        {
             honours_info = "\n\nCurrently, Second Class Upper Graduate";
         }
-        if (final_cgpa < 3.49 and final_cgpa > 2.4) {
+        if (final_cgpa < 3.49 and final_cgpa > 2.4)
+        {
             honours_info = "\n\nCurrently, Second Class Lower Graduate";
         }
-        if (final_cgpa < 2.39 and final_cgpa > 1.5) {
+        if (final_cgpa < 2.39 and final_cgpa > 1.5)
+        {
             honours_info = "\n\nCurrently, Third Class Graduate";
         }
-        else if (final_cgpa < 1.49) {
+        else if (final_cgpa < 1.49)
+        {
             honours_info = "\n\nCurrently, Pass Graduate";
         }
         wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
         wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
-        wxMessageBox(final_cgpa_message+ " " + honours_info);
+        wxMessageBox(final_cgpa_message + " " + honours_info);
         event.Skip();
     }
 
-    else if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid != 0 and fourth_year_valid != 0 and fifth_year_valid != 0){
+    else if (first_year_valid != 0 and second_year_valid != 0 and third_year_valid != 0 and fourth_year_valid != 0 and fifth_year_valid != 0)
+    {
         float final_cgpa = first_year_effective_gp + second_year_effective_gp + third_year_effective_gp + fourth_year_effective_gp + fifth_year_effective_gp;
         wxString honours_info;
-        if (final_cgpa > 4.5) {
+        if (final_cgpa > 4.5)
+        {
             honours_info = "\n\nCurrently, First Class Graduate";
         }
-        if (final_cgpa < 4.49 and final_cgpa > 3.5) {
+        if (final_cgpa < 4.49 and final_cgpa > 3.5)
+        {
             honours_info = "\n\nCurrently, Second Class Upper Graduate";
         }
-        if (final_cgpa < 3.49 and final_cgpa > 2.4) {
+        if (final_cgpa < 3.49 and final_cgpa > 2.4)
+        {
             honours_info = "\n\nCurrently, Second Class Lower Graduate";
         }
-        if (final_cgpa < 2.39 and final_cgpa > 1.5) {
+        if (final_cgpa < 2.39 and final_cgpa > 1.5)
+        {
             honours_info = "\n\nCurrently, Third Class Graduate";
         }
-        else if (final_cgpa < 1.49) {
+        else if (final_cgpa < 1.49)
+        {
             honours_info = "\n\nCurrently, Pass Graduate";
         }
         wxString final_cgpa_wxstring = wxString::Format(wxT("%f"), final_cgpa);
         wxString final_cgpa_message = "Cummulative Grade Pending (CGPA): " + final_cgpa_wxstring;
-        wxMessageBox(final_cgpa_message+ " " + honours_info);
+        wxMessageBox(final_cgpa_message + " " + honours_info);
         event.Skip();
     }
 
